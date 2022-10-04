@@ -1,0 +1,84 @@
+.jobs {
+  padding: 10px;
+  overflow-y: scroll;
+  height: calc(80vh - 10px);
+}
+
+.job_details,
+.details {
+  display: flex;
+  align-items: center;
+}
+.details {
+  background-color: #f1eded;
+  padding: 2px;
+  margin: 0 10px 10px 0;
+  font-size: 10px;
+}
+.details img {
+  width: 15px;
+}
+
+.job {
+  display: flex;
+  box-shadow: 0 0 4px 0 #00000020;
+  padding: 15px;
+  margin: 20px 0px;
+  /* width: 85%; */
+}
+
+.menu {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+}
+.company_img {
+  /* flex: 1; */
+  margin: 10px 20px;
+}
+.company_img img {
+  width: 50px;
+}
+.job_info {
+  flex: 8;
+  position: relative;
+}
+.menu_container:hover > .show_menu {
+  display: flex;
+}
+.show_menu {
+  position: absolute;
+  top: 30px;
+  right: 13px;
+  width: 150px;
+  background: #ff6584;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  padding: 10px;
+  display: none;
+  box-shadow: 0 0 4px 0 #00000080;
+}
+
+.show_menu .menu {
+  display: block !important;
+}
+
+.show_menu a {
+  color: #ffff;
+  font-size: 13px;
+  text-decoration: none;
+  padding: 3px;
+}
+.show_menu a:hover {
+  background: #dccccfc0;
+}
+.show_menu button {
+  color: #ffff;
+  font-size: 13px;
+  border: none;
+  background: #665df5;
+  text-decoration: none;
+  margin: 3px 0;
+}

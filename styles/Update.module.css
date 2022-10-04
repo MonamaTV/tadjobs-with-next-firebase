@@ -1,0 +1,38 @@
+.update {
+  display: flex;
+  padding: 10px 30px;
+  justify-content: space-between;
+  height: calc(80vh - 10px);
+}
+.update_edit {
+  flex: 6;
+}
+.company_jobs,
+.update_edit {
+  overflow-y: scroll;
+}
+
+.company_jobs {
+  flex: 4;
+  padding: 0 10px;
+}
+.job {
+  width: 100%;
+  border: 1px solid #f1eded;
+  padding: 10px;
+  margin: 4px 0;
+}
+.job_details,
+.details {
+  display: flex;
+  align-items: center;
+}
+.details {
+  background-color: #f1eded;
+  padding: 2px;
+  margin: 0 10px 10px 0;
+  font-size: 8px;
+}
+.details img {
+  width: 15px;
+}

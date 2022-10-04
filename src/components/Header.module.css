@@ -1,0 +1,35 @@
+.navigation {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  color: #665df5;
+  font-size: 20px;
+}
+
+.search {
+  margin: 0 auto;
+}
+.search input {
+  width: 400px;
+  background: #fff;
+  box-shadow: 0 0 4px 0 #00000025;
+}
+.search button,
+.search input {
+  padding: 9px 15px;
+  border: 0.2px solid #fff;
+  outline: none;
+}
+.search input:focus {
+  border: 0.2px solid #665df5;
+}
+.search button {
+  background: #665df5;
+  color: #fff;
+  border: 1px solid #fff;
+  margin-right: 3px;
+  padding: 10px 15px;
+}
