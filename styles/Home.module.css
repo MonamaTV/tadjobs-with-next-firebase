@@ -48,6 +48,12 @@
   color: #fff;
   font-weight: bold;
 }
+@media screen and (max-width: 440px) {
+  .container header nav {
+    width: 100vw;
+    justify-content: space-evenly;
+  }
+}
 .main a {
   background: #eff3e1;
   padding: 8px 30px;
@@ -104,8 +110,7 @@
   border-radius: 5px;
   padding: 0.75rem;
   font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
 }
 
 .grid {
@@ -149,4 +154,19 @@
 .logo {
   height: 1em;
   margin-left: 0.5rem;
+}
+
+@media screen and (max-width: 440px) {
+  .main {
+    flex-direction: column;
+    padding: 10px 0;
+    height: 80vh;
+    align-items: center;
+  }
+  .main .content {
+    width: 100%;
+  }
+  .main .img {
+    display: none;
+  }
 }
