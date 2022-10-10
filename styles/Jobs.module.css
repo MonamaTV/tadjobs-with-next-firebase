@@ -44,6 +44,9 @@
   flex: 8;
   position: relative;
 }
+.job_info p {
+  color: #665df5;
+}
 .menu_container:hover > .show_menu {
   display: flex;
 }
@@ -52,7 +55,7 @@
   top: 30px;
   right: 13px;
   width: 150px;
-  background: #ff6584;
+  background: #5d5d5d;
   display: flex;
   flex-direction: column;
   color: #fff;
@@ -75,10 +78,10 @@
   background: #dccccfc0;
 }
 .show_menu button {
-  color: #ffff;
+  color: rgb(46, 36, 36);
   font-size: 13px;
   border: none;
-  background: #665df5;
+  background: #f0eff4;
   text-decoration: none;
   margin: 3px 0;
 }

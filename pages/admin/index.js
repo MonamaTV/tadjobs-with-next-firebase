@@ -6,116 +6,67 @@ const Admin = () => {
       <div className="heading"></div>
       <div className={styles.companies}>
         <div className={styles.companies_list}>
-          {/* <div className={styles.form}>
-            <input type="text" />
-            <button>
-              <img src="./assets/search.png" alt="" />
-            </button>
-          </div> */}
           <div className={styles.company}>
             <div className={styles.avatar}>
-              <img
-                src="https://www.filepicker.io/api/file/EYebocuvR6y18pfoxTdM/convert?fit=clip&h=304&w=304"
-                alt=""
-              />
+              <img src="https://www.filepicker.io/api/file/EYebocuvR6y18pfoxTdM/convert?fit=clip&h=304&w=304" alt="" />
             </div>
             <div className={styles.content}>
               <h3>Amberstone Digital</h3>
-              <small>
-                We're a remote-first, cloud-native company focused on providing
-                high-quality technology solutions to businesses.
-              </small>
+              <small>We're a remote-first, cloud-native company focused on providing high-quality technology solutions to businesses.</small>
             </div>
           </div>
           <div className={styles.company}>
             <div className={styles.avatar}>
-              <img
-                src="https://www.filepicker.io/api/file/EYebocuvR6y18pfoxTdM/convert?fit=clip&h=304&w=304"
-                alt=""
-              />
+              <img src="https://www.filepicker.io/api/file/EYebocuvR6y18pfoxTdM/convert?fit=clip&h=304&w=304" alt="" />
             </div>
             <div className={styles.content}>
               <h3>Amberstone Digital</h3>
-              <small>
-                We're a remote-first, cloud-native company focused on providing
-                high-quality technology solutions to businesses.
-              </small>
+              <small>We're a remote-first, cloud-native company focused on providing high-quality technology solutions to businesses.</small>
             </div>
           </div>
           <div className={styles.company}>
             <div className={styles.avatar}>
-              <img
-                src="https://www.filepicker.io/api/file/EYebocuvR6y18pfoxTdM/convert?fit=clip&h=304&w=304"
-                alt=""
-              />
+              <img src="https://www.filepicker.io/api/file/EYebocuvR6y18pfoxTdM/convert?fit=clip&h=304&w=304" alt="" />
             </div>
             <div className={styles.content}>
               <h3>Amberstone Digital</h3>
-              <small>
-                We're a remote-first, cloud-native company focused on providing
-                high-quality technology solutions to businesses.
-              </small>
+              <small>We're a remote-first, cloud-native company focused on providing high-quality technology solutions to businesses.</small>
             </div>
           </div>
           <div className={styles.company}>
             <div className={styles.avatar}>
-              <img
-                src="https://www.filepicker.io/api/file/EYebocuvR6y18pfoxTdM/convert?fit=clip&h=304&w=304"
-                alt=""
-              />
+              <img src="https://www.filepicker.io/api/file/EYebocuvR6y18pfoxTdM/convert?fit=clip&h=304&w=304" alt="" />
             </div>
             <div className={styles.content}>
               <h3>Amberstone Digital</h3>
-              <small>
-                We're a remote-first, cloud-native company focused on providing
-                high-quality technology solutions to businesses.
-              </small>
+              <small>We're a remote-first, cloud-native company focused on providing high-quality technology solutions to businesses.</small>
             </div>
           </div>
           <div className={styles.company}>
             <div className={styles.avatar}>
-              <img
-                src="https://www.filepicker.io/api/file/EYebocuvR6y18pfoxTdM/convert?fit=clip&h=304&w=304"
-                alt=""
-              />
+              <img src="https://www.filepicker.io/api/file/EYebocuvR6y18pfoxTdM/convert?fit=clip&h=304&w=304" alt="" />
             </div>
             <div className={styles.content}>
               <h3>Amberstone Digital</h3>
-              <small>
-                We're a remote-first, cloud-native company focused on providing
-                high-quality technology solutions to businesses.
-              </small>
+              <small>We're a remote-first, cloud-native company focused on providing high-quality technology solutions to businesses.</small>
             </div>
           </div>
           <div className={styles.company}>
             <div className={styles.avatar}>
-              <img
-                id="avatar"
-                src="https://www.filepicker.io/api/file/OVDhvugkRiGqlkx6Gsk6/convert?fit=clip&h=304&w=304"
-                alt=""
-              />
+              <img id="avatar" src="https://www.filepicker.io/api/file/OVDhvugkRiGqlkx6Gsk6/convert?fit=clip&h=304&w=304" alt="" />
             </div>
             <div className={styles.content}>
               <h3>Amberstone Digital</h3>
-              <small>
-                We're a remote-first, cloud-native company focused on providing
-                high-quality technology solutions to businesses.
-              </small>
+              <small>We're a remote-first, cloud-native company focused on providing high-quality technology solutions to businesses.</small>
             </div>
           </div>
           <div className={styles.company}>
             <div className={styles.avatar}>
-              <img
-                src="https://www.filepicker.io/api/file/EYebocuvR6y18pfoxTdM/convert?fit=clip&h=304&w=304"
-                alt=""
-              />
+              <img src="https://www.filepicker.io/api/file/EYebocuvR6y18pfoxTdM/convert?fit=clip&h=304&w=304" alt="" />
             </div>
             <div className={styles.content}>
               <h3>Amberstone Digital</h3>
-              <small>
-                We're a remote-first, cloud-native company focused on providing
-                high-quality technology solutions to businesses.
-              </small>
+              <small>We're a remote-first, cloud-native company focused on providing high-quality technology solutions to businesses.</small>
             </div>
           </div>
         </div>
@@ -124,6 +75,11 @@ const Admin = () => {
             <div className={styles.contain}>
               <div className={styles.name}>
                 <h5>Apple Inc.</h5>
+                <a href="/admin/companies/edit">
+                  {" "}
+                  <img src="/assets/edit.png" alt="" tool />
+                  <img src="/assets/delete.png" alt="" tool />
+                </a>
               </div>
               <div className={styles.cards}>
                 <div className={styles.card}>
@@ -157,33 +113,27 @@ const Admin = () => {
               <h4>Vision</h4>
 
               <small>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro,
-                exercitationem optio. Eveniet commodi quia eos quasi enim!
-                Dolore odio, sunt aspernatur ipsam suscipit reiciendis velit
-                exercitationem ab aliquam ad! Laudantium nostrum autem facilis
-                et explicabo laboriosam, enim dolores.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, exercitationem optio. Eveniet commodi quia eos quasi enim! Dolore
+                odio, sunt aspernatur ipsam suscipit reiciendis velit exercitationem ab aliquam ad! Laudantium nostrum autem facilis et explicabo
+                laboriosam, enim dolores.
               </small>
             </div>
             <div className={styles.values}>
               <h4>Mission</h4>
 
               <small>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro,
-                exercitationem optio. Eveniet commodi quia eos quasi enim!
-                Dolore odio, sunt aspernatur ipsam suscipit reiciendis velit
-                exercitationem ab aliquam ad! Laudantium nostrum autem facilis
-                et explicabo laboriosam, enim dolores.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, exercitationem optio. Eveniet commodi quia eos quasi enim! Dolore
+                odio, sunt aspernatur ipsam suscipit reiciendis velit exercitationem ab aliquam ad! Laudantium nostrum autem facilis et explicabo
+                laboriosam, enim dolores.
               </small>
             </div>
             <div className={styles.values}>
               <h4>Values</h4>
 
               <small>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro,
-                exercitationem optio. Eveniet commodi quia eos quasi enim!
-                Dolore odio, sunt aspernatur ipsam suscipit reiciendis velit
-                exercitationem ab aliquam ad! Laudantium nostrum autem facilis
-                et explicabo laboriosam, enim dolores.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, exercitationem optio. Eveniet commodi quia eos quasi enim! Dolore
+                odio, sunt aspernatur ipsam suscipit reiciendis velit exercitationem ab aliquam ad! Laudantium nostrum autem facilis et explicabo
+                laboriosam, enim dolores.
               </small>
             </div>
           </div>

@@ -1,0 +1,5 @@
+.add_new {
+  padding: 10px;
+  height: calc(80vh - 10px);
+  overflow-y: scroll;
+}

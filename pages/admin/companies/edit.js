@@ -1,5 +1,5 @@
 import UpdateCompanyForm from "../../../src/components/UpdateCompanyForm";
-import styles from "../../styles/Update.module.css";
+import styles from "../../../styles/Update.module.css";
 
 const UpdateCompany = () => {
   return (

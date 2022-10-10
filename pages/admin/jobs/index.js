@@ -31,7 +31,7 @@ const Jobs = () => {
           <div className={styles.menu_container}>
             <img className={styles.menu} src="/assets/menu.png" alt="Menu" />
             <div className={styles.show_menu}>
-              <Link href="/">
+              <Link href="/admin/jobs/edit">
                 <a>Edit</a>
               </Link>
               <a href="">Share job</a>

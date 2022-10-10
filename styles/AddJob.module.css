@@ -1,0 +1,12 @@
+.new_job {
+  padding: 10px;
+  height: calc(80vh - 10px);
+  overflow-y: scroll;
+}
+
+.new_job input:focus,
+.new_job textarea:focus,
+.new_job select:focus {
+  border: 0.2px solid #665df5;
+  transition: 1px 2s ease-in border;
+}

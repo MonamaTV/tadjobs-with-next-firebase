@@ -1,7 +1,8 @@
 .form {
   width: 450px;
 }
-.update_form {
+.update_form,
+.job_form {
   width: 90%;
 }
 .form a {
@@ -10,7 +11,8 @@
   text-decoration: none;
 }
 .form input,
-.update_form input {
+.update_form input,
+.job_form input {
   display: block;
   width: 100%;
   padding: 12px;
@@ -27,8 +29,7 @@
   display: flex;
 }
 
-/* .form button,
-.update_form button {
+.form button {
   display: block;
   width: 100%;
   color: #fff;
@@ -36,7 +37,16 @@
   margin: 13px 0;
   border: none;
   background: #665df5;
-} */
+}
+.update_form .button,
+.job_form .button {
+  display: block;
+  color: #fff;
+  padding: 12px;
+  margin: 13px 0;
+  border: none;
+  background: #665df5;
+}
 
 .form input:focus {
   border: 0.2px solid #665df5;
@@ -46,6 +56,50 @@
   transition: 200ms ease-in border;
   border: 0.2px solid #665df5;
 }
-.update_form input::placeholder {
+.update_form input::placeholder,
+.job_form input::placeholder,
+.job_form select::placeholder,
+.job_form textarea::placeholder {
   color: #adb5bd;
+}
+
+.input_file {
+  border: none;
+  color: rgb(95, 95, 95);
+}
+.input_file input label {
+  border: none;
+  color: #fff;
+  border: none !important;
+}
+
+/*  JOB TEXTARE*/
+
+.job_form textarea {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 13px 2px;
+  outline: none;
+  border: 1px solid #fff;
+  box-shadow: 0 0 4px 0 #00000030;
+  resize: vertical;
+  height: 100px;
+}
+.job_form select {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 13px 2px;
+  outline: none;
+  border: 1px solid #fff;
+  box-shadow: 0 0 4px 0 #00000030;
+  resize: vertical;
+}
+
+.job_form .salary_range {
+  display: flex;
+  margin: 0;
+  justify-content: space-between;
+  /* height: ; */
 }
