@@ -1,0 +1,54 @@
+.jobs {
+  /* min-height: 80vh; */
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+}
+.searches {
+  display: flex;
+  text-align: center;
+  /* justify-content: center; */
+  align-items: center;
+  padding: 3em 0 0em;
+}
+.searches button {
+  background: #665df5;
+  border: none;
+  outline: none;
+  height: 46px;
+  margin-left: 2px;
+  width: 100px;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+.searches button img {
+  width: 17px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.location_input,
+.title_input {
+  width: 300px;
+  padding: 12px;
+  margin: 13px 2px;
+  outline: none;
+  border: 1px solid #fff;
+  box-shadow: 0 0 4px 0 #00000030;
+}
+
+.location_input {
+  /* padding-left: 05px; */
+  /* background: url("/public/assets/delete.png"); */
+  /* background-size: 20px; */
+}
+
+.results {
+  width: 250px;
+  box-shadow: 0 0 4px 0 #00000030;
+  background: #fff;
+  /* height: 60vh; */
+}

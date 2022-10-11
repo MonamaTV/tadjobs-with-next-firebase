@@ -65,3 +65,21 @@ hr {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+.containers header nav {
+  display: flex;
+  width: 100%;
+  padding: 10px 9em;
+  align-items: center;
+  justify-content: space-between;
+}
+.containers header nav a {
+  background: #ff6584;
+  color: #fff;
+  padding: 8px 30px;
+  text-decoration: none;
+}
+.containers header nav h3 {
+  color: #fff;
+  font-weight: bold;
+}

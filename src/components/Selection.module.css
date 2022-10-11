@@ -1,0 +1,14 @@
+.selection {
+  margin: 10px 0 10px;
+  padding: 0 10px;
+}
+.selection label {
+  display: block;
+  padding: 3px;
+  display: flex;
+  font-size: 14px;
+}
+.selection label input {
+  margin: 0 10px 0 0;
+  display: block;
+}
