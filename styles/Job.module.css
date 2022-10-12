@@ -1,0 +1,57 @@
+.job {
+  margin: 0 auto;
+}
+
+.job_header,
+.information {
+  width: 80%;
+  margin: 0 auto;
+  padding: 2em 9em;
+  background: #fff;
+  box-shadow: 0 0 4px 0 #00000030;
+}
+
+.information {
+  margin: 10px auto;
+}
+.apply_job {
+  color: #fff;
+  padding: 9px;
+  outline: 0;
+  display: inline-block;
+  border: 0;
+  background: #ff6584;
+}
+.fine_details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.fine_details .details {
+  background-color: #f1eded;
+  padding: 5px;
+  margin: 0 15px 10px 0;
+  font-size: 12px;
+  display: inline;
+  color: #000;
+  display: flex;
+  flex-direction: row;
+}
+.company img {
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+}
+.fine_details img {
+  width: 15px;
+  height: 15px;
+}
+
+.fine_details .details img {
+  margin-right: 2px;
+}
+
+.company {
+  display: flex;
+}

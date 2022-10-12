@@ -5,7 +5,11 @@ const Nav = ({ text = "Login", bg = false }) => {
     <div className="containers">
       <header>
         <nav>
-          <h3 style={{ color: bg && "#665df5" }}>TadJobs</h3>
+          <Link href="/">
+            <a className="logo" style={{ color: bg && "#665df5" }}>
+              TadJobs
+            </a>
+          </Link>
           <Link href="/auth/login">
             <a>{text}</a>
           </Link>

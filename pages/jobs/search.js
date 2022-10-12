@@ -1,3 +1,4 @@
+import Job from "../../src/components/Job";
 import Nav from "../../src/components/Nav";
 import Selection from "../../src/components/Selection";
 import styles from "../../styles/Search.module.css";
@@ -22,7 +23,18 @@ const Jobs = () => {
           <Selection />
           <Selection />
         </div>
-        <div className={styles.available_jobs}></div>
+        <div className={styles.available_jobs}>
+          <Job />
+          <Job />
+          <Job />
+          <Job />
+          <Job />
+          <Job />
+          <Job />
+          <Job />
+          <Job />
+          <Job />
+        </div>
       </div>
     </div>
   );
