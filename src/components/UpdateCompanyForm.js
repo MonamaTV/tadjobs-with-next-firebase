@@ -14,9 +14,9 @@ const UpdateCompanyForm = () => {
       <label className={styles.input_file}>
         <input type={"file"} accept="*png" />
       </label>
-      <input placeholder="Company name" />
-      <input placeholder="Email" />
-      <input placeholder="Website" type={"url"} />
+      <input placeholder="Company name" name="name" />
+      <input placeholder="Email" name="email" />
+      <input placeholder="Website" type={"url"} name="website" />
       <input placeholder="Email" type={"email"} />
       <div className={styles.location}>
         <input placeholder="Country" />

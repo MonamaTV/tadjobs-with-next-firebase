@@ -1,6 +1,10 @@
+import { useContext } from "react";
+import { AuthContext } from "../../src/context/authProvider";
 import styles from "../../styles/Admin.module.css";
 
 const Admin = () => {
+  const user = useContext(AuthContext);
+  console.log(user);
   return (
     <div className={styles.admin}>
       <div className="heading"></div>
@@ -77,8 +81,8 @@ const Admin = () => {
                 <h5>Apple Inc.</h5>
                 <a href="/admin/companies/edit">
                   {" "}
-                  <img src="/assets/edit.png" alt="" tool />
-                  <img src="/assets/delete.png" alt="" tool />
+                  <img src="/assets/edit.png" alt="" />
+                  <img src="/assets/delete.png" alt="" />
                 </a>
               </div>
               <div className={styles.cards}>
