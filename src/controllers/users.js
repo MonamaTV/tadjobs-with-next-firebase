@@ -10,3 +10,17 @@ export const loginWithEmailAndPassword = async ({ email, password }) => {
   const response = await signInWithEmailAndPassword(auth, email, password);
   return response;
 };
+
+export const getSignedInUser = (callback) => {
+  auth.onAuthStateChanged((user) => callback(user));
+};
+
+export const getUserDetails = () => {
+  const { currentUser } = auth;
+  return { 
+    userID: currentUser.uid,
+    email: currentUser.email,
+    name: currentUser?.displayName,
+    verified: currentUser.emailVerified,
+  };
+};

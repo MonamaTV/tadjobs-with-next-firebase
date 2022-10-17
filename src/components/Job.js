@@ -5,7 +5,10 @@ const Job = () => {
     <Link href="/jobs/">
       <a className={styles.job}>
         <div className={styles.logo}>
-          <img src="https://www.filepicker.io/api/file/EYebocuvR6y18pfoxTdM/convert?fit=clip&h=304&w=304" alt="" />
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/2048px-Spotify_logo_without_text.svg.png"
+            alt=""
+          />
         </div>
         <div className={styles.job_details}>
           <h3>Title</h3>

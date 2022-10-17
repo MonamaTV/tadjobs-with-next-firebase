@@ -1,7 +1,16 @@
 import UpdateCompanyForm from "../../../src/components/UpdateCompanyForm";
 import styles from "../../../styles/Update.module.css";
+import { useRouter } from "next/router";
+import { useQuery } from "react-query";
+import { getCompany } from "../../../src/controllers/companies";
 
 const UpdateCompany = () => {
+  const router = useRouter();
+  console.log(router);
+  // const { data: company, isLoading, isError } = useQuery("companies", () => {
+  //   return getCompany()
+  // })
+
   return (
     <div className={styles.update}>
       <div className={styles.update_edit}>

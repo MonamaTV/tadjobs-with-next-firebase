@@ -1,29 +1,33 @@
 import LoginForm from "../../src/components/LoginForm";
 import styles from "../../styles/Auth.module.css";
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { loginWithEmailAndPassword } from "../../src/controllers/users";
-import { AuthContext } from "../../src/context/authProvider";
-import { auth } from "../../src/controllers/app";
-
+import { getSignedInUser, loginWithEmailAndPassword } from "../../src/controllers/users";
 const Login = () => {
+  //State
   const [authUser, setAuthUser] = useState({ email: "", password: "" });
+  //Flags signed in user
+  const [loggedIn, setLoggedIn] = useState(null);
   const router = useRouter();
-
+  //The user inputs
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     setAuthUser({ ...authUser, [name]: value });
   };
+
+  //Checks if there's a user logged in and direct to the admin page
   useEffect(() => {
-    if (auth.currentUser) {
+    getSignedInUser(setLoggedIn);
+    if (loggedIn) {
       router.push("/admin");
     }
-  }, [auth]);
+  }, [loggedIn]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await loginWithEmailAndPassword(authUser);
+      await loginWithEmailAndPassword(authUser);
       router.push("/admin/");
     } catch (error) {
       console.log(error.message);
@@ -36,7 +40,10 @@ const Login = () => {
         <h3>TadJobs</h3>
         <p>Welcome back, login and attract the best talent</p>
       </div>
-      <LoginForm handleSubmit={handleSubmit} handleChange={handleChange} />
+      <LoginForm 
+        handleSubmit={handleSubmit} 
+        handleChange={handleChange} 
+      />
     </div>
   );
 };

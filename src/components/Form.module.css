@@ -12,7 +12,8 @@
 }
 .form input,
 .update_form input,
-.job_form input {
+.job_form input,
+.update_form textarea {
   display: block;
   width: 100%;
   padding: 12px;
@@ -27,6 +28,10 @@
 }
 .update_form .location {
   display: flex;
+}
+
+.update_form textarea {
+  resize: none;
 }
 
 .form button {
@@ -59,7 +64,8 @@
 .update_form input::placeholder,
 .job_form input::placeholder,
 .job_form select::placeholder,
-.job_form textarea::placeholder {
+.job_form textarea::placeholder,
+.update_form textarea::placeholder {
   color: #adb5bd;
 }
 

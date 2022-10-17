@@ -7,6 +7,8 @@
 .logo {
   color: #665df5;
   font-size: 20px;
+  text-decoration: none;
+  font-weight: 600;
 }
 
 .search {
