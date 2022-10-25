@@ -3,8 +3,8 @@ export const adminRoutes = [
   "/admin/profile",
   "/admin/jobs",
   "/admin/edit",
-  "/admin/companies/*",
+  "/admin/companies/[id]",
   "/admin/companies/add",
   "/admin/jobs/add",
-  "/admin/jobs/edit",
+  "/admin/jobs/[id]",
 ];

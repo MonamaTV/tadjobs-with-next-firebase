@@ -5,14 +5,14 @@ const Job = () => {
     <Link href="/jobs/">
       <a className={styles.job}>
         <div className={styles.logo}>
-          <img
+          {/* <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/2048px-Spotify_logo_without_text.svg.png"
             alt=""
-          />
+          /> */}
         </div>
         <div className={styles.job_details}>
-          <h3>Title</h3>
-          <h4>Company name</h4>
+          <h3>Senior Mobile Engineer</h3>
+          <small>Posted: 22 Aug 2022</small>
           <p>
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum neque necessitatibus ad saepe facere! Doloremque atque consequuntur natus
             officiis molestiae laudantium totam, eum rerum deserunt, soluta obcaecati, illo suscipit eos?

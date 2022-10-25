@@ -4,9 +4,12 @@
 .companies {
   display: flex;
 }
+.preview * {
+  font-size: 13px;
+}
 .avatar img {
-  width: 50px;
-  margin: 10px;
+  width: 30px;
+  margin: 4px 10px;
 }
 .companies_list {
   flex: 5;
@@ -105,7 +108,7 @@
 }
 
 .heading {
-  background: linear-gradient(to left, #333333, #333333, #333333);
+  background: #665df5;
   margin-bottom: 43px;
 }
 
@@ -150,11 +153,73 @@
   height: 20px;
 }
 .information h4 {
-  border-bottom: 1px solid #45434330;
   margin: 10px 0;
   font-weight: 400;
 }
 .information {
   width: 70%;
   margin: 10px auto;
+  padding: 0px 5px;
+}
+.filter_options {
+  padding: 4px;
+  display: flex;
+  margin: 0 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+.filter_options input {
+  padding: 7px;
+  outline: none;
+  box-shadow: 0 0 4px 0 #00000050;
+  margin-right: 3px;
+  width: 100%;
+}
+.filter_options input,
+.filter_options button {
+  border: none;
+  background: #fff;
+}
+.filter_options button img {
+  width: 20px;
+}
+
+.values * {
+  margin: 4px 0;
+  color: #454343;
+}
+
+.values ul {
+  padding-left: 35px;
+}
+
+.values li {
+  font-size: 13px;
+}
+.values p {
+  font-size: 13px;
+}
+.values h6 {
+  font-size: 13px;
+  font-weight: 500;
+}
+.values h5 {
+  font-size: 14px;
+  font-weight: 500;
+}
+.values h4 {
+  font-size: 14.5px;
+  font-weight: 500;
+}
+.values h3 {
+  font-size: 15px;
+  font-weight: 500;
+}
+.values h2 {
+  font-size: 17px;
+  font-weight: 500;
+}
+.values h1 {
+  font-size: 18px;
+  font-weight: 400;
 }

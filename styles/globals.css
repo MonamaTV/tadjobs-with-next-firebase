@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Montserrat:wght@300;500;600&family=Poppins:wght@200;400;500;600;700&display=swap");
 * {
   font-family: "Poppins", sans-serif;
   box-sizing: border-box;
@@ -10,7 +9,7 @@
 
 html,
 body {
-  background: #eff3e1;
+  background: #ececec;
 }
 
 header {
@@ -63,6 +62,14 @@ hr {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+button:disabled {
+  transition: background-color 200ms ease-in;
+  background-color: #cccccc !important;
+  cursor: not-allowed;
+  background-color: #cccccc;
+  color: #666666;
 }
 
 .containers header nav {

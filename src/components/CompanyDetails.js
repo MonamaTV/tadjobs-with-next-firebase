@@ -1,12 +1,10 @@
 import styles from "../../styles/Admin.module.css";
-import { useState } from "react";
 import { getCompany } from "../controllers/companies";
 import Link from "next/link";
 import { useQuery } from "react-query";
 
 const CompanyDetails = ({ companyID }) => {
   const { data: company, isLoading } = useQuery(["companies", companyID], () => getCompany(companyID));
-
   if (!companyID) {
     return (
       <div className={styles.empty_company}>
@@ -33,7 +31,7 @@ const CompanyDetails = ({ companyID }) => {
         <div className={styles.contain}>
           <div className={styles.name}>
             <h5>{company.name}</h5>
-            <a href="/admin/companies/edit">
+            <a href={"/admin/companies/" + company.id}>
               {" "}
               <img src="/assets/edit.png" alt="" />
               <img src="/assets/delete.png" alt="" />
@@ -67,32 +65,9 @@ const CompanyDetails = ({ companyID }) => {
         </div>
       </div>
       <div className={styles.information}>
-        <div className={styles.values}>
-          <h4>Vision</h4>
-
-          <small>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, exercitationem optio. Eveniet commodi quia eos quasi enim! Dolore odio,
-            sunt aspernatur ipsam suscipit reiciendis velit exercitationem ab aliquam ad! Laudantium nostrum autem facilis et explicabo laboriosam,
-            enim dolores.
-          </small>
-        </div>
-        <div className={styles.values}>
-          <h4>Mission</h4>
-
-          <small>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, exercitationem optio. Eveniet commodi quia eos quasi enim! Dolore odio,
-            sunt aspernatur ipsam suscipit reiciendis velit exercitationem ab aliquam ad! Laudantium nostrum autem facilis et explicabo laboriosam,
-            enim dolores.
-          </small>
-        </div>
-        <div className={styles.values}>
-          <h4>Values</h4>
-
-          <small>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro, exercitationem optio. Eveniet commodi quia eos quasi enim! Dolore odio,
-            sunt aspernatur ipsam suscipit reiciendis velit exercitationem ab aliquam ad! Laudantium nostrum autem facilis et explicabo laboriosam,
-            enim dolores.
-          </small>
+        <div
+          className={styles.values}
+          dangerouslySetInnerHTML={{ __html: company.background }}>
         </div>
       </div>
     </div>

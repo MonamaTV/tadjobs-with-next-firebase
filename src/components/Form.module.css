@@ -4,6 +4,7 @@
 .update_form,
 .job_form {
   width: 90%;
+  margin: 10px auto;
 }
 .form a {
   color: #00000070;
@@ -69,6 +70,14 @@
   color: #adb5bd;
 }
 
+.job_form input[type="date"]::placeholder {
+  color: #adb5bd;
+}
+.job_form select option#first {
+  color: #34699e !important;
+  background-color: red;
+}
+
 .input_file {
   border: none;
   color: rgb(95, 95, 95);
@@ -108,4 +117,32 @@
   margin: 0;
   justify-content: space-between;
   /* height: ; */
+}
+/* Errors */
+.errors {
+  font-size: 12px;
+  color: red;
+}
+
+.update_form input[type="file"] * {
+  background: red;
+}
+
+.change_image {
+  position: relative;
+}
+
+.change_image input {
+  display: none;
+}
+
+.add_image {
+  width: 20px;
+  position: absolute;
+  height: 20px;
+  bottom: 19px;
+  right: 15px;
+  background: #fff;
+  margin: auto;
+  border-radius: 50%;
 }

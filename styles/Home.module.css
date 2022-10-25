@@ -51,7 +51,12 @@
 @media screen and (max-width: 440px) {
   .container header nav {
     width: 100vw;
-    justify-content: space-evenly;
+    justify-content: space-between;
+    padding-inline: 0;
+  }
+
+  .container header nav a.logo {
+    padding-left: 0;
   }
 }
 .main a {

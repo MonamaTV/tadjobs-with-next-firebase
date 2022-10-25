@@ -1,6 +1,11 @@
+import { signOut } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import { auth } from "../controllers/app";
+
+
 export const AuthContext = createContext();
+//Figured the fucntion deserves to be in the file
+export const signOutUser = () => signOut(auth);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);

@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "pages/admin/jobs/edit.js"  ],
+, "pages/admin/jobs/[id].js"  ],
   "exclude": [
     "node_modules"
   ]

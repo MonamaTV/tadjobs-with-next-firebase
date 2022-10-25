@@ -14,7 +14,7 @@ const Jobs = () => {
           <img src="/assets/search.png" />
         </button>
       </div>
-      <small>
+      <small className={styles.smalls}>
         <i>Search results: 100 jobs</i>
       </small>
       <div className={styles.results}>

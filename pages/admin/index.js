@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import styles from "../../styles/Admin.module.css";
-import cookies from "js-cookie";
-import { getCompanies, getCompany } from "../../src/controllers/companies";
+import { getCompanies } from "../../src/controllers/companies";
 import CompanyDetails from "../../src/components/CompanyDetails";
 import { useQuery } from "react-query";
 
@@ -32,8 +31,12 @@ const Admin = () => {
       <div className="heading"></div>
       <div className={styles.companies}>
         <div className={styles.companies_list}>
+          <div className={styles.filter_options}>
+            <input type={"text"} />
+            <button><img src="/assets/slide.png" alt="" /></button>
+          </div>
           {companies.length !== 0 &&
-            companies.map(({ fileUrl, name, id }) => {
+            companies.map(({ fileUrl, name, id, background }) => {
               return (
                 <div key={id} className={styles.company}>
                   <div className={styles.avatar}>
@@ -43,7 +46,10 @@ const Admin = () => {
                     <h3 className="names" onClick={(e) => openCompanyDetails(e, id)}>
                       {name}
                     </h3>
-                    <small>We're a remote-first, cloud-native company focused on providing high-quality technology solutions to businesses.</small>
+                    <small
+                      className={styles.preview}
+                      dangerouslySetInnerHTML={{ __html: background.slice(0, 150) }}>
+                    </small>
                   </div>
                 </div>
               );

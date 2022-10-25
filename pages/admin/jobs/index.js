@@ -1,6 +1,14 @@
 import styles from "../../../styles/Jobs.module.css";
 import Link from "next/link";
+import { useQuery } from "react-query";
+import { getJobsByUser } from "../../../src/controllers/jobs";
 const Jobs = () => {
+
+
+  const { data } = useQuery("jobs", getJobsByUser);
+  console.log(data);
+
+
   return (
     <div className={styles.jobs}>
       <div className={styles.job}>

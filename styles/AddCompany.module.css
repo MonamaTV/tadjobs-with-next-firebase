@@ -3,3 +3,7 @@
   height: calc(80vh - 10px);
   overflow-y: scroll;
 }
+.add_new h3 {
+  width: 90%;
+  margin: 0 auto;
+}

@@ -1,67 +1,103 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
-import UpdateCompanyForm from "../../../src/components/UpdateCompanyForm";
 import { addCompanyAvatar, addNewCompany } from "../../../src/controllers/companies";
 import { getUserDetails } from "../../../src/controllers/users";
 import styles from "../../../styles/AddCompany.module.css";
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
+import CompanyForm from "../../../src/components/CompanyForm";
 
 const AddNewCompany = () => {
-  const mutation = useMutation((company) => {
-    return addNewCompany(company);
+  const queryClient = useQueryClient();
+
+  const mutation = useMutation(([company, file]) => {
+    return addNewCompany(company, file);
+  }, {
+    onSuccess: data => {
+      queryClient.setQueryData(["companies", { id: data.id }], data)
+    }
   });
 
-  const [company, setCompany] = useState({
+  const company = {
     name: "",
     fileUrl: "",
     email: "",
-    about: "",
+    website: "",
     companySize: "",
-    location: null,
+    location: {
+      country: "",
+      city: ""
+    },
     background: "",
     userID: "",
-  });
+  };
 
   const router = useRouter();
   const [file, setFile] = useState(null);
+  const [imgUrl, setImgUrl] = useState("");
+  const [error, setError] = useState({
+    background: "",
+    url: ""
+  })
   const [background, setBackground] = useState("");
 
-  const handleChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setCompany({ ...company, [name]: value });
-  };
+
+  const handleBackgroundChange = (e) => {
+    if (e.length < 100) {
+      setError({
+        ...error, background: "Background must at least have 100 characters"
+      });
+    } else {
+      setError({
+        ...error, background: " "
+      });
+    }
+    setBackground(e);
+  }
 
   const handleFileInput = (e) => {
-    const value = e.target.files[0];
-    setFile(value);
+    const file = e.target.files[0];
+    if (!file) return;
+    const url = URL.createObjectURL(file);
+    if (file.size > 2097152) {
+      setError({
+        ...error, url: "File too big. Choose less than 2mb"
+      });
+      return;
+    }
+    setFile(file);
+    setError({
+      ...error, url: " "
+    })
+    setImgUrl(url);
   };
 
-  const handleLocation = (e) => {
-    const value = e.target.value;
-    const name = e.target.name;
-    setCompany({
-      ...company,
-      location: {
-        ...company.location,
-        [name]: value,
-      },
-    });
-  };
-
-  const handleSubmission = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (values) => {
     const { userID } = getUserDetails();
     try {
-      const url = await addCompanyAvatar(file);
-      const newCompany = {
-        ...company,
-        background: background,
-        fileUrl: url,
-        userID,
-      };
-      mutation.mutate(newCompany);
-      router.push("/admin/");
+      if (!file) {
+        setError({
+          ...error,
+          url: "Logo can't be empty"
+        })
+        return;
+      }
+      if (background.length < 100) {
+        setError({
+          ...error,
+          background: "Background must at least have 100 characters"
+        });
+        return;
+      }
+
+      // const newCompany = {
+      //   ...values,
+      //   background: background,
+      //   userID,
+      // };
+      // mutation.mutate([newCompany, file]);
+      // setTimeout(() => {
+      //   router.push("/admin/");
+      // }, 2000);
     } catch (error) {
       console.log(error);
     }
@@ -70,13 +106,14 @@ const AddNewCompany = () => {
   return (
     <div className={styles.add_new}>
       <h3>Add new company</h3>
-      <UpdateCompanyForm
-        handleChange={handleChange}
-        handleSubmission={handleSubmission}
-        handleFileInput={handleFileInput}
-        handleBackground={setBackground}
-        handleLocation={handleLocation}
+      <CompanyForm
+        company={company}
+        handleSubmit={handleSubmit}
+        setBackground={handleBackgroundChange}
         background={background}
+        imgUrl={imgUrl}
+        setFile={handleFileInput}
+        error={error}
       />
     </div>
   );

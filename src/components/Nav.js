@@ -1,6 +1,7 @@
 import Link from "next/link";
-
+import { auth } from "../controllers/app";
 const Nav = ({ text = "Login", bg = false }) => {
+  const user = auth.currentUser;
   return (
     <div className="containers">
       <header>
@@ -10,8 +11,8 @@ const Nav = ({ text = "Login", bg = false }) => {
               TadJobs
             </a>
           </Link>
-          <Link href="/auth/login">
-            <a>{text}</a>
+          <Link href={user ? "/admin" : "/auth/login"}>
+            <a>{user ? 'Manage' : text}</a>
           </Link>
         </nav>
       </header>
