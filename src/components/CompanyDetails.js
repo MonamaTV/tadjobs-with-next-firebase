@@ -31,7 +31,7 @@ const CompanyDetails = ({ companyID }) => {
         <div className={styles.contain}>
           <div className={styles.name}>
             <h5>{company.name}</h5>
-            <a href={"/admin/companies/" + company.id}>
+            <a href={"/admin/companies/edit/" + company.id}>
               {" "}
               <img src="/assets/edit.png" alt="" />
               <img src="/assets/delete.png" alt="" />

@@ -4,7 +4,7 @@ import SideMenu from "../../src/components/SideMenu";
 import { AuthContext } from "../../src/context/authProvider";
 
 export default function AdminLayout({ children }) {
-  const user = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   return (
     user && (
       <>

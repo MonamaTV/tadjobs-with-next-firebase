@@ -148,3 +148,11 @@
   margin: auto;
   border-radius: 50%;
 }
+
+/* For auth */
+@media screen and (max-width: 440px) {
+  .form {
+    width: 100%;
+    padding: 15px;
+  }
+}

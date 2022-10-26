@@ -35,3 +35,19 @@
   margin-right: 3px;
   padding: 10px 15px;
 }
+
+@media screen and (max-width: 440px) {
+  .search input {
+    width: 200px;
+    padding: 8px;
+  }
+  .navigation {
+    justify-content: space-between;
+  }
+  .search button {
+    display: none;
+  }
+  .search {
+    margin: 0;
+  }
+}

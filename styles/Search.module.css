@@ -82,3 +82,33 @@
 .available_jobs {
   flex: 10;
 }
+
+/* responsiveness */
+@media screen and (max-width: 440px) {
+  .jobs {
+    padding: 0;
+  }
+  .searches {
+    width: 100%;
+    padding-inline: 20px;
+  }
+  .searches input {
+    width: min-content;
+    padding: 8px 4px;
+  }
+  .searches button {
+    display: none;
+  }
+  .smalls {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 649px) {
+  .jobs {
+    padding-inline: 0px;
+  }
+  .filter {
+    display: none;
+  }
+}

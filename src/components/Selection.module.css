@@ -12,3 +12,9 @@
   margin: 0 10px 0 0;
   display: block;
 }
+
+@media screen and (max-width: 440px) {
+  .selection {
+    display: none;
+  }
+}

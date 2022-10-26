@@ -1,16 +1,20 @@
 .admin {
   padding: 10px;
 }
+
 .companies {
   display: flex;
 }
+
 .preview * {
   font-size: 13px;
 }
+
 .avatar img {
   width: 30px;
   margin: 4px 10px;
 }
+
 .companies_list {
   flex: 5;
   overflow-y: scroll;
@@ -30,9 +34,11 @@
   justify-content: center;
   flex-direction: column;
 }
+
 .empty_company * {
   margin: 5px 0;
 }
+
 .empty_company p {
   width: 600px;
 }
@@ -58,6 +64,7 @@
   width: 100%;
   overflow-y: scroll;
 }
+
 .company {
   width: 100%;
   margin: 20px 0;
@@ -70,13 +77,16 @@
   color: #454343;
   padding: 0 10px;
 }
+
 .company .content h3 {
   user-select: none;
   cursor: pointer;
 }
+
 .company .content h3:hover {
   text-decoration: underline 2px solid #ff6584;
 }
+
 .form {
   width: 100%;
   padding: 10px;
@@ -94,6 +104,7 @@
   border: none;
   outline: none;
 }
+
 .form button {
   background: #ff6584;
   color: #fff;
@@ -131,36 +142,43 @@
   display: flex;
   align-items: center;
 }
+
 .name img {
   margin-left: 6px;
   width: 12px;
   border-bottom: 1px solid red;
 }
+
 .cards,
 .card {
   display: flex;
   flex-direction: row;
   margin: 10px;
 }
+
 .card {
   width: 33%;
   font-size: 12px;
 }
+
 .card img {
   border-radius: 50%;
   margin: 0 5px;
   width: 20px;
   height: 20px;
 }
+
 .information h4 {
   margin: 10px 0;
   font-weight: 400;
 }
+
 .information {
   width: 70%;
   margin: 10px auto;
   padding: 0px 5px;
 }
+
 .filter_options {
   padding: 4px;
   display: flex;
@@ -168,13 +186,14 @@
   align-items: center;
   justify-content: space-between;
 }
+
 .filter_options input {
   padding: 7px;
   outline: none;
   border: 1px solid #d3d2d2;
   margin-right: 3px;
   width: 100%;
-  background: #fff;
+  background: #ffffff;
 }
 
 .values * {
@@ -189,30 +208,59 @@
 .values li {
   font-size: 13px;
 }
+
 .values p {
   font-size: 13px;
 }
+
 .values h6 {
   font-size: 13px;
   font-weight: 500;
 }
+
 .values h5 {
   font-size: 14px;
   font-weight: 500;
 }
+
 .values h4 {
   font-size: 14.5px;
   font-weight: 500;
 }
+
 .values h3 {
   font-size: 15px;
   font-weight: 500;
 }
+
 .values h2 {
   font-size: 17px;
   font-weight: 500;
 }
+
 .values h1 {
   font-size: 18px;
   font-weight: 400;
+}
+
+@media screen and (max-width: 440px) {
+  .empty_company {
+    display: none;
+  }
+
+  .contain {
+    width: 95%;
+  }
+  .cards {
+    margin: 0;
+  }
+  .card p {
+    display: none;
+  }
+  /* full screen */
+  .information {
+    width: 95%;
+  }
+  .company_details {
+  }
 }

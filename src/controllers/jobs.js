@@ -10,7 +10,9 @@ import {
     query,
     getDoc,
     doc,
-    setDoc
+    setDoc,
+    orderBy,
+    limit
 } from "firebase/firestore";
 import { getCompaniesNamesAndIds } from "./companies";
 
@@ -90,7 +92,19 @@ export const getJobsByCompany = async (companyID) => {
     return jobs;
 }
 //Public info
-export const getJobs = (job) => {
+export const getJobs = async (title, location, sort, type, seniority, salary) => {
     //Todo: pagination, sort, search by location, and name, job type, seniority and salary range😭😩
+
+    const jobs = [];
+    const queryLocation = query(jobsRef, where("title", "==", title))
+    const results = await getDocs(queryLocation, limit(10));
+    results.forEach(job => {
+        if (!job.exists()) return null;
+        jobs.push({
+            id: job.id,
+            ...job.data()
+        });
+    });
+    return jobs;
 }
 

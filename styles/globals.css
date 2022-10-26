@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Montserrat:wght@300;500;600&family=Poppins:wght@200;400;500;600;700&display=swap");
 * {
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
   box-sizing: border-box;
   padding: 0;
   margin: 0;
@@ -99,4 +99,26 @@ button:disabled {
 
 .active_company {
   border-left: 2px solid #ff6584;
+}
+
+@media screen and (max-width: 440px) {
+  .containers header {
+    width: 100vw;
+  }
+  .containers header nav {
+    padding-inline: 0;
+  }
+  .containers header nav a {
+    padding: 6px 10px;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .flex main {
+    width: 100%;
+  }
+  .flex {
+    margin: 0 0px;
+    height: 85vh;
+  }
 }

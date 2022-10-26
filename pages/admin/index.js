@@ -4,11 +4,12 @@ import { getCompanies } from "../../src/controllers/companies";
 import CompanyDetails from "../../src/components/CompanyDetails";
 import { useQuery } from "react-query";
 import Meta from "../../src/components/Meta";
+import { useRouter } from "next/router";
 
 const Admin = () => {
   const [companyID, setCompanyID] = useState(null);
   const { isLoading, data: companies } = useQuery("companies", getCompanies);
-
+  const router = useRouter();
   const changeActiveClass = (e) => {
     const names = document.querySelectorAll(".names");
     names.forEach((n) => {
@@ -21,6 +22,9 @@ const Admin = () => {
   const openCompanyDetails = (e, id) => {
     changeActiveClass(e);
     setCompanyID(id);
+    if (window.innerWidth <= "440") {
+      router.push("/admin/companies/" + id);
+    }
   };
 
   if (isLoading) {
@@ -47,7 +51,7 @@ const Admin = () => {
       <div className={styles.companies}>
         {companies.length !== 0 && <div className={styles.companies_list}>
           <div className={styles.filter_options}>
-            <input type={"text"} onChange={handleSearch} />
+            <input type={"text"} onChange={handleSearch} placeholder={"Start typing..."} />
           </div>
           {
             companies.map(({ fileUrl, name, id, background }) => {

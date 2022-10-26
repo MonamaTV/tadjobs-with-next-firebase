@@ -2,6 +2,7 @@ import Link from "next/link";
 import { auth } from "../controllers/app";
 const Nav = ({ text = "Login", bg = false }) => {
   const user = auth.currentUser;
+  //This syntax because the authProvider doesn't provide cover the Nav
   return (
     <div className="containers">
       <header>

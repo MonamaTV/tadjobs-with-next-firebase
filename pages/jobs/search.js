@@ -1,9 +1,14 @@
+import { useQuery } from "react-query";
 import Job from "../../src/components/Job";
 import Nav from "../../src/components/Nav";
 import Selection from "../../src/components/Selection";
+import { getJobs } from "../../src/controllers/jobs";
 import styles from "../../styles/Search.module.css";
 
 const Jobs = () => {
+
+  // const { data: jobs, isLoading } = useQuery(["jobs"], getJobs);
+
   return (
     <div className={styles.jobs}>
       <Nav text="Post a job" bg={true} />

@@ -43,3 +43,86 @@
   left: 10px;
   cursor: pointer;
 }
+
+.mobile_footer {
+  position: fixed;
+  bottom: 0px;
+  background: #e3e3e3;
+  width: 100vw;
+  display: flex;
+  padding: 6px;
+  justify-content: center;
+  border: 1px solid #e3e3e3;
+  display: none;
+}
+.mobile_nav {
+  width: 70%;
+  border: 1px solid #e3e3e3;
+}
+
+.mobile_taps {
+  display: flex;
+  list-style: none;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+.mobile_taps a {
+  text-decoration: none;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.mobile_taps button {
+  text-decoration: none;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  border: none;
+  outline: none;
+  position: relative;
+  background: none;
+  flex-direction: column;
+}
+.mobile_taps a img {
+  width: 18px;
+}
+.mobile_taps button img {
+  width: 18px;
+}
+.classic {
+  position: absolute;
+  left: -20px;
+  bottom: 40px;
+  background-color: #454343;
+  padding: 10px;
+  width: 100px;
+  animation: move_ 200ms ease-in;
+}
+.classic a {
+  color: #fff;
+}
+
+/* Some animation */
+@keyframes move_ {
+  0% {
+    bottom: 0px;
+  }
+  50% {
+    bottom: 20px;
+  }
+  100% {
+    bottom: 40px;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .side_menu {
+    display: none;
+  }
+
+  .mobile_footer {
+    display: flex;
+  }
+}
