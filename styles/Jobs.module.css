@@ -49,7 +49,7 @@
   position: relative;
 }
 
-.job_info .desc * {
+.job_info .desc > * {
   display: block;
   padding-right: 300px;
   color: rgb(77, 74, 74);

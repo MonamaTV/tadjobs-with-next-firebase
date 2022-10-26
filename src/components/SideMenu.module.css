@@ -3,7 +3,6 @@
   height: 80vh;
   background: #fff;
   border: 1px solid #e3e3e3;
-
   padding-inline: 20px;
   color: #454343;
   position: relative;
@@ -105,8 +104,14 @@
 .classic a {
   color: #fff;
   font-size: 14px;
+  display: block;
 }
-
+.classic span {
+  color: #fff;
+  font-size: 14px;
+  margin: 0;
+  text-align: center;
+}
 /* Some animation */
 @keyframes move_ {
   0% {

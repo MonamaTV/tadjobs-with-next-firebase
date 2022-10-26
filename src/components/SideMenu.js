@@ -6,6 +6,7 @@ export default function SideMenu() {
 
   const { signOutUser } = useContext(AuthContext);
   const [classic, setClassic] = useState(false);
+  const [profile, setProfile] = useState(false);
 
   return (
     <>
@@ -81,12 +82,24 @@ export default function SideMenu() {
               </Link>
             </li>
             <li>
-              <Link href={"/admin/jobs"}>
-                <a>
-                  <img src="/assets/profile.png" alt="" />
-                  Profile
-                </a>
-              </Link>
+              {/* <Link href={"/admin/jobs"}> */}
+              <button onClick={() => setProfile(!profile)}>
+                <img src="/assets/profile.png" alt="" />
+                Profile
+                {profile && (
+                  <div className={styles.classic}>
+                    <Link href={"/admin/profile"}>
+                      <a>
+                        Profile
+                      </a>
+                    </Link>
+                    <span onClick={signOutUser}>
+                      Logout
+                    </span>
+                  </div>
+                )}
+              </button>
+              {/* </Link> */}
             </li>
             <li>
               <button onClick={() => setClassic(!classic)}>

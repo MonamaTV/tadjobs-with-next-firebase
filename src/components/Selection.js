@@ -1,6 +1,6 @@
 import styles from "./Selection.module.css";
 
-const Selection = () => {
+const Selection = ({ options }) => {
   return (
     <div className={styles.selection}>
       <h4>Job type</h4>

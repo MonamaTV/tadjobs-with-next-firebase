@@ -22,6 +22,10 @@
   padding: 10px;
   margin: 4px 0;
 }
+.update_edit h3 {
+  width: 90%;
+  margin: 0 auto;
+}
 .job_details,
 .details {
   display: flex;
