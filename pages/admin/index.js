@@ -3,6 +3,7 @@ import styles from "../../styles/Admin.module.css";
 import { getCompanies } from "../../src/controllers/companies";
 import CompanyDetails from "../../src/components/CompanyDetails";
 import { useQuery } from "react-query";
+import Meta from "../../src/components/Meta";
 
 const Admin = () => {
   const [companyID, setCompanyID] = useState(null);
@@ -28,14 +29,16 @@ const Admin = () => {
 
   return (
     <div className={styles.admin}>
+      <Meta title={"TadJobs - Companies"} />
+
       <div className="heading"></div>
       <div className={styles.companies}>
-        <div className={styles.companies_list}>
+        {companies.length !== 0 && <div className={styles.companies_list}>
           <div className={styles.filter_options}>
             <input type={"text"} />
             <button><img src="/assets/slide.png" alt="" /></button>
           </div>
-          {companies.length !== 0 &&
+          {
             companies.map(({ fileUrl, name, id, background }) => {
               return (
                 <div key={id} className={styles.company}>
@@ -48,13 +51,13 @@ const Admin = () => {
                     </h3>
                     <small
                       className={styles.preview}
-                      dangerouslySetInnerHTML={{ __html: background.slice(0, 150) }}>
+                      dangerouslySetInnerHTML={{ __html: background.slice(0, 150) + "..." }}>
                     </small>
                   </div>
                 </div>
               );
             })}
-        </div>
+        </div>}
         <CompanyDetails companyID={companyID} />
       </div>
     </div>

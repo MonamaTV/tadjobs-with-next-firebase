@@ -6,6 +6,7 @@ import { useMutation, useQuery, useQueryClient } from "react-query";
 import { editJob, getJob } from "../../../src/controllers/jobs";
 import { getCompaniesNamesAndIds } from "../../../src/controllers/companies";
 import { useState } from "react";
+import Meta from "../../../src/components/Meta"
 
 const UpdateJob = () => {
   const router = useRouter();
@@ -16,6 +17,7 @@ const UpdateJob = () => {
     openingDate: "",
     closingDate: "",
     application: "",
+    about: "",
     location: "",
     companyID: "",
   };
@@ -67,6 +69,7 @@ const UpdateJob = () => {
       setError({ ...error, about: " " });
       const newJob = {
         ...values,
+        about: about || job.about
       }
       mutation.mutate([newJob, id]);
       setTimeout(() => {
@@ -90,6 +93,8 @@ const UpdateJob = () => {
 
   return (
     <div className={styles.edit_job}>
+      <Meta title={"TadJobs - Update job"} />
+
       <div className={styles.job}>
         <h3>Edit job</h3>
         <JobForm

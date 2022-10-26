@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { editCompany, getCompany } from "../../../src/controllers/companies";
 import { useState } from "react";
+import Meta from "../../../src/components/Meta";
 
 const UpdateCompany = () => {
   const queryClient = useQueryClient();
@@ -100,6 +101,8 @@ const UpdateCompany = () => {
 
   return (
     <div className={styles.update}>
+      <Meta title={"TadJobs - Update company"} />
+
       <div className={styles.update_edit}>
         <h3>Edit company</h3>
         <UpdateCompanyForm

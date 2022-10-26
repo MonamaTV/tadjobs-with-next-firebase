@@ -1,6 +1,9 @@
 import Link from "next/link";
+import { signOutUser } from "../context/authProvider";
 import styles from "./SideMenu.module.css";
 export default function SideMenu() {
+
+
   return (
     <div className={styles.side_menu}>
       <nav>
@@ -51,6 +54,7 @@ export default function SideMenu() {
           </li>
         </ul>
       </nav>
+      <button className={styles.logout} onClick={signOutUser}>Logout</button>
     </div>
   );
 }

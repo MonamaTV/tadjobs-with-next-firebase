@@ -1,11 +1,17 @@
 import Head from "next/head";
 import Link from "next/link";
+import Meta from "../src/components/Meta";
 import Nav from "../src/components/Nav";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
   return (
     <div className={styles.container}>
+      <Meta
+        title={"TadJobs - Home"}
+        description={"Find Your Dream Job At Ease From The Best"}
+      />
+
       <Head>
         <title>TadJobs</title>
         <meta name="description" content="Find the best jobs" />

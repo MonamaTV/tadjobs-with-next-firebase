@@ -21,10 +21,10 @@
 
 .job {
   display: flex;
-  box-shadow: 0 0 4px 0 #00000020;
+  border: 1px solid #e3e3e3;
   padding: 15px;
-  margin: 20px 0px;
-  /* width: 85%; */
+  margin: 20px auto;
+  width: 90%;
 }
 
 .menu {
@@ -44,12 +44,21 @@
   flex: 8;
   position: relative;
 }
+
+.job_info .desc * {
+  display: block;
+  padding-right: 300px;
+  color: rgb(77, 74, 74);
+}
+
 .job_info p {
   color: #665df5;
 }
+
 .menu_container:hover > .show_menu {
   display: flex;
 }
+
 .show_menu {
   position: absolute;
   top: 30px;
@@ -75,13 +84,13 @@
   padding: 3px;
 }
 .show_menu a:hover {
-  background: #dccccfc0;
+  background: #535050;
 }
 .show_menu button {
-  color: rgb(46, 36, 36);
+  color: rgb(255, 255, 255);
   font-size: 13px;
   border: none;
-  background: #f0eff4;
+  background: red;
   text-decoration: none;
   margin: 3px 0;
 }

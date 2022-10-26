@@ -122,6 +122,8 @@
 .errors {
   font-size: 12px;
   color: red;
+  text-align: left;
+  margin-left: 2px;
 }
 
 .update_form input[type="file"] * {

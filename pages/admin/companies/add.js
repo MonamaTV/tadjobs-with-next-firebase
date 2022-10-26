@@ -5,6 +5,7 @@ import { getUserDetails } from "../../../src/controllers/users";
 import styles from "../../../styles/AddCompany.module.css";
 import { useMutation, useQueryClient } from "react-query";
 import CompanyForm from "../../../src/components/CompanyForm";
+import Meta from "../../../src/components/Meta";
 
 const AddNewCompany = () => {
   const queryClient = useQueryClient();
@@ -105,6 +106,7 @@ const AddNewCompany = () => {
 
   return (
     <div className={styles.add_new}>
+      <Meta title={"TadJobs - Add company"} />
       <h3>Add new company</h3>
       <CompanyForm
         company={company}

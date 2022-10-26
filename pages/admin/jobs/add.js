@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import { useMutation, useQuery } from "react-query";
 import JobForm from "../../../src/components/JobForm";
+import Meta from "../../../src/components/Meta";
 import { getCompaniesNamesAndIds } from "../../../src/controllers/companies";
 import { addJob } from "../../../src/controllers/jobs";
 import styles from "../../../styles/AddJob.module.css";
@@ -79,6 +80,8 @@ const AddNewJob = () => {
 
   return (
     <div className={styles.new_job}>
+      <Meta title={"TadJobs - Add job"} />
+
       <h3>Add a new job</h3>
       <JobForm
         job={job}

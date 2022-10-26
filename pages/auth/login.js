@@ -3,18 +3,18 @@ import styles from "../../styles/Auth.module.css";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import { getSignedInUser, loginWithEmailAndPassword } from "../../src/controllers/users";
+import { authResponses } from "../../src/utils/responses";
+import Meta from "../../src/components/Meta";
 const Login = () => {
   //State
-  const [authUser, setAuthUser] = useState({ email: "", password: "" });
+  const user = {
+    email: "",
+    password: ""
+  }
+  const [error, setError] = useState("");
   //Flags signed in user
   const [loggedIn, setLoggedIn] = useState(null);
   const router = useRouter();
-  //The user inputs
-  const handleChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setAuthUser({ ...authUser, [name]: value });
-  };
 
   //Checks if there's a user logged in and direct to the admin page
   useEffect(() => {
@@ -24,25 +24,28 @@ const Login = () => {
     }
   }, [loggedIn]);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (user) => {
+    setError("");
     try {
-      await loginWithEmailAndPassword(authUser);
+      const res = await loginWithEmailAndPassword(user);
+      console.log(res);
       router.push("/admin/");
     } catch (error) {
-      console.log(error.message);
+      setError(authResponses(error.code));
     }
   };
 
   return (
     <div className={styles.authentication}>
+      <Meta title={"TadJobs - Login"} />
       <div className={styles.login_header}>
-        <h3>TadJobs</h3>
+        <h3><a href="/">TadJobs</a></h3>
         <p>Welcome back, login and attract the best talent</p>
       </div>
-      <LoginForm 
-        handleSubmit={handleSubmit} 
-        handleChange={handleChange} 
+      <LoginForm
+        handleSubmission={handleSubmit}
+        user={user}
+        error={error}
       />
     </div>
   );
