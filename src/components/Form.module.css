@@ -110,6 +110,7 @@
   border: 1px solid #fff;
   box-shadow: 0 0 4px 0 #00000030;
   resize: vertical;
+  background: #fff !important;
 }
 
 .job_form .salary_range {
