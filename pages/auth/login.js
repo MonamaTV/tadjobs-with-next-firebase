@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { getSignedInUser, loginWithEmailAndPassword } from "../../src/controllers/users";
 import { authResponses } from "../../src/utils/responses";
 import Meta from "../../src/components/Meta";
+import Link from "next/link";
 const Login = () => {
   //State
   const user = {
