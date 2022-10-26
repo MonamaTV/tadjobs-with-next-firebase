@@ -29,7 +29,13 @@ const Jobs = () => {
   return (
     <div className={styles.jobs}>
       <Meta title={"TadJobs - all the jobs"} />
-
+      <div className={styles.options}>
+        <select>
+          <option value="">SORT</option>
+          <option value="">By date</option>
+          <option value="">By job type</option>
+        </select>
+      </div>
       {
         data.map(({ title,
           minSalary, maxSalary,

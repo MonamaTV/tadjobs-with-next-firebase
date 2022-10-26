@@ -171,17 +171,10 @@
 .filter_options input {
   padding: 7px;
   outline: none;
-  box-shadow: 0 0 4px 0 #00000050;
+  border: 1px solid #d3d2d2;
   margin-right: 3px;
   width: 100%;
-}
-.filter_options input,
-.filter_options button {
-  border: none;
   background: #fff;
-}
-.filter_options button img {
-  width: 20px;
 }
 
 .values * {

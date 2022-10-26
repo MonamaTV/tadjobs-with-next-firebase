@@ -1,5 +1,4 @@
 import { db } from "./app";
-import { getUserDetails } from "./users";
 
 import {
     serverTimestamp,
@@ -32,6 +31,7 @@ export const addJob = async (job) => {
         ...response
     }
 }
+
 export const editJob = async (job, jobID) => {
     if (jobID === "") return null;
     const updatedJob = await setDoc(doc(db, "jobs", jobID), {
@@ -67,6 +67,21 @@ export const getJobsByUser = async () => {
     const jobs = [];
     documents.forEach(job => {
         if (!job.exists()) return;
+        jobs.push({
+            id: job.id,
+            ...job.data()
+        });
+    });
+    return jobs;
+}
+//
+export const getJobsByCompany = async (companyID) => {
+    if (companyID === "") return null;
+    const jobs = [];
+    const perform = query(jobsRef, where("companyID", "==", companyID));
+    const results = await getDocs(perform);
+    results.forEach(job => {
+        if (!job.exists()) return null;
         jobs.push({
             id: job.id,
             ...job.data()

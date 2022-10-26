@@ -5,6 +5,8 @@ import { useMutation, useQuery, useQueryClient } from "react-query";
 import { editCompany, getCompany } from "../../../src/controllers/companies";
 import { useState } from "react";
 import Meta from "../../../src/components/Meta";
+import { getJobsByCompany } from "../../../src/controllers/jobs";
+import CompanyJob from "../../../src/components/CompanyJob";
 
 const UpdateCompany = () => {
   const queryClient = useQueryClient();
@@ -40,6 +42,10 @@ const UpdateCompany = () => {
     return getCompany(id);
   });
 
+  const { data: jobs } = useQuery(["jobs", id], () => {
+    return getJobsByCompany(id);
+  });
+
   //For inputs Formik seems to fail to cater for
   const [background, setBackground] = useState("");
   const [url, setUrl] = useState("");
@@ -70,7 +76,6 @@ const UpdateCompany = () => {
         background: " "
       });
       await mutation.mutateAsync([values, img]);
-
     } catch (error) {
       console.log(error);
     }
@@ -116,79 +121,12 @@ const UpdateCompany = () => {
         />
       </div>
       <div className={styles.company_jobs}>
-        {/* <h3>All jobs related to this company</h3> */}
-        <div className={styles.job}>
-          <h4>Product Manager</h4>
-          <small>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore tempore voluptatum culpa similique cupiditate.</small>
-          <div className={styles.job_details}>
-            <div className={styles.details}>
-              <img src="/assets/map.png" alt="Location of the company" />
-              <small>Johannesburg</small>
-            </div>
-            <div className={styles.details}>
-              <img src="/assets/money.png" alt="Salary of the job" />
-              <small>R20 000 - R40 000</small>
-            </div>
-            <div className={styles.details}>
-              <img src="/assets/map.png" alt="Seniority of the job" />
-              <small>Senior</small>
-            </div>
-          </div>
-        </div>
-        <div className={styles.job}>
-          <h4>Product Manager</h4>
-          <small>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore tempore voluptatum culpa similique cupiditate.</small>
-          <div className={styles.job_details}>
-            <div className={styles.details}>
-              <img src="/assets/map.png" alt="Location of the company" />
-              <small>Johannesburg</small>
-            </div>
-            <div className={styles.details}>
-              <img src="/assets/money.png" alt="Salary of the job" />
-              <small>R20 000 - R40 000</small>
-            </div>
-            <div className={styles.details}>
-              <img src="/assets/map.png" alt="Seniority of the job" />
-              <small>Senior</small>
-            </div>
-          </div>
-        </div>
-        <div className={styles.job}>
-          <h4>Product Manager</h4>
-          <small>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore tempore voluptatum culpa similique cupiditate.</small>
-          <div className={styles.job_details}>
-            <div className={styles.details}>
-              <img src="/assets/map.png" alt="Location of the company" />
-              <small>Johannesburg</small>
-            </div>
-            <div className={styles.details}>
-              <img src="/assets/money.png" alt="Salary of the job" />
-              <small>R20 000 - R40 000</small>
-            </div>
-            <div className={styles.details}>
-              <img src="/assets/map.png" alt="Seniority of the job" />
-              <small>Senior</small>
-            </div>
-          </div>
-        </div>
-        <div className={styles.job}>
-          <h4>Product Manager</h4>
-          <small>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore tempore voluptatum culpa similique cupiditate.</small>
-          <div className={styles.job_details}>
-            <div className={styles.details}>
-              <img src="/assets/map.png" alt="Location of the company" />
-              <small>Johannesburg</small>
-            </div>
-            <div className={styles.details}>
-              <img src="/assets/money.png" alt="Salary of the job" />
-              <small>R20 000 - R40 000</small>
-            </div>
-            <div className={styles.details}>
-              <img src="/assets/map.png" alt="Seniority of the job" />
-              <small>Senior</small>
-            </div>
-          </div>
-        </div>
+        <h5>All jobs related to this company</h5>
+        {
+          jobs.map(job => (
+            <CompanyJob key={job.id} {...job} />
+          ))
+        }
       </div>
     </div>
   );

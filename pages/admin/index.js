@@ -27,26 +27,39 @@ const Admin = () => {
     return <h1>Loading</h1>;
   }
 
+  const handleSearch = (e) => {
+    const search = e.target.value;
+    const companies = document.querySelectorAll(".names");
+    companies.forEach(company => {
+      if (!company.textContent.toLowerCase().startsWith(search.toLowerCase())) {
+        company.parentNode.parentNode.style.display = "none";
+      }
+      else {
+        company.parentNode.parentNode.style.display = "flex";
+      }
+    })
+  }
+
   return (
     <div className={styles.admin}>
       <Meta title={"TadJobs - Companies"} />
-
       <div className="heading"></div>
       <div className={styles.companies}>
         {companies.length !== 0 && <div className={styles.companies_list}>
           <div className={styles.filter_options}>
-            <input type={"text"} />
-            <button><img src="/assets/slide.png" alt="" /></button>
+            <input type={"text"} onChange={handleSearch} />
           </div>
           {
             companies.map(({ fileUrl, name, id, background }) => {
               return (
                 <div key={id} className={styles.company}>
                   <div className={styles.avatar}>
-                    <img src={fileUrl} alt="" />
+                    <img src={fileUrl} alt={name + " logo"} />
                   </div>
                   <div className={styles.content}>
-                    <h3 className="names" onClick={(e) => openCompanyDetails(e, id)}>
+                    <h3
+                      className="names"
+                      onClick={(e) => openCompanyDetails(e, id)}>
                       {name}
                     </h3>
                     <small
