@@ -16,9 +16,7 @@ export const addUserName = async (name) => {
   return response;
 }
 
-export const changeUserName = (name) => {
-
-}
+export const changeUserName = (name) => { }
 
 export const loginWithEmailAndPassword = async ({ email, password }) => {
   const { user } = await signInWithEmailAndPassword(auth, email, password);

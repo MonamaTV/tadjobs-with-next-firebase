@@ -43,17 +43,14 @@ export const editJob = async (job, jobID) => {
     return updatedJob;
 }
 
-export const deleteJob = (job) => {
+export const deleteJob = (job) => { }
 
-}
 export const getJob = async (jobID) => {
-
     if (jobID === "") return null;
     const perform = query(doc(db, "jobs", jobID))
     const job = await getDoc(perform);
     //If job doesn't exist
     if (!job.exists()) return null;
-
     return {
         id: job.id,
         ...job.data()
@@ -63,9 +60,7 @@ export const getJob = async (jobID) => {
 export const getJobsByUser = async () => {
     const companyIDs = (await getCompaniesNamesAndIds())
         .map(company => company.id);
-
     if (companyIDs.length === 0) return null;
-
     const perform = query(jobsRef, where("companyID", "in", companyIDs));
     const documents = await getDocs(perform);
     //Jobs
@@ -77,10 +72,8 @@ export const getJobsByUser = async () => {
             ...job.data()
         });
     });
-
     return jobs;
 }
-
 //Public info
 export const getJobs = (job) => {
     //Todo: pagination, sort, search by location, and name, job type, seniority and salary range😭😩

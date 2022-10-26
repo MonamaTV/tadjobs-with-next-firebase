@@ -5,15 +5,11 @@ import { getUserDetails } from "./users";
 
 //Companies reference
 const companiesRef = collection(db, "companies");
-//One doc
 
 export const addNewCompany = async (company, file) => {
-
   if (!file) return null;
-
   const url = await addCompanyAvatar(file);
   company = { ...company, fileUrl: url };
-
   const response = await addDoc(companiesRef, company);
   return {
     ...response,
@@ -35,16 +31,13 @@ export const addCompanyAvatar = async (file) => {
 
 export const editCompany = async (company, file, companyID) => {
   if (companyID === "") return null;
-
   if (file !== null) {
     let url = await addCompanyAvatar(file);
     company = { ...company, fileUrl: url };
   }
-
   const updatedDoc = await setDoc(doc(db, "companies", companyID),
     company,
     { merge: true });
-
   return updatedDoc;
 };
 
@@ -64,8 +57,6 @@ export const getCompanies = async () => {
   });
   return docs;
 };
-
-
 
 export const getCompany = async (companyID) => {
   if (!companyID) return null;
