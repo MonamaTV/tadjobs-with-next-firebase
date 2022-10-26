@@ -40,7 +40,11 @@ const Login = () => {
     <div className={styles.authentication}>
       <Meta title={"TadJobs - Login"} />
       <div className={styles.login_header}>
-        <h3><Link href="/"><a >TadJobs</a></Link></h3>
+        <h3>
+          <Link href="/">
+            <a>TadJobs</a>
+          </Link>
+        </h3>
         <p>Welcome back, login and attract the best talent</p>
       </div>
       <LoginForm
