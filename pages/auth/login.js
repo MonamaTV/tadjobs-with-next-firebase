@@ -6,6 +6,7 @@ import { getSignedInUser, loginWithEmailAndPassword } from "../../src/controller
 import { authResponses } from "../../src/utils/responses";
 import Meta from "../../src/components/Meta";
 import Link from "next/link";
+
 const Login = () => {
   //State
   const user = {
