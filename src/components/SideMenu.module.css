@@ -54,6 +54,7 @@
   justify-content: center;
   border: 1px solid #e3e3e3;
   display: none;
+  z-index: 10;
 }
 .mobile_nav {
   width: 70%;
@@ -73,6 +74,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  color: #000;
 }
 .mobile_taps button {
   text-decoration: none;
@@ -93,15 +95,16 @@
 }
 .classic {
   position: absolute;
-  left: -20px;
+  left: -50px;
   bottom: 40px;
   background-color: #454343;
   padding: 10px;
-  width: 100px;
+  width: 140px;
   animation: move_ 200ms ease-in;
 }
 .classic a {
   color: #fff;
+  font-size: 14px;
 }
 
 /* Some animation */

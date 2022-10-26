@@ -125,3 +125,9 @@
   border: 1px solid #e3e3e3;
   color: #626262;
 }
+
+@media screen and (max-width: 649px) {
+  .job_info .desc * {
+    padding-right: 0;
+  }
+}
