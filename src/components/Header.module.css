@@ -17,7 +17,7 @@
 .search input {
   width: 400px;
   background: #fff;
-  box-shadow: 0 0 4px 0 #00000025;
+  border: 1px solid #d3d2d2;
 }
 .search button,
 .search input {

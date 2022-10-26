@@ -22,10 +22,10 @@
 
   outline: none;
   border: 1px solid #fff;
-  box-shadow: 0 0 4px 0 #00000030;
+  border: 1px solid #d3d2d2;
 }
 .update_form input {
-  box-shadow: 0 0 4px 0 #00000030;
+  border: 1px solid #d3d2d2;
 }
 .update_form .location {
   display: flex;
@@ -97,7 +97,7 @@
   margin: 13px 2px;
   outline: none;
   border: 1px solid #fff;
-  box-shadow: 0 0 4px 0 #00000030;
+  border: 1px solid #d3d2d2;
   resize: vertical;
   height: 100px;
 }
@@ -108,7 +108,7 @@
   margin: 13px 2px;
   outline: none;
   border: 1px solid #fff;
-  box-shadow: 0 0 4px 0 #00000030;
+  border: 1px solid #d3d2d2;
   resize: vertical;
   background: #fff !important;
 }

@@ -93,7 +93,7 @@
     padding-inline: 20px;
   }
   .searches input {
-    width: min-content;
+    width: 160px;
     padding: 8px 4px;
   }
   .searches button {
