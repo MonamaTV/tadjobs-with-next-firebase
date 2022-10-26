@@ -44,7 +44,11 @@ const Jobs = () => {
         }) => (
           <div key={id} className={styles.job} >
             <div className={styles.job_info} >
-              <h4><a href="/jobs" target={"_blank"} >{title}</a></h4>
+              <h4>
+                <Link href="/jobs" target={"_blank"} >
+                  <a>{title}</a>
+                </Link>
+              </h4>
               <h6>{normalDate(addedAt) || "N/A"}</h6>
               <small className={styles.desc} dangerouslySetInnerHTML={{ __html: about.slice(0, 300) + "..." }}>
               </small>

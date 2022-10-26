@@ -41,7 +41,7 @@ const LoginForm = ({ user, handleSubmission, error }) => {
 
             <button type="submit" disabled={isSubmitting}>Login</button>
             <Link href="/auth/register">
-              <a>Don't have account? Register</a>
+              <a>Don&apos;t have account? Register</a>
             </Link>
           </Form>
         )

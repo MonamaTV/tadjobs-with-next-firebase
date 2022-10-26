@@ -36,7 +36,7 @@ const Job = () => {
         <h3>More about the job</h3>
         <hr />
         <p>
-          Xcede has an exciting opportunity for a Software Developer with Nodejs experience to join a new business unit within Africa's largest
+          Xcede has an exciting opportunity for a Software Developer with Nodejs experience to join a new business unit within Africa&apos;s largest
           digital bank - think start-up without the risk! Key Functions and Responsibilities As a Software Developer you will be developing basic
           technical specifications from functional descriptions, perform quality checks, execute applications and systems performance analysis,
           recommend and implement improved methods, maintain and modify existing applications and systems, liaise with software vendors and external

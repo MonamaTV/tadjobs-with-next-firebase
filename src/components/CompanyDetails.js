@@ -9,7 +9,7 @@ const CompanyDetails = ({ companyID }) => {
     return (
       <div className={styles.empty_company}>
         <h2>Select a company</h2>
-        <p>Choose from your existing companies, create a new one, or refresh the page if you think there's an error</p>
+        <p>Choose from your existing companies, create a new one, or refresh the page if you think there&apos;s an error</p>
         <Link href="/admin/companies/add">
           <a>Create new company</a>
         </Link>

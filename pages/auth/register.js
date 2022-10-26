@@ -5,6 +5,7 @@ import RegisterForm from "../../src/components/RegisterForm";
 import { getSignedInUser, registerWithEmailAndPassword } from "../../src/controllers/users";
 import { authResponses } from "../../src/utils/responses";
 import styles from "../../styles/Auth.module.css";
+import Link from "next/link";
 const Register = () => {
 
   //Flags signed in user
@@ -40,7 +41,7 @@ const Register = () => {
       <Meta title={"TadJobs - Register"} />
 
       <div className={styles.login_header}>
-        <h3><a href="/">TadJobs</a></h3>
+        <h3><Link href="/"><a >TadJobs</a></Link></h3>
         <p>Register and find the best talent for the openings in your company</p>
       </div>
       <RegisterForm
