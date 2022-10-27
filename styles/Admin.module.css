@@ -258,6 +258,9 @@
   .empty_company {
     display: none;
   }
+  .loader {
+    display: none;
+  }
 
   .contain {
     width: 95%;

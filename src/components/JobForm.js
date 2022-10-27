@@ -18,7 +18,7 @@ const JobForm = ({ job, companies, handleAbout, about, handleSubmission, errors 
       onSubmit={handleSubmission}
     >
       {
-        ({ isValid, dirty }) => (
+        ({ isSubmitting }) => (
           <Form className={styles.job_form}>
             <Field
               placeholder="Title"
@@ -99,7 +99,7 @@ const JobForm = ({ job, companies, handleAbout, about, handleSubmission, errors 
             {errors.about && <p className={styles.errors}>{errors.about}</p>}
             {console.log((about === job.about))}
             <button
-              disabled={!(isValid && dirty)}
+              disabled={isSubmitting}
               className={styles.button}>
               Add new job
             </button>

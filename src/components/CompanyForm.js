@@ -33,7 +33,7 @@ const CompanyForm = (
       validationSchema={validateCompany}
       onSubmit={handleSubmit}
     >
-      {({ isValid, dirty }) => (
+      {({ isSubmitting }) => (
 
         <Form className={styles.update_form}>
           <label className={styles.change_image} htmlFor="newFileUrl">
@@ -137,7 +137,7 @@ const CompanyForm = (
 
           <button
             type="submit"
-            disabled={!(isValid && dirty)}
+            disabled={isSubmitting}
             className={styles.button}>
             Add company
           </button>
