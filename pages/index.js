@@ -28,6 +28,9 @@ export default function Home() {
           <Link href="/jobs/search">
             <a>Start searching</a>
           </Link>
+          <Link href="/companies/">
+            <a className={styles.companies}>Companies</a>
+          </Link>
         </div>
         <div className={styles.img}>
           <img src="/assets/cover.svg" alt="" />

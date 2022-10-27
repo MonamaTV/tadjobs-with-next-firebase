@@ -89,7 +89,6 @@ const AddNewCompany = () => {
         });
         return;
       }
-
       const newCompany = {
         ...values,
         background: background,

@@ -62,6 +62,7 @@
 .main a {
   background: #eff3e1;
   padding: 8px 30px;
+  border: 1px solid #fff;
   display: inline-block;
   text-decoration: none;
   color: #614e4e;
@@ -174,4 +175,11 @@
   .main .img {
     display: none;
   }
+}
+
+.main .companies {
+  border: 1px solid #eaeaea87;
+  color: #fff;
+  background: #665df5 !important;
+  margin: 0 5px;
 }

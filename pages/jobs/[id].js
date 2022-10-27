@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useQuery } from "react-query";
 import Loading from "../../src/components/Loading";
 import Nav from "../../src/components/Nav";
@@ -28,8 +29,10 @@ const Job = ({ id }) => {
           <img src={company.fileUrl} alt="" />
           <div className={styles.company_heading}>
             <h3>{job.title}</h3>
-            <h5>{company.name}</h5>
+            <Link href={"/"}><a className={styles.company_name}>{company.name}</a></Link>
+            <small dangerouslySetInnerHTML={{ __html: company.background.slice(0, 100) + "..." }}></small>
             {/* <h4>Sandton, South Africa</h4> */}
+
             <div className={styles.fine_details}>
               <div className={styles.details}>
                 <img src="/assets/map.png" alt="Location of the company" />
@@ -65,7 +68,12 @@ const Job = ({ id }) => {
             <img src="/assets/twitter.png" alt="" />
           </div>
         </div>
-        <a className={styles.apply_job}>Apply for this job</a>
+        <Link
+          href={"google.com"} >
+          <a target="_blank" className={styles.apply_job}>
+            Apply for this job
+          </a>
+        </Link>
       </div>
     </div>
   );

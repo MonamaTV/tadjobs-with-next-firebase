@@ -1,6 +1,6 @@
 import { getStorage, getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { db } from "./app";
-import { addDoc, collection, where, getDocs, query, getDoc, doc, setDoc } from "firebase/firestore";
+import { addDoc, collection, where, getDocs, query, getDoc, doc, setDoc, orderBy, limit } from "firebase/firestore";
 import { getUserDetails } from "./users";
 
 //Companies reference
@@ -96,3 +96,18 @@ export const getCompaniesNamesAndIds = async () => {
     }
   });
 };
+
+export const getCompaniesPublicInfo = async () => {
+  //Todo: pagination, search...
+  const perform = query(companiesRef, orderBy("name"), limit(20));
+  const results = await getDocs(perform);
+  const companies = [];
+  results.forEach(company => {
+    if (!company.exists()) return null;
+    companies.push({
+      id: company.id,
+      ...company.data()
+    });
+  });
+  return companies;
+}

@@ -2,6 +2,11 @@
   margin: 0 auto;
 }
 
+.company_name {
+  text-decoration: none;
+  color: #ff6584;
+}
+
 .job_header,
 .information {
   width: 80%;
@@ -37,6 +42,7 @@
   display: inline-block;
   border: 0;
   background: #ff6584;
+  text-decoration: none;
 }
 .fine_details {
   display: flex;
