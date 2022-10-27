@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useQuery } from "react-query";
+import Loading from "../../../src/components/Loading";
 import { getCompany } from "../../../src/controllers/companies";
 import styles from "../../../styles/Admin.module.css";
 
@@ -27,7 +28,7 @@ const CompanyDetails = () => {
                 <div className={styles.heading}>
                     <div className={styles.contain}>
                         <div className={styles.name}>
-                            <h2>Loading...</h2>
+                            <Loading />
                         </div>
                     </div>
                 </div>

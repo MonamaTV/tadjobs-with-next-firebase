@@ -5,7 +5,7 @@ const Selection = ({ label, options }) => {
     <div className={styles.selection}>
       <h4>{label} </h4>
       {options.map(opt => (
-        <label>
+        <label key={opt.value}>
           <input value={opt.value} type={"checkbox"} />
           {opt.name}
         </label>

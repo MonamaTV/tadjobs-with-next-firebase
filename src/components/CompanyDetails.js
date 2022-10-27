@@ -2,6 +2,7 @@ import styles from "../../styles/Admin.module.css";
 import { getCompany } from "../controllers/companies";
 import Link from "next/link";
 import { useQuery } from "react-query";
+import Loading from "./Loading";
 
 const CompanyDetails = ({ companyID }) => {
   const { data: company, isLoading } = useQuery(["companies", companyID], () => getCompany(companyID));
@@ -18,9 +19,8 @@ const CompanyDetails = ({ companyID }) => {
   }
   if (isLoading) {
     return (
-      <div className={styles.empty_company}>
-        <h2>Wait for it while we are fetching...</h2>
-        <p>😩</p>
+      <div className={styles.loader}>
+        <Loading />
       </div>
     );
   }

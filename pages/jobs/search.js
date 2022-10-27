@@ -1,5 +1,6 @@
 import { useQuery } from "react-query";
 import Job from "../../src/components/Job";
+import Loading from "../../src/components/Loading";
 import Nav from "../../src/components/Nav";
 import Selection from "../../src/components/Selection";
 import { getJobs } from "../../src/controllers/jobs";
@@ -9,12 +10,9 @@ import styles from "../../styles/Search.module.css";
 const Jobs = () => {
 
   const { data: jobs, isLoading } = useQuery(["jobs"], getJobs);
-  console.log(jobs);
   if (isLoading) {
     return (
-      <div className={styles.jobs}>
-        <h3>Loading...</h3>
-      </div>
+      <Loading />
     )
   }
 

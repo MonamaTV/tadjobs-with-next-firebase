@@ -5,6 +5,7 @@ import CompanyDetails from "../../src/components/CompanyDetails";
 import { useQuery } from "react-query";
 import Meta from "../../src/components/Meta";
 import { useRouter } from "next/router";
+import Loading from "../../src/components/Loading";
 
 const Admin = () => {
   const [companyID, setCompanyID] = useState(null);
@@ -28,7 +29,7 @@ const Admin = () => {
   };
 
   if (isLoading) {
-    return <h1>Loading</h1>;
+    return (<div className={styles.admin_loader}><Loading /></div>);
   }
 
   const handleSearch = (e) => {

@@ -35,6 +35,17 @@
   flex-direction: column;
 }
 
+.loader {
+  padding: 0 50px;
+  flex: 10;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
 .empty_company * {
   margin: 5px 0;
 }

@@ -7,6 +7,7 @@ import { useState } from "react";
 import Meta from "../../../../src/components/Meta";
 import { getJobsByCompany } from "../../../../src/controllers/jobs";
 import CompanyJob from "../../../../src/components/CompanyJob";
+import Loading from "../../../../src/components/Loading";
 
 const UpdateCompany = () => {
   const queryClient = useQueryClient();
@@ -99,7 +100,7 @@ const UpdateCompany = () => {
   }
 
   if (isLoading && !data) {
-    return <h1>Loading...</h1>
+    return <Loading />
   }
   company = Object.assign(company, data);
 
