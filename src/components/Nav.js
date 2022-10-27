@@ -1,8 +1,15 @@
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { auth } from "../controllers/app";
 const Nav = ({ text = "Login", bg = false }) => {
-  const user = auth.currentUser;
-  //This syntax because the authProvider doesn't provide cover the Nav
+  const [user, setUser] = useState(null);
+
+  //Since the component is not wrapped with the authProvider...
+  useEffect(() => {
+    setUser(() => {
+      return auth.currentUser;
+    });
+  }, [auth]);
   return (
     <div className="containers">
       <header>

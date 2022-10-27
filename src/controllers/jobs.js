@@ -96,8 +96,8 @@ export const getJobs = async (title, location, sort, type, seniority, salary) =>
     //Todo: pagination, sort, search by location, and name, job type, seniority and salary range😭😩
 
     const jobs = [];
-    const queryLocation = query(jobsRef, where("title", "==", title))
-    const results = await getDocs(queryLocation, limit(10));
+    const queryLocation = query(jobsRef, orderBy("addedAt"), limit(10))
+    const results = await getDocs(queryLocation);
     results.forEach(job => {
         if (!job.exists()) return null;
         jobs.push({

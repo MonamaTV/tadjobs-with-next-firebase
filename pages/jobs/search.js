@@ -3,11 +3,20 @@ import Job from "../../src/components/Job";
 import Nav from "../../src/components/Nav";
 import Selection from "../../src/components/Selection";
 import { getJobs } from "../../src/controllers/jobs";
+import { jobTypes, salaryRange, seniority } from "../../src/utils/app";
 import styles from "../../styles/Search.module.css";
 
 const Jobs = () => {
 
-  // const { data: jobs, isLoading } = useQuery(["jobs"], getJobs);
+  const { data: jobs, isLoading } = useQuery(["jobs"], getJobs);
+  console.log(jobs);
+  if (isLoading) {
+    return (
+      <div className={styles.jobs}>
+        <h3>Loading...</h3>
+      </div>
+    )
+  }
 
   return (
     <div className={styles.jobs}>
@@ -24,21 +33,26 @@ const Jobs = () => {
       </small>
       <div className={styles.results}>
         <div className={styles.filter}>
-          <Selection />
-          <Selection />
-          <Selection />
+          <Selection
+            options={jobTypes}
+            label={"Job type"}
+          />
+          <Selection
+            options={seniority}
+            label="Seniority"
+          />
+          <Selection
+            options={salaryRange}
+            label={"Salary"}
+          />
         </div>
         <div className={styles.available_jobs}>
-          <Job />
-          <Job />
-          <Job />
-          <Job />
-          <Job />
-          <Job />
-          <Job />
-          <Job />
-          <Job />
-          <Job />
+          {
+            jobs.map(job => (
+              <Job key={job.id} {...job} />
+            ))
+          }
+
         </div>
       </div>
     </div>

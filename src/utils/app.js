@@ -40,3 +40,39 @@ export const normalDate = (date) => {
     return `${day}/${month}/${year}`;
 
 }
+
+export const jobTypes = [{
+    value: 1,
+    name: "Office"
+}, {
+    value: 2,
+    name: "Remote"
+}, {
+    value: 3,
+    name: "Hybrid"
+}];
+
+export const salaryRange = [{
+    value: 1,
+    name: "<10 000"
+}, {
+    value: 2,
+    name: ">11 000"
+}, {
+    value: 3,
+    name: ">20 000"
+}, {
+    value: 4,
+    name: ">50 000"
+}];
+
+export const seniority = [{
+    value: 1,
+    name: "Entry"
+}, {
+    value: 2,
+    name: "Intermediate"
+}, {
+    value: 3,
+    name: "Senior"
+}];

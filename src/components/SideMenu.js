@@ -82,7 +82,6 @@ export default function SideMenu() {
               </Link>
             </li>
             <li>
-              {/* <Link href={"/admin/jobs"}> */}
               <button onClick={() => setProfile(!profile)}>
                 <img src="/assets/profile.png" alt="" />
                 Profile
@@ -99,7 +98,6 @@ export default function SideMenu() {
                   </div>
                 )}
               </button>
-              {/* </Link> */}
             </li>
             <li>
               <button onClick={() => setClassic(!classic)}>

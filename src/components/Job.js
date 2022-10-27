@@ -1,30 +1,24 @@
 import Link from "next/link";
+import { normalDate } from "../utils/app";
 import styles from "./Job.module.css";
-const Job = () => {
+const Job = (
+  { title, location, minSalary, maxSalary, closingDate, seniority, about, addedAt, id }) => {
   return (
-    <Link href="/jobs/">
+    <Link href={"/jobs/" + id}>
       <a className={styles.job}>
-        <div className={styles.logo}>
-          {/* <img
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/2048px-Spotify_logo_without_text.svg.png"
-            alt=""
-          /> */}
-        </div>
         <div className={styles.job_details}>
-          <h3>Senior Mobile Engineer</h3>
-          <small>Posted: 22 Aug 2022</small>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum neque necessitatibus ad saepe facere! Doloremque atque consequuntur natus
-            officiis molestiae laudantium totam, eum rerum deserunt, soluta obcaecati, illo suscipit eos?
+          <h3>{title} </h3>
+          <small>Posted: {normalDate(addedAt)}</small>
+          <p dangerouslySetInnerHTML={{ __html: about.slice(0, 240) + "..." }}>
           </p>
           <div className={styles.fine_details}>
             <div className={styles.details}>
               <img src="/assets/map.png" alt="Location of the company" />
-              <small>Johannesburg</small>
+              <small>{location} </small>
             </div>
             <div className={styles.details}>
               <img src="/assets/money.png" alt="Salary of the job" />
-              <small>R20 000 - R40 000</small>
+              <small>R{minSalary} - R{maxSalary}</small>
             </div>
             <div className={styles.details}>
               <img src="/assets/job.png" alt="Seniority of the job" />
@@ -32,7 +26,7 @@ const Job = () => {
             </div>
             <div className={styles.details}>
               <img src="/assets/calendar.png" alt="Seniority of the job" />
-              <small>21-09-22</small>
+              <small>{closingDate}</small>
             </div>
           </div>
         </div>

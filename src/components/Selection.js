@@ -1,21 +1,15 @@
 import styles from "./Selection.module.css";
 
-const Selection = ({ options }) => {
+const Selection = ({ label, options }) => {
   return (
     <div className={styles.selection}>
-      <h4>Job type</h4>
-      <label>
-        <input type={"checkbox"} />
-        Office
-      </label>
-      <label>
-        <input type={"checkbox"} />
-        Remote
-      </label>
-      <label>
-        <input type={"checkbox"} />
-        Hybrid
-      </label>
+      <h4>{label} </h4>
+      {options.map(opt => (
+        <label>
+          <input value={opt.value} type={"checkbox"} />
+          {opt.name}
+        </label>
+      ))}
     </div>
   );
 };

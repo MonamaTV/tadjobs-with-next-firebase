@@ -17,7 +17,11 @@ function MyApp({ Component, pageProps, ...appProps }) {
       </AppQueryClientProvider>
     );
   }
-  return <Component {...pageProps} />;
+  return (
+    <AppQueryClientProvider>
+      <Component {...pageProps} />
+    </AppQueryClientProvider>
+  );
 }
 
 export default MyApp;
