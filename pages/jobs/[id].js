@@ -1,32 +1,51 @@
+import { useQuery } from "react-query";
+import Loading from "../../src/components/Loading";
 import Nav from "../../src/components/Nav";
+import { getCompanyPublicInfo } from "../../src/controllers/companies";
+import { getJob } from "../../src/controllers/jobs";
+import { seniorityLevel } from "../../src/utils/app";
 import styles from "../../styles/Job.module.css";
-const Job = () => {
+const Job = ({ id }) => {
+  //Get job
+  const { data: job, isLoading } = useQuery(["jobs", id], () => getJob(id));
+
+  const { isIdle, data: company, isLoading: comLoading } = useQuery(['companeis', job?.companyID],
+    () => getCompanyPublicInfo(job?.companyID), {
+    enabled: !!job?.companyID,
+  });
+
+
+
+  if (isLoading || isIdle || comLoading) {
+    return <Loading />
+  }
+
   return (
     <div className={styles.job}>
       <Nav bg={true} />
       <div className={styles.job_header}>
         <div className={styles.company}>
-          <img src="https://www.filepicker.io/api/file/EYebocuvR6y18pfoxTdM/convert?fit=clip&h=304&w=304" alt="" />
+          <img src={company.fileUrl} alt="" />
           <div className={styles.company_heading}>
-            <h5>Facebook Inc.</h5>
-            <h3>Mobile App Engineer</h3>
-            <h4>Sandton, South Africa</h4>
+            <h3>{job.title}</h3>
+            <h5>{company.name}</h5>
+            {/* <h4>Sandton, South Africa</h4> */}
             <div className={styles.fine_details}>
               <div className={styles.details}>
                 <img src="/assets/map.png" alt="Location of the company" />
-                <small>Johannesburg</small>
+                <small>{job.location}</small>
               </div>
               <div className={styles.details}>
                 <img src="/assets/money.png" alt="Salary of the job" />
-                <small>R20 000 - R40 000</small>
+                <small>R{job.minSalary} - R{job.maxSalary}</small>
               </div>
               <div className={styles.details}>
                 <img src="/assets/job.png" alt="Seniority of the job" />
-                <small>Senior</small>
+                <small>{seniorityLevel(job.seniority)}</small>
               </div>
               <div className={styles.details}>
                 <img src="/assets/calendar.png" alt="Seniority of the job" />
-                <small>21-09-22</small>
+                <small>{(job.closingDate)}</small>
               </div>
             </div>
           </div>
@@ -34,18 +53,31 @@ const Job = () => {
       </div>
       <div className={styles.information}>
         <h3>More about the job</h3>
-        <hr />
-        <p>
-          Xcede has an exciting opportunity for a Software Developer with Nodejs experience to join a new business unit within Africa&apos;s largest
-          digital bank - think start-up without the risk! Key Functions and Responsibilities As a Software Developer you will be developing basic
-          technical specifications from functional descriptions, perform quality checks, execute applications and systems performance analysis,
-          recommend and implement improved methods, maintain and modify existing applications and systems, liaise with software vendors and external
-          parties.
-        </p>
+        {/* <hr /> */}
+        <div className={styles.more_info}>
+          <p dangerouslySetInnerHTML={{ __html: job.about }}>
+          </p>
+          <div className={styles.share}>
+            <h4>Share</h4>
+            <img src="/assets/linkedin.png" alt="" />
+            <img src="/assets/facebook.png" alt="" />
+            <img src="/assets/whatsapp.png" alt="" />
+            <img src="/assets/twitter.png" alt="" />
+          </div>
+        </div>
         <a className={styles.apply_job}>Apply for this job</a>
       </div>
     </div>
   );
 };
+
+export async function getServerSideProps({ query }) {
+  const { id } = query;
+  return {
+    props: {
+      id
+    }
+  }
+}
 
 export default Job;

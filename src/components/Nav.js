@@ -15,7 +15,7 @@ const Nav = ({ text = "Login", bg = false }) => {
       <header>
         <nav>
           <Link href="/">
-            <a className="logo" style={{ color: bg && "#665df5" }}>
+            <a className="logo" style={{ color: "#665df5" }}>
               TadJobs
             </a>
           </Link>

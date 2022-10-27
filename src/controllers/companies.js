@@ -74,6 +74,19 @@ export const getCompany = async (companyID) => {
   };
 };
 
+export const getCompanyPublicInfo = async (companyID) => {
+  if (!companyID) return null;
+  const perform = query(doc(db, "companies", companyID));
+  const result = await getDoc(perform);
+  //If the result's not exist
+  if (!result.exists()) return null;
+  //If userID don't match on top of the security rules on the cloud
+  return {
+    id: result.id,
+    ...result.data(),
+  };
+}
+
 export const getCompaniesNamesAndIds = async () => {
   const companies = await getCompanies();
   return companies.map(company => {

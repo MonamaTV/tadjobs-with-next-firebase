@@ -99,7 +99,7 @@ const JobForm = ({ job, companies, handleAbout, about, handleSubmission, errors 
             {errors.about && <p className={styles.errors}>{errors.about}</p>}
             {console.log((about === job.about))}
             <button
-              disabled={isSubmitting}
+              // disabled={ }
               className={styles.button}>
               Add new job
             </button>

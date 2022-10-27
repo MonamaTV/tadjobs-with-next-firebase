@@ -8,12 +8,28 @@
   margin: 0 auto;
   padding: 2em 9em;
   background: #fff;
-  box-shadow: 0 0 4px 0 #00000030;
+  border: 1px solid #e3e3e3;
 }
-
+.more_info {
+  display: flex;
+  flex-wrap: wrap;
+}
+.more_info p {
+  flex: 4;
+}
 .information {
   margin: 10px auto;
+  /* padding-right: 300px; */
 }
+.information p {
+  margin: 10px 0;
+  font-size: 13px;
+}
+
+.information p ul {
+  margin-left: 40px;
+}
+
 .apply_job {
   color: #fff;
   padding: 9px;
@@ -25,6 +41,7 @@
 .fine_details {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
 }
 
@@ -54,4 +71,56 @@
 
 .company {
   display: flex;
+}
+
+.share {
+  flex: 1;
+  /* display: flex; */
+  border: 1px solid #e3e3e3;
+  padding: 0 20px;
+  margin: 10px 20px;
+  height: 75px;
+  color: rgb(99, 99, 99);
+  width: 100%;
+  /* flex-direction: row; */
+}
+
+.share img {
+  padding-top: 4px;
+  width: 20px;
+  margin: 5px;
+}
+
+@media screen and (max-width: 649px) {
+  .job_header {
+    width: 100%;
+    margin: 0px auto;
+    background: #fff;
+    border: 1px solid #e3e3e3;
+    padding: 10px 2em;
+  }
+  .company {
+    display: flex;
+    flex-direction: column;
+  }
+  .more_info {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .company > img {
+    width: 40px;
+    height: 40px;
+  }
+  .information {
+    width: 100%;
+    margin-top: 10px;
+    padding: 2em 2em;
+    background: #fff;
+    border: 1px solid #e3e3e3;
+  }
+  .share {
+    width: 100%;
+    margin: 10px 0;
+  }
 }

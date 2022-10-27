@@ -32,8 +32,13 @@
   font-size: 15px;
 }
 .job_details p {
-  font-size: 14px;
+  font-size: 14px !important;
   color: #353636;
+}
+.job_details p * {
+  font-size: 14px !important;
+  color: #353636;
+  font-weight: normal;
 }
 
 .fine_details img {
