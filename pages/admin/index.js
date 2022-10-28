@@ -6,6 +6,7 @@ import { useQuery } from "react-query";
 import Meta from "../../src/components/Meta";
 import { useRouter } from "next/router";
 import Loading from "../../src/components/Loading";
+import Link from "next/link";
 
 const Admin = () => {
   const [companyID, setCompanyID] = useState(null);
@@ -47,6 +48,18 @@ const Admin = () => {
       }
     });
   };
+
+  if (companies.length <= 0) {
+    return (
+      <div className={styles.mobile_empty_company}>
+        <h2>Select a company</h2>
+        <p>Choose from your existing companies, create a new one, or refresh the page if you think there&apos;s an error</p>
+        <Link href="/admin/companies/add">
+          <a>Create new company</a>
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.admin}>
