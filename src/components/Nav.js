@@ -9,7 +9,7 @@ const Nav = ({ text = "Login", bg = false }) => {
     setUser(() => {
       return auth.currentUser;
     });
-  }, [auth]);
+  }, [auth, user]);
   return (
     <div className="containers">
       <header>
