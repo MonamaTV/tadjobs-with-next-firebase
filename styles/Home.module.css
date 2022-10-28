@@ -176,7 +176,7 @@
     display: none;
   }
   .container header nav a {
-    padding: 4px 10px;
+    /* padding: inherit; */
   }
 }
 

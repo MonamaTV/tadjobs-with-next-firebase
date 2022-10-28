@@ -109,7 +109,7 @@ button:disabled {
     padding-inline: 0;
   }
   .containers header nav a {
-    padding: 4px 10px;
+    /* padding: 4px 10px; */
     font-size: 13px;
   }
 }
@@ -126,7 +126,7 @@ select {
     height: 85vh;
   }
   header {
-    height: min-content;
+    /* height: min-content; */
   }
 }
 .mantine-1qycoz3 {
