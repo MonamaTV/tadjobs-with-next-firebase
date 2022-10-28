@@ -29,6 +29,12 @@ const Jobs = () => {
     <div className={styles.jobs}>
       <Meta title={"TadJobs - all the jobs"} />
       <div className={styles.options}>
+        <Link href="/admin/jobs/add">
+          <a>
+            <img src="/assets/plus.png" alt="" />
+            Add
+          </a>
+        </Link>
         <select>
           <option value="">SORT</option>
           <option value="">By date</option>

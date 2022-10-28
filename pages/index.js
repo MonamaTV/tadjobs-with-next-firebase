@@ -10,8 +10,12 @@ export default function Home() {
       <Meta title={"TadJobs - Home"} description={"Find Your Dream Job At Ease From The Best"} />
 
       <Head>
-        <title>TadJobs</title>
-        <meta name="description" content="Find the best jobs" />
+        <title>TadJobs - Home For Best Tech Jobs</title>
+        <meta
+          name="description"
+          content="The best companies, best jobs. The developer job platform that has your back - complete with your own dev career coach and upfront salary
+            info."
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Nav />
