@@ -29,53 +29,52 @@ const Admin = () => {
   };
 
   if (isLoading) {
-    return (<div className={styles.admin_loader}><Loading /></div>);
+    return (
+      <div className={styles.admin_loader}>
+        <Loading />
+      </div>
+    );
   }
 
   const handleSearch = (e) => {
     const search = e.target.value;
     const companies = document.querySelectorAll(".names");
-    companies.forEach(company => {
+    companies.forEach((company) => {
       if (!company.textContent.toLowerCase().startsWith(search.toLowerCase())) {
         company.parentNode.parentNode.style.display = "none";
-      }
-      else {
+      } else {
         company.parentNode.parentNode.style.display = "flex";
       }
-    })
-  }
+    });
+  };
 
   return (
     <div className={styles.admin}>
       <Meta title={"TadJobs - Companies"} />
       <div className="heading"></div>
       <div className={styles.companies}>
-        {companies.length !== 0 && <div className={styles.companies_list}>
-          <div className={styles.filter_options}>
-            <input type={"text"} onChange={handleSearch} placeholder={"Start typing..."} />
-          </div>
-          {
-            companies.map(({ fileUrl, name, id, background }) => {
+        {companies.length !== 0 && (
+          <div className={styles.companies_list}>
+            <div className={styles.filter_options}>
+              <input type={"text"} onChange={handleSearch} placeholder={"Start typing..."} />
+            </div>
+            {companies.map(({ fileUrl, name, id, background }) => {
               return (
                 <div key={id} className={styles.company}>
                   <div className={styles.avatar}>
-                    <img src={fileUrl} alt={name + " logo"} />
+                    <img loading="lazy" src={fileUrl} alt={name + " logo"} />
                   </div>
                   <div className={styles.content}>
-                    <h3
-                      className="names"
-                      onClick={(e) => openCompanyDetails(e, id)}>
+                    <h3 className="names" onClick={(e) => openCompanyDetails(e, id)}>
                       {name}
                     </h3>
-                    <small
-                      className={styles.preview}
-                      dangerouslySetInnerHTML={{ __html: background.slice(0, 150) + "..." }}>
-                    </small>
+                    <small className={styles.preview} dangerouslySetInnerHTML={{ __html: background.slice(0, 150) + "..." }}></small>
                   </div>
                 </div>
               );
             })}
-        </div>}
+          </div>
+        )}
         <CompanyDetails companyID={companyID} />
       </div>
     </div>

@@ -7,10 +7,7 @@ import styles from "../styles/Home.module.css";
 export default function Home() {
   return (
     <div className={styles.container}>
-      <Meta
-        title={"TadJobs - Home"}
-        description={"Find Your Dream Job At Ease From The Best"}
-      />
+      <Meta title={"TadJobs - Home"} description={"Find Your Dream Job At Ease From The Best"} />
 
       <Head>
         <title>TadJobs</title>
@@ -33,7 +30,7 @@ export default function Home() {
           </Link>
         </div>
         <div className={styles.img}>
-          <img src="/assets/cover.svg" alt="" />
+          <img loading="lazy" src="/assets/cover.svg" alt="" />
         </div>
       </main>
 

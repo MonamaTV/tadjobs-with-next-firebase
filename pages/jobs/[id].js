@@ -27,7 +27,7 @@ const Job = ({ id }) => {
       <Nav bg={true} />
       <div className={styles.job_header}>
         <div className={styles.company}>
-          <img src={company.fileUrl} alt="" />
+          <img src={company.fileUrl} alt="" loading="lazy" />
           <div className={styles.company_heading}>
             <h3>{job.title}</h3>
             <Link href={"/companies/" + company.id}>

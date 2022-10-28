@@ -36,7 +36,7 @@ const Company = ({ id }) => {
             </h3>
             <div className={styles.cards}>
               <div className={styles.card}>
-                <img src="/assets/website.png" alt="" />
+                <img loading="lazy" src="/assets/website.png" alt="" />
                 <div>
                   <p>Official website</p>
                   <small>
@@ -45,14 +45,14 @@ const Company = ({ id }) => {
                 </div>
               </div>
               <div className={styles.card}>
-                <img src="/assets/location.png" alt="" />
+                <img loading="lazy" src="/assets/location.png" alt="" />
                 <div>
                   <p>Location</p>
                   <small>South Africa, Pretoria</small>
                 </div>
               </div>
               <div className={styles.card}>
-                <img src="/assets/workers.png" alt="" />
+                <img loading="lazy" src="/assets/workers.png" alt="" />
                 <div>
                   <p>Company size</p>
                   <small>200+</small>

@@ -41,13 +41,13 @@ const CompanyDetails = () => {
             <h5>{company.name}</h5>
             <a href={"/admin/companies/edit/" + id}>
               {" "}
-              <img src="/assets/edit.png" alt="" />
-              <img src="/assets/delete.png" alt="" />
+              <img loading="lazy" src="/assets/edit.png" alt="" />
+              <img loading="lazy" src="/assets/delete.png" alt="" />
             </a>
           </div>
           <div className={styles.cards}>
             <div className={styles.card}>
-              <img src="/assets/website.png" alt="" />
+              <img loading="lazy" src="/assets/website.png" alt="" />
               <div>
                 <p>Official website</p>
                 <small>
@@ -56,14 +56,14 @@ const CompanyDetails = () => {
               </div>
             </div>
             <div className={styles.card}>
-              <img src="/assets/location.png" alt="" />
+              <img loading="lazy" src="/assets/location.png" alt="" />
               <div>
                 <p>Location</p>
                 <small>{company.location.country}</small>
               </div>
             </div>
             <div className={styles.card}>
-              <img src="/assets/workers.png" alt="" />
+              <img loading="lazy" src="/assets/workers.png" alt="" />
               <div>
                 <p>Company size</p>
                 <small>{company.companySize}+</small>

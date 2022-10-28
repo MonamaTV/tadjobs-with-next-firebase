@@ -27,7 +27,7 @@ const PublicCompanies = () => {
         <div className={styles.companies_list}>
           {companies.map(({ id, name, fileUrl, background }) => (
             <div key={id} className={styles.company}>
-              <img src={fileUrl} alt="" />
+              <img loading="lazy" src={fileUrl} alt="" />
               <div className={styles.info}>
                 <Link href={"/companies/" + id}>
                   <a>

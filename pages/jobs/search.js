@@ -8,12 +8,9 @@ import { jobTypes, salaryRange, seniority } from "../../src/utils/app";
 import styles from "../../styles/Search.module.css";
 
 const Jobs = () => {
-
   const { data: jobs, isLoading } = useQuery(["jobs"], getJobs);
   if (isLoading) {
-    return (
-      <Loading />
-    )
+    return <Loading />;
   }
 
   return (
@@ -31,26 +28,14 @@ const Jobs = () => {
       </small>
       <div className={styles.results}>
         <div className={styles.filter}>
-          <Selection
-            options={jobTypes}
-            label={"Job type"}
-          />
-          <Selection
-            options={seniority}
-            label="Seniority"
-          />
-          <Selection
-            options={salaryRange}
-            label={"Salary"}
-          />
+          <Selection options={jobTypes} label={"Job type"} />
+          <Selection options={seniority} label="Seniority" />
+          <Selection options={salaryRange} label={"Salary"} />
         </div>
         <div className={styles.available_jobs}>
-          {
-            jobs.map(job => (
-              <Job key={job.id} {...job} />
-            ))
-          }
-
+          {jobs.map((job) => (
+            <Job key={job.id} {...job} />
+          ))}
         </div>
       </div>
     </div>
