@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "../../styles/PublicCompany.module.css";
 import CompanyJobs from "./CompanyJobs";
 
@@ -8,9 +9,9 @@ const Taps = ({ tap, jobs, background }) => {
         <div className={styles.background}>
           <h2>About company</h2>
           <div dangerouslySetInnerHTML={{ __html: background }}></div>
-          <a className={styles.website} href="/">
-            Visit our website
-          </a>
+          <Link href="/">
+            <a className={styles.website}>Visit our website</a>
+          </Link>
         </div>
       );
     case 2:
@@ -24,9 +25,9 @@ const Taps = ({ tap, jobs, background }) => {
         <div className={styles.background}>
           <h2>About company</h2>
           <div dangerouslySetInnerHTML={{ __html: background }}></div>
-          <a className={styles.website} href="/">
-            Visit our website
-          </a>
+          <Link href="/">
+            <a className={styles.website}>Visit our website</a>
+          </Link>
         </div>
       );
   }
