@@ -10,15 +10,16 @@ const Job = ({ id }) => {
   //Get job
   const { data: job, isLoading } = useQuery(["jobs", id], () => getJob(id));
 
-  const { isIdle, data: company, isLoading: comLoading } = useQuery(['companeis', job?.companyID],
-    () => getCompanyPublicInfo(job?.companyID), {
+  const {
+    isIdle,
+    data: company,
+    isLoading: comLoading,
+  } = useQuery(["companeis", job?.companyID], () => getCompanyPublicInfo(job?.companyID), {
     enabled: !!job?.companyID,
   });
 
-
-
   if (isLoading || isIdle || comLoading) {
-    return <Loading />
+    return <Loading />;
   }
 
   return (
@@ -29,7 +30,9 @@ const Job = ({ id }) => {
           <img src={company.fileUrl} alt="" />
           <div className={styles.company_heading}>
             <h3>{job.title}</h3>
-            <Link href={"/"}><a className={styles.company_name}>{company.name}</a></Link>
+            <Link href={"/companies/" + company.id}>
+              <a className={styles.company_name}>{company.name}</a>
+            </Link>
             <small dangerouslySetInnerHTML={{ __html: company.background.slice(0, 100) + "..." }}></small>
             {/* <h4>Sandton, South Africa</h4> */}
 
@@ -40,7 +43,9 @@ const Job = ({ id }) => {
               </div>
               <div className={styles.details}>
                 <img src="/assets/money.png" alt="Salary of the job" />
-                <small>R{job.minSalary} - R{job.maxSalary}</small>
+                <small>
+                  R{job.minSalary} - R{job.maxSalary}
+                </small>
               </div>
               <div className={styles.details}>
                 <img src="/assets/job.png" alt="Seniority of the job" />
@@ -48,7 +53,7 @@ const Job = ({ id }) => {
               </div>
               <div className={styles.details}>
                 <img src="/assets/calendar.png" alt="Seniority of the job" />
-                <small>{(job.closingDate)}</small>
+                <small>{job.closingDate}</small>
               </div>
             </div>
           </div>
@@ -58,8 +63,7 @@ const Job = ({ id }) => {
         <h3>More about the job</h3>
         {/* <hr /> */}
         <div className={styles.more_info}>
-          <p dangerouslySetInnerHTML={{ __html: job.about }}>
-          </p>
+          <p dangerouslySetInnerHTML={{ __html: job.about }}></p>
           <div className={styles.share}>
             <h4>Share</h4>
             <img src="/assets/linkedin.png" alt="" />
@@ -68,8 +72,7 @@ const Job = ({ id }) => {
             <img src="/assets/twitter.png" alt="" />
           </div>
         </div>
-        <Link
-          href={"google.com"} >
+        <Link href={"google.com"}>
           <a target="_blank" className={styles.apply_job}>
             Apply now
           </a>
@@ -83,9 +86,9 @@ export async function getServerSideProps({ query }) {
   const { id } = query;
   return {
     props: {
-      id
-    }
-  }
+      id,
+    },
+  };
 }
 
 export default Job;
