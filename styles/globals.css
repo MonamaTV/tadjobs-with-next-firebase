@@ -109,7 +109,8 @@ button:disabled {
     padding-inline: 0;
   }
   .containers header nav a {
-    padding: 6px 10px;
+    padding: 4px 10px;
+    font-size: 13px;
   }
 }
 input,

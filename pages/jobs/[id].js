@@ -71,7 +71,7 @@ const Job = ({ id }) => {
         <Link
           href={"google.com"} >
           <a target="_blank" className={styles.apply_job}>
-            Apply for this job
+            Apply now
           </a>
         </Link>
       </div>

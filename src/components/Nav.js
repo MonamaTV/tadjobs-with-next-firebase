@@ -20,7 +20,7 @@ const Nav = ({ text = "Login", bg = false }) => {
             </a>
           </Link>
           <Link href={user ? "/admin" : "/auth/login"}>
-            <a>{user ? 'Manage' : text}</a>
+            <a>{user ? "Manage" : text}</a>
           </Link>
         </nav>
       </header>

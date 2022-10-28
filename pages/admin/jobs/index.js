@@ -45,8 +45,8 @@ const Jobs = () => {
           <div key={id} className={styles.job} >
             <div className={styles.job_info} >
               <h4>
-                <Link href="/jobs" target={"_blank"} >
-                  <a>{title}</a>
+                <Link href={"/jobs/" + id} >
+                  <a target={"_blank"}>{title}</a>
                 </Link>
               </h4>
               <h6>{normalDate(addedAt) || "N/A"}</h6>

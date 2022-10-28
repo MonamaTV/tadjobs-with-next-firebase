@@ -77,6 +77,7 @@ const UpdateCompany = () => {
         background: " "
       });
       await mutation.mutateAsync([values, img]);
+      router.push("/admin/companies/" + id);
     } catch (error) {
       console.log(error);
     }

@@ -44,6 +44,10 @@
   margin: 10px auto;
   border: 1px solid #e3e3e3;
 }
+.company .info a {
+  color: rgba(0, 0, 0, 0.812);
+  text-decoration: none;
+}
 .company:hover h4 {
   text-decoration: #ff6584 2px underline;
 }

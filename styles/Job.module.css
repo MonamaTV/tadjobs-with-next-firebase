@@ -28,6 +28,7 @@
 }
 .information p {
   margin: 10px 0;
+  margin-top: 3px;
   font-size: 13px;
 }
 
@@ -37,11 +38,13 @@
 
 .apply_job {
   color: #fff;
-  padding: 9px;
+  padding: 7px;
   outline: 0;
+  font-size: 12px;
   display: inline-block;
   border: 0;
-  background: #ff6584;
+  background: #fa5979;
+  border-radius: 20px;
   text-decoration: none;
 }
 .fine_details {

@@ -55,6 +55,10 @@
   color: rgb(77, 74, 74);
 }
 
+.job_info h4 a {
+  color: #ff6584;
+}
+
 .job_info p {
   color: #665df5;
 }
