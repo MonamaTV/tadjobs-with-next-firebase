@@ -62,8 +62,8 @@
   width: 90%;
   margin: 0 auto;
   height: 120px;
-  background: linear-gradient(#ff658470, #ff658470, #ff658470), url("../public/assets/union.PNG");
-  background-position: center;
+  background: linear-gradient(#ff658470, #ff658470, #ff658470), url("../public/assets/capture.jpg");
+  background-position: bottom;
 }
 
 .container {
