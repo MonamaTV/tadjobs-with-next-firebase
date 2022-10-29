@@ -21,7 +21,7 @@ export default function Home() {
       <Nav />
       <main className={styles.main}>
         <div className={styles.content}>
-          <h2>Find Your Dream Job At Ease From The Best</h2>
+          <h2>Find your dream job at ease from the best</h2>
           <p>
             The best companies, best jobs. The developer job platform that has your back - complete with your own dev career coach and upfront salary
             info.
