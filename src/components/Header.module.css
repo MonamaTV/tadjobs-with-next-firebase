@@ -10,6 +10,9 @@
   text-decoration: none;
   font-weight: 600;
 }
+.logo span {
+  color: #ff6584;
+}
 
 .search {
   margin: 0 auto;

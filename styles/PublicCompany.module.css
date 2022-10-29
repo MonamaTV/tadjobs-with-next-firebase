@@ -77,9 +77,14 @@
 
 .container h3 {
   margin: 10px 30px;
+  display: flex;
 }
 .container h3 img {
   width: 20px;
+  margin-right: 10px;
+}
+.cards {
+  border-top: 1px solid #e3e3e38f;
 }
 .cards,
 .card {

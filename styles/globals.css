@@ -96,6 +96,9 @@ button:disabled {
   font-size: 20px;
   font-weight: 600;
 }
+.containers .logo span {
+  color: #ff6584;
+}
 
 .active_company {
   border-left: 2px solid #ff6584;

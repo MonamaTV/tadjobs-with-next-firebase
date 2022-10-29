@@ -16,7 +16,7 @@ const Nav = ({ text = "Login", bg = false }) => {
         <nav>
           <Link href="/">
             <a className="logo" style={{ color: "#665df5" }}>
-              TadJobs
+              DiSpane
             </a>
           </Link>
           <Link href={user ? "/admin" : "/auth/login"}>

@@ -28,11 +28,7 @@ const Company = ({ id }) => {
         <header className={styles.header}>
           <div className={styles.container}>
             <h3>
-              {/* <img
-                src="https://firebasestorage.googleapis.com/v0/b/tadjobs-6ed0d.appspot.com/o/avatars%2FInstagram_logo_2016.svg.jpg?alt=media&token=a22892b9-372b-4198-b825-b674acb7907e"
-                alt=""
-              />{" "} */}
-              {company.name}
+              <img src={company.fileUrl} alt="" /> {company.name}
             </h3>
             <div className={styles.cards}>
               <div className={styles.card}>
