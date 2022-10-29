@@ -28,6 +28,7 @@
   border: 1px solid #e3e3e3;
   padding: 10px 40px;
   margin-bottom: 40px;
+  color: #353636;
 }
 .company_jobs {
   width: 62%;
@@ -78,6 +79,7 @@
 .container h3 {
   margin: 10px 30px;
   display: flex;
+  color: #353636;
 }
 .container h3 img {
   width: 20px;
