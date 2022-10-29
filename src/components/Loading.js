@@ -1,5 +1,8 @@
 const Loading = () => (
-    <div className="lds-ripple"><div></div><div></div></div>
-)
+  <div className="lds-ripple">
+    {/* <div></div> */}
+    <div></div>
+  </div>
+);
 
 export default Loading;

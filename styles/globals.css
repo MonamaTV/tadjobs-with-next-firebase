@@ -125,9 +125,6 @@ select {
     margin: 0 0px;
     height: 85vh;
   }
-  header {
-    /* height: min-content; */
-  }
 }
 .mantine-1qycoz3 {
   border-radius: 0px;
@@ -137,16 +134,16 @@ select {
 .lds-ripple {
   display: block;
   position: relative;
-  /* width: 100%; */
+  width: 100%;
   margin: 0 auto;
-  height: 80px;
+  height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .lds-ripple div {
-  position: absolute;
-  border: 4px solid #665df5;
+  /* position: absolute; */
+  border: 5px solid #665df5;
   opacity: 1;
   border-radius: 50%;
   animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
@@ -182,5 +179,70 @@ select {
     width: 72px;
     height: 72px;
     opacity: 0;
+  }
+}
+
+/* The not found page */
+.not_found {
+  width: 90%;
+  height: 80vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.not_found img {
+  width: 400px;
+}
+
+.not_found_message h1 {
+  font-size: 50px;
+  font-weight: 600;
+  color: #555;
+}
+.not_found_message h3 {
+  color: #555;
+}
+
+.not_found_message a {
+  text-decoration: none;
+  padding: 5px 10px;
+  display: inline-block;
+  margin: 10px 10px 0 0;
+  color: #fff;
+  border: 2px solid #665df5;
+  background: #665df5;
+}
+.not_found_message a.job {
+  /* background: ; */
+  color: #675df5cf;
+  border: 2px solid #675df585;
+
+  background: inherit;
+}
+
+@media screen and (max-width: 440px) {
+  .not_found {
+    flex-direction: column;
+  }
+  .not_found_message h1 {
+    font-size: 30px;
+    font-weight: 600;
+    color: #555;
+  }
+  .not_found_message h3 {
+    color: #555;
+    font-size: 15px;
+  }
+  .not_found_message a {
+    font-size: 11px;
+  }
+  .not_found img {
+    width: 200px;
+  }
+  .not_found_message {
+    text-align: center;
   }
 }

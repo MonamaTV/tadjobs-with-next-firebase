@@ -1,12 +1,13 @@
 import JobForm from "../../../src/components/JobForm";
 import styles from "../../../styles/AddJob.module.css";
-import JobMetaData from "../../../src/components/JobMetaData"
+import JobMetaData from "../../../src/components/JobMetaData";
 import { useRouter } from "next/router";
 import { useMutation, useQuery, useQueryClient } from "react-query";
 import { editJob, getJob } from "../../../src/controllers/jobs";
 import { getCompaniesNamesAndIds } from "../../../src/controllers/companies";
 import { useState } from "react";
-import Meta from "../../../src/components/Meta"
+import Loading from "../../../src/components/Loading";
+import Meta from "../../../src/components/Meta";
 
 const UpdateJob = () => {
   const router = useRouter();
@@ -27,17 +28,19 @@ const UpdateJob = () => {
   });
   const [about, setAbout] = useState("");
 
-
   const { id } = router.query;
   //React query hooks
   const queryClient = useQueryClient();
-  const mutation = useMutation(([job, id]) => {
-    return editJob(job, id);
-  }, {
-    onSuccess: data => {
-      queryClient.setQueryData(["jobs", { id }], data);
+  const mutation = useMutation(
+    ([job, id]) => {
+      return editJob(job, id);
+    },
+    {
+      onSuccess: (data) => {
+        queryClient.setQueryData(["jobs", { id }], data);
+      },
     }
-  });
+  );
   const jobQuery = useQuery(["jobs", id], () => getJob(id));
   const idsQuery = useQuery("companyIDs", () => {
     return getCompaniesNamesAndIds();
@@ -47,49 +50,47 @@ const UpdateJob = () => {
     if (e.length < 100) {
       setError({
         ...error,
-        about: "The About must at least have 100 characters"
+        about: "The About must at least have 100 characters",
       });
-    }
-    else {
+    } else {
       setError({ ...error, about: " " });
     }
 
     setAbout(e);
-  }
+  };
 
   const handleSubmission = (values) => {
     try {
       if (about.length < 100) {
         setError({
           ...error,
-          about: "The About must at least have 100 characters"
+          about: "The About must at least have 100 characters",
         });
         return;
       }
       setError({ ...error, about: " " });
       const newJob = {
         ...values,
-        about: about || job.about
-      }
+        about: about || job.about,
+      };
       mutation.mutate([newJob, id]);
       setTimeout(() => {
         router.push("/admin/jobs");
-      }, 2000)
+      }, 2000);
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   if (idsQuery.isLoading || jobQuery.isLoading) {
     return (
       <div>
-        <h2>Loading...</h2>
+        <Loading />
       </div>
-    )
+    );
   }
 
   job = { ...job, ...jobQuery.data };
-
 
   return (
     <div className={styles.edit_job}>
@@ -97,14 +98,7 @@ const UpdateJob = () => {
 
       <div className={styles.job}>
         <h3>Edit job</h3>
-        <JobForm
-          job={job}
-          companies={idsQuery.data}
-          about={about}
-          errors={error}
-          handleSubmission={handleSubmission}
-          handleAbout={handleAbout}
-        />
+        <JobForm job={job} companies={idsQuery.data} about={about} errors={error} handleSubmission={handleSubmission} handleAbout={handleAbout} />
       </div>
       <JobMetaData />
     </div>

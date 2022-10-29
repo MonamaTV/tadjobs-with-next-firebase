@@ -4,13 +4,14 @@ import { useQuery } from "react-query";
 import { getJobsByUser } from "../../../src/controllers/jobs";
 import { normalDate, seniorityLevel } from "../../../src/utils/app";
 import Meta from "../../../src/components/Meta";
+import Loading from "../../../src/components/Loading";
 const Jobs = () => {
   const { data, isLoading } = useQuery("jobs", getJobsByUser);
   if (isLoading) {
     return (
       <div className={styles.jobs}>
         <div className={styles.job}>
-          <h3>Loading...</h3>
+          <Loading />
         </div>
       </div>
     );
