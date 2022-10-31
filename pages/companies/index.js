@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useQuery } from "react-query";
 import Loading from "../../src/components/Loading";
+import Meta from "../../src/components/Meta";
 import Nav from "../../src/components/Nav";
 import { getCompaniesPublicInfo } from "../../src/controllers/companies";
 import styles from "../../styles/PublicCompanies.module.css";
@@ -18,6 +19,7 @@ const PublicCompanies = () => {
 
   return (
     <div className={styles.public}>
+      <Meta title={"TadJobs - public companies"} />
       <Nav />
       <div className={styles.companies}>
         <h3>

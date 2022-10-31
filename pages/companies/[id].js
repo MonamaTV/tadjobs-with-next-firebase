@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useQuery } from "react-query";
 import Loading from "../../src/components/Loading";
+import Meta from "../../src/components/Meta";
 import Nav from "../../src/components/Nav";
 import Taps from "../../src/components/Taps";
 import { getCompanyPublicInfo } from "../../src/controllers/companies";
@@ -23,6 +24,7 @@ const Company = ({ id }) => {
 
   return (
     <>
+      <Meta title={"TadJobs - " + company.name} description={company.background.slice(0, 60)} />
       <Nav />
       <main className={styles.public_company}>
         <header className={styles.header}>

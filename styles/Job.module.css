@@ -1,5 +1,53 @@
 .job {
   margin: 0 auto;
+  display: flex;
+  width: 76%;
+}
+.list_jobs {
+  flex: 3;
+  background: #fff;
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #e3e3e3;
+
+  padding-top: 20px;
+  height: 80vh;
+  overflow-y: scroll;
+}
+.list_jobs h5 {
+  padding-left: 10px;
+}
+.list_job {
+  padding: 4px;
+  padding-left: 10px;
+  margin: 5px 0;
+  color: rgb(99, 99, 99);
+}
+
+.list_job h3 {
+  font-size: 13px;
+  font-weight: 500;
+  color: #fa5979;
+}
+.list_job small {
+  font-size: 10px;
+}
+
+.active_job {
+  border-left: 3px solid #fa5979;
+}
+
+.list_job .fine_details small {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e0dfdf;
+  padding: 2px 5px;
+  font-weight: 400;
+  margin: 2px;
+}
+.job main {
+  flex: 8;
 }
 
 .company_name {
@@ -9,9 +57,9 @@
 
 .job_header,
 .information {
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
-  padding: 2em 9em;
+  padding: 2em 3em;
   background: #fff;
   border: 1px solid #e3e3e3;
 }
@@ -85,7 +133,7 @@
 .share {
   flex: 1;
   /* display: flex; */
-  border: 1px solid #e3e3e3;
+  /* border: 1px solid #e3e3e3; */
   padding: 0 20px;
   margin: 10px 20px;
   height: 75px;
@@ -100,7 +148,7 @@
   margin: 5px;
 }
 
-@media screen and (max-width: 649px) {
+@media screen and (max-width: 860px) {
   .job_header {
     width: 100%;
     margin: 0px auto;
@@ -131,5 +179,16 @@
   .share {
     width: 100%;
     margin: 10px 0;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .list_jobs {
+    display: none;
+  }
+}
+@media screen and (max-width: 422px) {
+  .job {
+    width: 100%;
   }
 }

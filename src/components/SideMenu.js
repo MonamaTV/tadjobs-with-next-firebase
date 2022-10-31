@@ -1,15 +1,16 @@
 import Link from "next/link";
 import { useContext, useState } from "react";
 import { AuthContext } from "../context/authProvider";
+import Meta from "./Meta";
 import styles from "./SideMenu.module.css";
 export default function SideMenu() {
-
   const { signOutUser } = useContext(AuthContext);
   const [classic, setClassic] = useState(false);
   const [profile, setProfile] = useState(false);
 
   return (
     <>
+      <Meta title={"Tadjobs - Manage jobs and companies "} />
       <div className={styles.side_menu}>
         <nav>
           <ul className={styles.taps}>
@@ -59,7 +60,9 @@ export default function SideMenu() {
             </li>
           </ul>
         </nav>
-        <button className={styles.logout} onClick={signOutUser}>Logout</button>
+        <button className={styles.logout} onClick={signOutUser}>
+          Logout
+        </button>
       </div>
       {/* Only visible to mobile */}
       <footer className={styles.mobile_footer}>
@@ -88,13 +91,9 @@ export default function SideMenu() {
                 {profile && (
                   <div className={styles.classic}>
                     <Link href={"/admin/profile"}>
-                      <a>
-                        Profile
-                      </a>
+                      <a>Profile</a>
                     </Link>
-                    <span onClick={signOutUser}>
-                      Logout
-                    </span>
+                    <span onClick={signOutUser}>Logout</span>
                   </div>
                 )}
               </button>
@@ -106,14 +105,10 @@ export default function SideMenu() {
                 {classic && (
                   <div className={styles.classic}>
                     <Link href={"/admin/companies/add"}>
-                      <a>
-                        Add company
-                      </a>
+                      <a>Add company</a>
                     </Link>
                     <Link href={"/admin/jobs/add"}>
-                      <a>
-                        Add new job
-                      </a>
+                      <a>Add new job</a>
                     </Link>
                   </div>
                 )}
@@ -124,4 +119,4 @@ export default function SideMenu() {
       </footer>
     </>
   );
-};
+}

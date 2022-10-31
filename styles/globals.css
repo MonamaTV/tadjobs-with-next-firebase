@@ -5,6 +5,11 @@
   padding: 0;
   margin: 0;
   font-weight: normal;
+  color: rgb(99, 99, 99);
+}
+
+.job_active {
+  border-left: 3px solid #fa5979;
 }
 
 html,

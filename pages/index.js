@@ -22,10 +22,7 @@ export default function Home() {
       <main className={styles.main}>
         <div className={styles.content}>
           <h2>Find your dream job at ease from the best</h2>
-          <p>
-            The best companies, best jobs. The developer job platform that has your back - complete with your own dev career coach and upfront salary
-            info.
-          </p>
+          <p>Find the best tech jobs around the country from the best companies building amazing products. Everything is at your finger tips</p>
           <Link href="/jobs/search">
             <a>Start searching</a>
           </Link>

@@ -4,13 +4,7 @@
 }
 .selection label {
   display: block;
-  padding: 3px;
-  display: flex;
   font-size: 14px;
-}
-.selection label input {
-  margin: 0 10px 0 0;
-  display: block;
 }
 
 @media screen and (max-width: 440px) {

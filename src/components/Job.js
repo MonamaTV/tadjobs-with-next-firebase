@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { normalDate } from "../utils/app";
+import { normalDate, seniorityLevel } from "../utils/app";
 import styles from "./Job.module.css";
-const Job = ({ title, location, minSalary, maxSalary, closingDate, seniority, about, addedAt, id }) => {
+const Job = ({ title, location, minSalary, maxSalary, closingDate, seniority, about, addedAt, id, query }) => {
   return (
-    <Link href={"/jobs/" + id}>
+    <Link href={"/jobs/" + id + "?" + query}>
       <a className={styles.job}>
         <div className={styles.job_details}>
           <h3>{title} </h3>
@@ -22,7 +22,7 @@ const Job = ({ title, location, minSalary, maxSalary, closingDate, seniority, ab
             </div>
             <div className={styles.details}>
               <img loading="lazy" src="/assets/job.png" alt="Seniority of the job" />
-              <small>Senior</small>
+              <small>{seniorityLevel(seniority)}</small>
             </div>
             <div className={styles.details}>
               <img loading="lazy" src="/assets/calendar.png" alt="Seniority of the job" />

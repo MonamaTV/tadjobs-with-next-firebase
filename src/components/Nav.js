@@ -6,17 +6,15 @@ const Nav = ({ text = "Login", bg = false }) => {
 
   //Since the component is not wrapped with the authProvider...
   useEffect(() => {
-    setUser(() => {
-      return auth.currentUser;
-    });
-  }, [auth, user]);
+    setUser(auth.currentUser);
+  }, [auth, auth.currentUser]);
   return (
     <div className="containers">
       <header>
         <nav>
           <Link href="/">
             <a className="logo" style={{ color: "#665df5" }}>
-              DiSpane
+              TadJobs
             </a>
           </Link>
           <Link href={user ? "/admin" : "/auth/login"}>

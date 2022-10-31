@@ -6,7 +6,7 @@ export default function Header() {
     <header>
       <nav className={styles.navigation}>
         <Link href="/">
-          <a className={styles.logo}>DiSpane</a>
+          <a className={styles.logo}>TadJobs</a>
         </Link>
         <div className={styles.search}>
           <input type="text" placeholder="Search jobs" />
