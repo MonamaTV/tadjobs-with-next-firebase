@@ -9,7 +9,6 @@
   padding: 10px;
   margin-right: 10px;
   border: 1px solid #e3e3e3;
-
   padding-top: 20px;
   height: 80vh;
   overflow-y: scroll;
@@ -28,7 +27,14 @@
   font-size: 13px;
   font-weight: 500;
   color: #fa5979;
+  cursor: pointer;
 }
+
+.list_job h3:hover {
+  text-decoration: 2px underline #fa5979;
+  border-width: 100%;
+}
+
 .list_job small {
   font-size: 10px;
 }

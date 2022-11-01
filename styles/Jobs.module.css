@@ -144,3 +144,8 @@
     padding-right: 0;
   }
 }
+@media screen and (max-width: 768px) {
+  .job_info .desc * {
+    padding-right: 40px;
+  }
+}

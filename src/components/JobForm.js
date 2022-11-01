@@ -24,6 +24,15 @@ const JobForm = ({ job, companies, handleAbout, about, handleSubmission, errors 
             <option value="3">Senior</option>
           </Field>
           <ErrorMessage className={styles.errors} component={"p"} name="seniority" />
+          <Field as="select" name="type">
+            <option defaultValue={"-1"} value="-1">
+              Job type
+            </option>
+            <option value="1">Office</option>
+            <option value="2">Remote</option>
+            <option value="3">Hybrid</option>
+          </Field>
+          <ErrorMessage className={styles.errors} component={"p"} name="type" />
           <Field as="select" name="companyID">
             <option value="-1">Choose company</option>
             {companies.length !== 0 &&

@@ -19,7 +19,9 @@ const JobList = () => {
     e.target.parentElement.classList.add("job_active");
   };
   const activate = (e, id) => {
-    let newPath = router.asPath.split("&jid")[0] + "&jid=" + id;
+    router.query["jid"] = id;
+    let newPath = router.asPath.split("&jid")[0];
+    newPath += newPath.includes("?") ? "&jid=" + id : "?&jid=" + id;
     router.push(newPath);
     changeActiveClass(e);
   };

@@ -100,7 +100,7 @@ const UpdateJob = () => {
         <h3>Edit job</h3>
         <JobForm job={job} companies={idsQuery.data} about={about} errors={error} handleSubmission={handleSubmission} handleAbout={handleAbout} />
       </div>
-      <JobMetaData />
+      <JobMetaData {...job} />
     </div>
   );
 };

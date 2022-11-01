@@ -85,20 +85,6 @@ export default function SideMenu() {
               </Link>
             </li>
             <li>
-              <button onClick={() => setProfile(!profile)}>
-                <img src="/assets/profile.png" alt="" />
-                Profile
-                {profile && (
-                  <div className={styles.classic}>
-                    <Link href={"/admin/profile"}>
-                      <a>Profile</a>
-                    </Link>
-                    <span onClick={signOutUser}>Logout</span>
-                  </div>
-                )}
-              </button>
-            </li>
-            <li>
               <button onClick={() => setClassic(!classic)}>
                 <img src="/assets/add.png" alt="" />
                 Add
@@ -110,6 +96,20 @@ export default function SideMenu() {
                     <Link href={"/admin/jobs/add"}>
                       <a>Add new job</a>
                     </Link>
+                  </div>
+                )}
+              </button>
+            </li>
+            <li>
+              <button onClick={() => setProfile(!profile)}>
+                <img src="/assets/profile.png" alt="" />
+                Profile
+                {profile && (
+                  <div className={styles.classic}>
+                    <Link href={"/admin/profile"}>
+                      <a>Profile</a>
+                    </Link>
+                    <span onClick={signOutUser}>Logout</span>
                   </div>
                 )}
               </button>
