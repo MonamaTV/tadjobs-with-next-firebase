@@ -70,7 +70,7 @@ const JobForm = ({ job, companies, handleAbout, about, handleSubmission, errors 
             id="rte"
           />
           {errors.about && <p className={styles.errors}>{errors.about}</p>}
-          <button disabled={isSubmitting} className={styles.button}>
+          <button disabled={isSubmitting} type="submit" className={styles.button}>
             Save
           </button>
         </Form>
