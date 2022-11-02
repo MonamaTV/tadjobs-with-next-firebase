@@ -45,8 +45,9 @@
 }
 .container header nav {
   display: flex;
-  width: 100%;
-  padding: 10px 9em;
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px 0em;
   align-items: center;
   justify-content: space-between;
 }

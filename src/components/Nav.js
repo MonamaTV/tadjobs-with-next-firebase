@@ -17,9 +17,14 @@ const Nav = ({ text = "Login", bg = false }) => {
               TadJobs
             </a>
           </Link>
-          <Link href={user ? "/admin" : "/auth/login"}>
-            <a>{"Post a job"}</a>
-          </Link>
+          <div>
+            <Link href={"/jobs/saved"}>
+              <a className="jobs">Your jobs</a>
+            </Link>
+            <Link href={user ? "/admin" : "/auth/login"}>
+              <a>{"Post a job"}</a>
+            </Link>
+          </div>
         </nav>
       </header>
     </div>

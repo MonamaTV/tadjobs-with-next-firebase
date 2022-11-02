@@ -44,7 +44,6 @@ export const normalDate = (date) => {
   if (!date.seconds || !date.nanoseconds) return "N/A";
 
   let month, day, year;
-
   const firestoreDate = new Timestamp(date.seconds, date.nanoseconds).toDate();
 
   month = firestoreDate.getMonth();

@@ -7,8 +7,6 @@ import styles from "../styles/Home.module.css";
 export default function Home() {
   return (
     <div className={styles.container}>
-      <Meta title={"TadJobs - Home"} description={"Find Your Dream Job At Ease From The Best"} />
-
       <Head>
         <title>TadJobs - Home For Best Tech Jobs</title>
         <meta

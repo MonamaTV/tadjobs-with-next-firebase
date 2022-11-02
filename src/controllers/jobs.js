@@ -1,6 +1,6 @@
 import { db } from "./app";
 
-import { serverTimestamp, Timestamp, addDoc, collection, where, getDocs, query, getDoc, doc, setDoc, orderBy, limit } from "firebase/firestore";
+import { serverTimestamp, Timestamp, addDoc, collection, where, getDocs, query, getDoc, doc, setDoc, orderBy, documentId } from "firebase/firestore";
 import { getCompaniesNamesAndIds } from "./companies";
 
 const jobsRef = collection(db, "jobs");
@@ -157,7 +157,7 @@ export const getJobsSavedByUser = async (JobIDs) => {
   //Terminate as early as possible
   if (JobIDs.length === 0) return null;
   //Get the jobs the user has saved to check later
-  const perform = query(jobsRef, where("id", "in", JobIDs));
+  const perform = query(jobsRef, where(documentId(), "in", JobIDs));
   const results = await getDocs(perform);
   const jobs = [];
   results.forEach((job) => {

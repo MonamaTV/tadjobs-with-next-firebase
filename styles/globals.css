@@ -26,7 +26,11 @@ header {
   display: flex;
   align-items: center;
   height: 100px;
-  padding-inline: 10px;
+}
+
+.containers header {
+  width: 90%;
+  margin: 0 auto;
 }
 
 .flex {
@@ -111,7 +115,7 @@ button:disabled {
 .containers header nav {
   display: flex;
   width: 100%;
-  padding: 10px 9em;
+  padding: 10px 0em;
   align-items: center;
   justify-content: space-between;
 }
@@ -121,6 +125,7 @@ button:disabled {
   padding: 8px 30px;
   text-decoration: none;
 }
+
 .containers header nav h3 {
   color: #fff;
   font-weight: bold;
@@ -131,6 +136,7 @@ button:disabled {
   color: #665df5;
   font-size: 20px;
   font-weight: 600;
+  padding-left: 0;
 }
 .containers .logo span {
   color: #ff6584;
@@ -141,9 +147,6 @@ button:disabled {
 }
 
 @media screen and (max-width: 440px) {
-  .containers header {
-    width: 100vw;
-  }
   .containers header nav {
     padding-inline: 0;
   }
@@ -284,4 +287,8 @@ select {
   .not_found_message {
     text-align: center;
   }
+}
+.containers .jobs {
+  color: #888;
+  background: inherit;
 }
