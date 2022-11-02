@@ -146,15 +146,6 @@ button:disabled {
   border-left: 2px solid #ff6584;
 }
 
-@media screen and (max-width: 440px) {
-  .containers header nav {
-    padding-inline: 0;
-  }
-  .containers header nav a {
-    /* padding: 4px 10px; */
-    font-size: 13px;
-  }
-}
 input,
 select {
   background: #fff !important;
@@ -247,6 +238,9 @@ select {
 .not_found_message h3 {
   color: #555;
 }
+.saved_jobs {
+  font-size: 3px !important;
+}
 
 .not_found_message a {
   text-decoration: none;
@@ -291,4 +285,16 @@ select {
 .containers .jobs {
   color: #888;
   background: inherit;
+  font-size: 13px;
+  padding-right: 8px;
+}
+@media screen and (max-width: 440px) {
+  .containers header nav {
+    padding-inline: 0;
+  }
+  .containers header nav a {
+    /* padding: 4px 10px; */
+    font-size: 13px;
+    padding: 8px 11px;
+  }
 }

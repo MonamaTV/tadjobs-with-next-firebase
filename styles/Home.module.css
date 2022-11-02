@@ -67,6 +67,9 @@
     justify-content: space-between;
     padding-inline: 0;
   }
+  .container header nav a {
+    padding: 8px 11px;
+  }
 
   .container header nav a.logo {
     padding-left: 0;
