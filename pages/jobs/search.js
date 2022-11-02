@@ -39,8 +39,8 @@ const Jobs = () => {
       <div className={styles.searches}>
         <input className={styles.title_input} placeholder="Title" />
         <input className={styles.location_input} placeholder="Location" />
-        <button>
-          <img src="/assets/search.png" />
+        <button type="submit">
+          <img alt="Search icon" src="/assets/search.png" />
         </button>
       </div>
       <small className={styles.smalls}>

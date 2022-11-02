@@ -18,28 +18,26 @@ const UpdateCompany = () => {
     fileUrl: "",
     location: {
       country: "",
-      city: ""
+      city: "",
     },
     website: "",
-    background: ""
+    background: "",
   };
-
 
   //Get the company ID
   const { id } = router.query;
-  const mutation = useMutation(([newCompany, file]) => {
-    return editCompany(newCompany, file, id);
-  }, {
-    onSuccess: data => {
-      queryClient.setQueryData(["companies", { id }], data);
+  const mutation = useMutation(
+    ([newCompany, file]) => {
+      return editCompany(newCompany, file, id);
+    },
+    {
+      onSuccess: (data) => {
+        queryClient.setQueryData(["companies", { id }], data);
+      },
     }
-  });
+  );
   //Fetching the company based on the ID
-  const {
-    data,
-    isLoading,
-    isError,
-  } = useQuery(["companies", id], () => {
+  const { data, isLoading, isError } = useQuery(["companies", id], () => {
     return getCompany(id);
   });
 
@@ -54,34 +52,34 @@ const UpdateCompany = () => {
   //Error based state for the above values
   const [error, setError] = useState({
     url: "",
-    background: ""
-  })
+    background: "",
+  });
 
   const handleSubmit = async (values) => {
     try {
-      const newBackground = (background === "") ? company.background : background;
+      const newBackground = background === "" ? company.background : background;
       if (newBackground === "") {
         setError({
-          ...error, background: "Please provide your organization background"
-        })
+          ...error,
+          background: "Please provide your organization background",
+        });
         return;
-      }
-      else {
+      } else {
         values = {
           ...values,
-          background: background || company.background
-        }
+          background: background || company.background,
+        };
       }
       setError({
         url: " ",
-        background: " "
+        background: " ",
       });
       await mutation.mutateAsync([values, img]);
       router.push("/admin/companies/" + id);
     } catch (error) {
-      console.log(error);
+      setError({ ...error, background: "Something bad happened" });
     }
-  }
+  };
 
   const setFile = (e) => {
     const file = e.target.files[0];
@@ -89,22 +87,23 @@ const UpdateCompany = () => {
     const url = URL.createObjectURL(file);
     if (file.size > 2097152) {
       setError({
-        ...error, url: "File too big. Choose less than 2mb"
-      })
+        ...error,
+        url: "File too big. Choose less than 2mb",
+      });
       return;
     }
     setImg(file);
     setError({
-      ...error, url: " "
-    })
+      ...error,
+      url: " ",
+    });
     setUrl(url);
-  }
+  };
 
   if (isLoading && !data) {
-    return <Loading />
+    return <Loading />;
   }
   company = Object.assign(company, data);
-
 
   return (
     <div className={styles.update}>
@@ -124,15 +123,12 @@ const UpdateCompany = () => {
       </div>
       <div className={styles.company_jobs}>
         <h5>All jobs related to this company</h5>
-        {
-          jobs.map(job => (
-            <CompanyJob key={job.id} {...job} />
-          ))
-        }
+        {jobs.map((job) => (
+          <CompanyJob key={job.id} {...job} />
+        ))}
       </div>
     </div>
   );
 };
-
 
 export default UpdateCompany;

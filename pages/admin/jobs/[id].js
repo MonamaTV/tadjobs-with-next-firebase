@@ -78,7 +78,7 @@ const UpdateJob = () => {
         router.push("/admin/jobs");
       }, 2000);
     } catch (error) {
-      console.log(error);
+      setError({ ...error, background: "Something bad happened" });
     }
   };
 

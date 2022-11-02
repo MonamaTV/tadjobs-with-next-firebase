@@ -55,7 +55,7 @@ const JobForm = ({ job, companies, handleAbout, about, handleSubmission, errors 
             <Field type={"date"} name="closingDate" />
           </div>
           <ErrorMessage className={styles.errors} component={"p"} name="openingDate" />
-          <Field type="text" placeholder="Application link" name="application" />
+          <Field type="text" placeholder="Apply URL or email" name="application" />
           <ErrorMessage className={styles.errors} component={"p"} name="application" />
           <Editor
             controls={[

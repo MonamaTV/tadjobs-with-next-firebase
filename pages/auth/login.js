@@ -11,8 +11,8 @@ const Login = () => {
   //State
   const user = {
     email: "",
-    password: ""
-  }
+    password: "",
+  };
   const [error, setError] = useState("");
   //Flags signed in user
   const [loggedIn, setLoggedIn] = useState(null);
@@ -30,7 +30,6 @@ const Login = () => {
     setError("");
     try {
       const res = await loginWithEmailAndPassword(user);
-      console.log(res);
       router.push("/admin/");
     } catch (error) {
       setError(authResponses(error.code));
@@ -48,11 +47,7 @@ const Login = () => {
         </h3>
         <p>Welcome back, login and attract the best talent</p>
       </div>
-      <LoginForm
-        handleSubmission={handleSubmit}
-        user={user}
-        error={error}
-      />
+      <LoginForm handleSubmission={handleSubmit} user={user} error={error} />
     </div>
   );
 };

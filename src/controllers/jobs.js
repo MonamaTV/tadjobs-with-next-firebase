@@ -50,10 +50,12 @@ export const getJob = async (jobID) => {
   };
 };
 //only for logged in users
-export const getJobsByUser = async () => {
+export const getJobsByUser = async (sort) => {
+  const field = sort === "1" ? "addedAt" : "type";
+
   const companyIDs = (await getCompaniesNamesAndIds()).map((company) => company.id);
   if (companyIDs.length === 0) return null;
-  const perform = query(jobsRef, where("companyID", "in", companyIDs));
+  const perform = query(jobsRef, where("companyID", "in", companyIDs), orderBy(field));
   const documents = await getDocs(perform);
   //Jobs
   const jobs = [];
@@ -148,3 +150,22 @@ export const searchJobs = () => {};
 export const incrementViews = (JobID) => {};
 
 export const incrementClickThrough = (jobID) => {};
+
+// Todo: Make sure all the jobs are the ones that have not reached their closing date
+
+export const getJobsSavedByUser = async (JobIDs) => {
+  //Terminate as early as possible
+  if (JobIDs.length === 0) return null;
+  //Get the jobs the user has saved to check later
+  const perform = query(jobsRef, where("id", "in", JobIDs));
+  const results = await getDocs(perform);
+  const jobs = [];
+  results.forEach((job) => {
+    if (!job.exists()) return;
+    jobs.push({
+      id: job.id,
+      ...job.data(),
+    });
+  });
+  return jobs;
+};

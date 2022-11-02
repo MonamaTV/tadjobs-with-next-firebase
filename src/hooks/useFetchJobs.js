@@ -13,7 +13,6 @@ const useFetchJobs = ({ title, location, type, seniority, salary } = {}) => {
         const firestoreJobs = await getJobs(title, location, type, seniority, salary);
         setJobs(firestoreJobs);
       } catch (error) {
-        console.log(error);
         setError("Error occured fetching jobs");
       }
       setIsLoading(false);

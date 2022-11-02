@@ -154,6 +154,32 @@
   margin: 5px;
 }
 
+.later {
+  border: none;
+  padding: 5px 10px;
+  background: #ff6584;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  margin-bottom: 10px;
+}
+.later:hover {
+  background: #f54367;
+}
+
+.later span {
+  color: #ffffff;
+  padding-top: 1px;
+}
+.later img {
+  padding-right: 2px;
+  width: 15px;
+}
+
 @media screen and (max-width: 860px) {
   .job_header {
     width: 100%;

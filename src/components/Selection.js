@@ -1,9 +1,6 @@
 import styles from "./Selection.module.css";
 
 const Selection = ({ label, options }) => {
-  const handle = (e) => {
-    console.log(e.target.value);
-  };
   return (
     <div className={styles.selection}>
       <h4>{label} </h4>

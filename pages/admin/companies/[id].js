@@ -9,13 +9,7 @@ const CompanyDetails = () => {
 
   const { id } = router.query;
 
-  console.log(id);
-
-  const {
-    data: company,
-    isLoading,
-    isError,
-  } = useQuery(["companies", id], () => {
+  const { data: company, isLoading } = useQuery(["companies", id], () => {
     return getCompany(id);
   });
 

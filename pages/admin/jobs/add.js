@@ -66,7 +66,7 @@ const AddNewJob = () => {
         router.push("/admin/jobs");
       }, 2000);
     } catch (error) {
-      console.log(error);
+      setError({ ...error, about: "Something happened, please try again" });
     }
   };
 

@@ -5,8 +5,10 @@ import { getJobsByUser } from "../../../src/controllers/jobs";
 import { normalDate, seniorityLevel } from "../../../src/utils/app";
 import Meta from "../../../src/components/Meta";
 import Loading from "../../../src/components/Loading";
+import { useState } from "react";
 const Jobs = () => {
-  const { data, isLoading } = useQuery("jobs", getJobsByUser);
+  const [sort, setSort] = useState("1");
+  const { data, isLoading } = useQuery(["jobs", sort], () => getJobsByUser(sort));
   if (isLoading) {
     return (
       <div className={styles.jobs}>
@@ -26,6 +28,12 @@ const Jobs = () => {
     );
   }
 
+  const handleSortInput = (e) => {
+    const value = e.target.value;
+    if (value === "-1") return null;
+    setSort(value);
+  };
+
   return (
     <div className={styles.jobs}>
       <Meta title={"TadJobs - all the jobs"} />
@@ -36,10 +44,10 @@ const Jobs = () => {
             Add
           </a>
         </Link>
-        <select>
-          <option value="">SORT</option>
-          <option value="">By date</option>
-          <option value="">By job type</option>
+        <select onChange={handleSortInput}>
+          <option value="-1">SORT</option>
+          <option value="1">By date</option>
+          <option value="2">By job type</option>
         </select>
       </div>
       {data.map(({ title, minSalary, maxSalary, id, location, seniority, addedAt, about }) => (

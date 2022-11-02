@@ -20,5 +20,8 @@ You can register from from here: [Register](tadjobs.vercel.app/auth/login)
 ## What's coming?
 
 - The jobseekers will be able to apply for jobs through the platorm
+- A Check Later, allows jobseekers to bookmark jobs to check later
+- Jobs must have stacks
+- Companies must include the depts they follow under, e.g marketing agency, software dev, banking, insurance,
 - Manage the profiles;
 - Jobseekers who do not wish to register, will have the option to subscribe. This will allow them to get notifications about the jobs that match their skills, location and salary they would have shared on the platfofrm
