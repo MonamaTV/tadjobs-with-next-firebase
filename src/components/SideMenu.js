@@ -85,7 +85,12 @@ export default function SideMenu() {
               </Link>
             </li>
             <li>
-              <button onClick={() => setClassic(!classic)}>
+              <button
+                onClick={() => {
+                  setProfile(false);
+                  setClassic(!classic);
+                }}
+              >
                 <img src="/assets/add.png" alt="" />
                 Add
                 {classic && (
@@ -101,7 +106,12 @@ export default function SideMenu() {
               </button>
             </li>
             <li>
-              <button onClick={() => setProfile(!profile)}>
+              <button
+                onClick={() => {
+                  setClassic(false);
+                  setProfile(!profile);
+                }}
+              >
                 <img src="/assets/profile.png" alt="" />
                 Profile
                 {profile && (
