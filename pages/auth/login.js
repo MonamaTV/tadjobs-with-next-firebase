@@ -29,8 +29,8 @@ const Login = () => {
   const handleSubmit = async (user) => {
     setError("");
     try {
-      const res = await loginWithEmailAndPassword(user);
-      router.push("/admin/");
+      await loginWithEmailAndPassword(user);
+      // router.push("/admin/");
     } catch (error) {
       setError(authResponses(error.code));
     }
