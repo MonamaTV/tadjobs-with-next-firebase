@@ -205,5 +205,6 @@
   }
   .saved input {
     width: 100%;
+    margin: 13px 0px;
   }
 }

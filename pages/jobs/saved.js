@@ -3,9 +3,11 @@ import { useEffect } from "react";
 import Job from "../../src/components/Job";
 import Loading from "../../src/components/Loading";
 import Nav from "../../src/components/Nav";
+import Meta from "../../src/components/Meta";
 import { getJobsSavedByUser } from "../../src/controllers/jobs";
 import { getCheckLaterJobs } from "../../src/utils/app";
 import styles from "../../styles/Search.module.css";
+import NotFound from "../404";
 
 const Saved = () => {
   const [loading, setLoading] = useState(true);
@@ -27,15 +29,27 @@ const Saved = () => {
   if (loading) {
     return <Loading />;
   }
+  if (!loading && !jobs) {
+    return (
+      <div className={styles.saved_jobs}>
+        <Meta title="Tadjobs - all the jobs you saved..." />
+        <Nav />
+        <div className={styles.unsaved}>
+          <NotFound title="It seems like you have not saved any job yet..." />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={styles.saved_jobs}>
+      <Meta title="Tadjobs - all the jobs you saved..." />
       <Nav />
       <div className={styles.saved}>
         <h4>
           All the jobs you <span>saved</span>
         </h4>
-        <input />
+        <input placeholder="Start typing..." />
         {jobs.length !== 0 && jobs.map((job) => <Job key={job.id} {...job} />)}
       </div>
     </div>

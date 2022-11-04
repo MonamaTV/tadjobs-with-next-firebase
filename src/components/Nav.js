@@ -19,7 +19,7 @@ const Nav = ({ text = "Login", bg = false }) => {
           </Link>
           <div>
             <Link href={"/jobs/saved"}>
-              <a className="jobs">Your jobs</a>
+              <a className="jobs">Saved jobs</a>
             </Link>
             <Link href={user ? "/admin" : "/auth/login"}>
               <a>{"Post a job"}</a>
