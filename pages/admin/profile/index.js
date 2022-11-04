@@ -51,7 +51,7 @@ const Profile = () => {
         {!user?.verified && <button onClick={verifyModal}>Verify</button>}
         <span onClick={handleModal}>Update account</span>
       </div>
-      <h4>Stats</h4>
+      <h5>Your stats</h5>
       <div className={styles.cards}>
         <div className={styles.card}>
           <img src="/assets/home.png" alt="Companies" />
@@ -76,6 +76,7 @@ const Profile = () => {
         </div>
       </div>
       <div className={styles.recent}>
+        <h5>Recently added jobs</h5>
         {jobs.slice(0, 6).map((job) => {
           return <AboutJob {...job} key={job.id} />;
         })}
