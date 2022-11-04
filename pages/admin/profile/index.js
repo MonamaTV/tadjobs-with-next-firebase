@@ -1,5 +1,5 @@
 import styles from "../../../styles/Profile.module.css";
-import { addUserName, getUserDetails } from "../../../src/controllers/users";
+import { addUserName, getUserDetails, sendVerificationEmail } from "../../../src/controllers/users";
 import { getJobsByUser } from "../../../src/controllers/jobs";
 import { useQuery } from "react-query";
 import AboutJob from "../../../src/components/AboutJob";
@@ -18,12 +18,24 @@ const Profile = () => {
   const { data: jobs, isLoading } = useQuery("jobs", getJobsByUser);
 
   const [userName, setUserName] = useState(user.name ?? "");
+  const [message, setMessage] = useState("");
   if (isLoading) {
     return <Loading />;
   }
 
   const verifyModal = () => {
     setVerify(!verify);
+  };
+
+  const verifyUser = async (e) => {
+    e.target.disabled = true;
+    try {
+      await sendVerificationEmail();
+      setMessage("Check your email for more instructions");
+    } catch (error) {
+      setMessage("Failed to send email, try again!");
+    }
+    e.target.disabled = false;
   };
 
   const updateDisplayName = async (e) => {
@@ -95,7 +107,8 @@ const Profile = () => {
         <Modal title={"Verify account"} handleModal={verifyModal}>
           <div className={styles.update}>
             <h5>Verify your account and unlock the magic!</h5>
-            <button>Verify</button>
+            {message && <p>{message}</p>}
+            <button onClick={verifyUser}>Verify account</button>
           </div>
         </Modal>
       )}
