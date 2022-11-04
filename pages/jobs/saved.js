@@ -19,7 +19,7 @@ const Saved = () => {
         const jobs = await getJobsSavedByUser(ids);
         setJobs(jobs);
       } catch (error) {
-        console.log(error);
+        setJobs([]);
       }
       setLoading(false);
     };
@@ -29,7 +29,6 @@ const Saved = () => {
   if (loading) {
     return <Loading />;
   }
-  console.log(jobs);
   if ((!loading && jobs?.length === 0) || !jobs) {
     return (
       <div className={styles.saved_jobs}>

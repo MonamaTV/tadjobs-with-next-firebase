@@ -25,6 +25,7 @@ const Profile = () => {
 
   const verifyModal = () => {
     setVerify(!verify);
+    setMessage("");
   };
 
   const verifyUser = async (e) => {
@@ -46,7 +47,6 @@ const Profile = () => {
       setModal(false);
     } catch (error) {
       e.target.disabled = false;
-      console.log(error);
     }
   };
 
@@ -107,7 +107,7 @@ const Profile = () => {
         <Modal title={"Verify account"} handleModal={verifyModal}>
           <div className={styles.update}>
             <h5>Verify your account and unlock the magic!</h5>
-            {message && <p>{message}</p>}
+            {message && <h5 className={styles.update_response}>{message}</h5>}
             <button onClick={verifyUser}>Verify account</button>
           </div>
         </Modal>

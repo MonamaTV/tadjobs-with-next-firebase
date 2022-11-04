@@ -22,6 +22,10 @@
   padding: 7px;
   background: #665df5;
 }
+.update_response {
+  margin: 0px 10px;
+  color: #665df5;
+}
 
 .profile > h3 {
   font-size: 25px;
