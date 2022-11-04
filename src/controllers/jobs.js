@@ -9,8 +9,8 @@ export const addJob = async (job) => {
   //Few metrics
   const newJob = {
     ...job,
-    views: 0,
-    clickThrough: 0,
+    views: [],
+    clickThrough: [],
     addedAt: Timestamp.now(),
     updatedAt: "",
   };
@@ -87,7 +87,7 @@ export const getJobsByCompany = async (companyID) => {
 export const getJobs = async (title, location, type, seniority, salary) => {
   // Salary: less than 15000, less than 25000, over 25000, less than 25k by default
   //
-  //Todo: pagination, sort, search by location, and name, job type, seniority and salary range😭😩
+  //Todo: pagination, sort, search by location, and name, job type, seniority and salary range😩
   //Build compound query based on the values provided...
   let compoundQuery = query(jobsRef);
   if (type !== "-1" && type) {
@@ -122,8 +122,8 @@ const salaryQuery = (salary) => {
       break;
     }
     case "2": {
-      //Job over 15000 & < 25000
-      jobs = where("maxSalary", ">=", "15000");
+      //Job over 15000
+      jobs = where("maxSalary", ">", "15000");
       break;
     }
     case "3": {

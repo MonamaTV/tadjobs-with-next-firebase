@@ -13,7 +13,7 @@ const NotFound = ({ title = "" }) => {
           <a>Go back home</a>
         </Link>
         <Link href="/jobs/search">
-          <a className="job">Your dream job</a>
+          <a className="job">Find dream job</a>
         </Link>
       </div>
     </div>

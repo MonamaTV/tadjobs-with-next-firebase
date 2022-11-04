@@ -29,7 +29,7 @@ const Saved = () => {
   if (loading) {
     return <Loading />;
   }
-  if (!loading && !jobs) {
+  if (!loading && jobs?.length === 0) {
     return (
       <div className={styles.saved_jobs}>
         <Meta title="Tadjobs - all the jobs you saved..." />
@@ -49,6 +49,7 @@ const Saved = () => {
         <h4>
           All the jobs you <span>saved</span>
         </h4>
+        <small>All expire in 30 days...</small>
         <input placeholder="Start typing..." />
         {jobs.length !== 0 && jobs.map((job) => <Job key={job.id} {...job} />)}
       </div>

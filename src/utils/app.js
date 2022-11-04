@@ -1,18 +1,20 @@
 import { Timestamp } from "firebase/firestore";
+import { getUserDetails } from "../controllers/users";
 
 export const addCheckLaterJob = (jobID) => {
   const IDs = getCheckLaterJobs();
+  const userID = getUserDetails().userID;
   //Ensure you are not adding that company again...
   if (IDs.includes(jobID)) return "Already added";
   IDs.push(jobID);
   //You can not add more than 10 companies in the check me later
   const newIDS = IDs.slice(-10);
-  localStorage.setItem("checklater", JSON.stringify(newIDS));
+  localStorage.setItem(userID, JSON.stringify(newIDS));
   return "Added...";
 };
 
 export const getCheckLaterJobs = () => {
-  const IDs = JSON.parse(localStorage.getItem("checklater")) ?? [];
+  const IDs = JSON.parse(localStorage.getItem(userID)) ?? [];
   return IDs;
 };
 

@@ -77,9 +77,10 @@ const Profile = () => {
       </div>
       <div className={styles.recent}>
         <h5>Recently added jobs</h5>
-        {jobs.slice(0, 6).map((job) => {
-          return <AboutJob {...job} key={job.id} />;
-        })}
+        {jobs &&
+          jobs.slice(0, 6).map((job) => {
+            return <AboutJob {...job} key={job.id} />;
+          })}
       </div>
       {modal && (
         <Modal title={"Update your name"} handleModal={handleModal}>

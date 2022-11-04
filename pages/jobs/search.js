@@ -32,6 +32,14 @@ const Jobs = () => {
     });
   };
 
+  const clearFilters = () => {
+    setFilters({
+      type: "-1",
+      seniority: "-1",
+      salary: "-1",
+    });
+  };
+
   return (
     <div className={styles.jobs}>
       <Meta title="Tadjobs - see all the available jobs" />
@@ -51,7 +59,7 @@ const Jobs = () => {
           <Radio name="type" handleChange={handleFilters} options={jobTypes} label={"Job type"} />
           <Radio name="seniority" handleChange={handleFilters} options={seniority} label="Seniority" />
           <Radio name="salary" handleChange={handleFilters} options={salaryRange} label={"Salary"} />
-          <button>Apply filters</button>
+          <button onClick={clearFilters}>Clear filters</button>
         </div>
         <div className={styles.available_jobs}>{!isLoading ? jobs.map((job) => <Job key={job.id} {...job} query={query} />) : <Loading />}</div>
       </div>
