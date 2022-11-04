@@ -1,5 +1,5 @@
 import styles from "../../../styles/Profile.module.css";
-import { getUserDetails } from "../../../src/controllers/users";
+import { addUserName, getUserDetails } from "../../../src/controllers/users";
 import { getJobsByUser } from "../../../src/controllers/jobs";
 import { useQuery } from "react-query";
 import AboutJob from "../../../src/components/AboutJob";
@@ -17,6 +17,7 @@ const Profile = () => {
   const user = getUserDetails();
   const { data: jobs, isLoading } = useQuery("jobs", getJobsByUser);
 
+  const [userName, setUserName] = useState(user.name ?? "");
   if (isLoading) {
     return <Loading />;
   }
@@ -24,6 +25,19 @@ const Profile = () => {
   const verifyModal = () => {
     setVerify(!verify);
   };
+
+  const updateDisplayName = async (e) => {
+    e.target.disabled = true;
+    try {
+      if (!userName) return;
+      await addUserName(userName);
+      setModal(false);
+    } catch (error) {
+      e.target.disabled = false;
+      console.log(error);
+    }
+  };
+
   return (
     <div className={styles.profile}>
       <h3>Welcome back, {user.name}</h3>
@@ -34,7 +48,7 @@ const Profile = () => {
           All new registered accounts need to be verified before they start adding jobs and companies on the platform. We are trying to minimize spam
           accounts advertising jobs here on TadJobs
         </small>
-        <button onClick={verifyModal}>Verify</button>
+        {!user?.verified && <button onClick={verifyModal}>Verify</button>}
         <span onClick={handleModal}>Update account</span>
       </div>
       <h4>Stats</h4>
@@ -70,8 +84,8 @@ const Profile = () => {
         <Modal title={"Update your name"} handleModal={handleModal}>
           <div className={styles.update}>
             <h5>You can only update your name at the moment. </h5>
-            <input type="text" placeholder="Your name" />
-            <button>Update</button>
+            <input value={userName} type="text" placeholder="Your name" onChange={(e) => setUserName(e.target.value)} />
+            <button onClick={updateDisplayName}>Update</button>
           </div>
         </Modal>
       )}
