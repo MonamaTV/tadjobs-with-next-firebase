@@ -28,7 +28,7 @@ const JobList = () => {
 
   return (
     <div className={styles.list_jobs}>
-      <h5>Jobs results</h5>
+      <h5>Related jobs</h5>
       {jobs !== 0 &&
         jobs.map(({ id, title, minSalary, maxSalary, location, about, seniority, addedAt }) => (
           <div aria-checked key={id} className={styles.list_job}>

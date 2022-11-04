@@ -47,7 +47,7 @@ const UpdateCompanyForm = ({ company, handleSubmit, background, setBackground, e
           {error.url && <p className={styles.errors}>{error.url}</p>}
           <Field name="name" type={"text"} placeholder="Company name" />
           <ErrorMessage component={"p"} name="name" className={styles.errors} />
-          <Field name="companySize" type={"text"} placeholder="Company size" />
+          <Field name="companySize" type={"text"} placeholder="Company size (employee count est.)" />
           <ErrorMessage component={"p"} name="companySize" className={styles.errors} />
 
           <Field name="email" type={"email"} placeholder="Email" />

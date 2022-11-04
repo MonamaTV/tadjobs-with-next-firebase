@@ -20,6 +20,7 @@ You can register from from here: [Register](tadjobs.vercel.app/auth/login)
 ## What's coming?
 
 - [x] A Check Later, allows jobseekers to bookmark jobs to check later
+- [x] Users can verify their account
 - [ ] Jobs must have stacks
 - [ ] Companies must include the depts they follow under, e.g marketing agency, software dev, banking, insurance,
 - [ ] The jobseekers will be able to apply for jobs through the platorm

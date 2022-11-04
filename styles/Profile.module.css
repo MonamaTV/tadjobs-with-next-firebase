@@ -1,0 +1,119 @@
+.profile {
+  padding: 20px;
+  overflow-y: scroll;
+  height: calc(80vh - 20px);
+  /* position: relative; */
+}
+.update input {
+  border: 1px solid #e3e3e3;
+  width: 90%;
+  padding: 7px;
+  outline: none;
+}
+.update h5,
+.update button,
+.update input {
+  margin: 0px 10px;
+}
+.update button {
+  border: 1px solid #e3e3e3;
+  color: #fff;
+  margin: 10px;
+  padding: 7px;
+  background: #665df5;
+}
+
+.profile > h3 {
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.attention {
+  background: #ff6584;
+  padding: 20px;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding-right: 20em;
+}
+.attention h4 {
+  font-size: 20px;
+}
+.attention button {
+  border: none;
+  outline: none;
+  width: 100px;
+  padding: 4px 20px;
+  background: #665df5;
+  display: inline-block;
+}
+.attention span {
+  border: none;
+  outline: none;
+  font-size: 12px;
+  padding: 4px 20px;
+  display: inline-block;
+}
+.attention * {
+  color: #fff;
+  display: block;
+  padding: 2px 0;
+}
+
+.cards {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+}
+.card {
+  border: 1px solid #cdcaca;
+  width: 80%;
+  display: flex;
+  background: #f2f1f1;
+  flex-direction: row;
+  margin-right: 10px;
+}
+.card img {
+  width: 20px;
+  height: 20px;
+  margin: 4px 10px;
+}
+.card h4 {
+  font-weight: 500;
+}
+.card h4,
+.card small {
+  /* font-size: 14px; */
+  margin: 0 0px;
+}
+
+.recent {
+  margin: 10px 0;
+}
+
+.recent > div {
+  margin-left: 0;
+}
+
+@media screen and (max-width: 860px) {
+  .attention {
+    padding-right: 0;
+  }
+  .cards {
+    width: 100%;
+  }
+  .card img {
+    display: none;
+    margin: 0;
+  }
+  .card {
+    margin: 0;
+    width: 90%;
+    padding-left: 10px;
+  }
+  .profile .recent {
+    width: 100%;
+  }
+  .recent > div {
+    width: 100%;
+  }
+}
