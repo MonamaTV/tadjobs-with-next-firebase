@@ -32,12 +32,13 @@ const Jobs = () => {
 
   const [displayJobs, setDisplayJobs] = useState([]);
   const { jobs, isLoading } = useFetchJobs(filters);
-  if (!jobs) {
-    return <Loading />;
-  }
   useEffect(() => {
     setDisplayJobs(jobs);
   }, [jobs]);
+
+  if (!jobs) {
+    return <Loading />;
+  }
 
   const handleFilters = (e) => {
     const { name, value } = e.target;
