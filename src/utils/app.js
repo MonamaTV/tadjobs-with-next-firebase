@@ -1,6 +1,6 @@
 import { Timestamp } from "firebase/firestore";
 import { getUserDetails } from "../controllers/users";
-
+//All the savedjobs lasts for 30d
 export const addCheckLaterJob = (jobID) => {
   const IDs = getCheckLaterJobs();
   const userID = getUserDetails()?.userID;
@@ -11,6 +11,40 @@ export const addCheckLaterJob = (jobID) => {
   const newIDS = IDs.slice(-10);
   localStorage.setItem(userID ?? "checklater", JSON.stringify(newIDS));
   return "Added...";
+};
+
+const addCheckLater = (jobID) => {
+  const IDs = getCheckLaterJobs();
+  const userID = getUserDetails()?.userID;
+  //Ensure you are not adding that company again...
+  if (IDs.includes(jobID)) return "Already added";
+  const job = {
+    id: jobID,
+    addedAt: new Date().getTime(),
+  };
+  IDs.push(job);
+  //You can not add more than 10 companies in the check me later
+  const newIDS = IDs.slice(-10);
+  localStorage.setItem(userID ?? "checklater", JSON.stringify(newIDS));
+  return "Added...";
+};
+
+const getDaysBetweenDates = (recent) => {
+  const diff = new Date().getTime() - recent;
+  return diff / (1000 * 3600 * 24);
+};
+
+const getLaterJobs = () => {
+  const userID = getUserDetails()?.userID;
+  const IDs = JSON.parse(localStorage.getItem(userID ?? "checklater")) ?? [];
+  //Make sure you delete the old ones
+  IDs.forEach((id) => {
+    new Date();
+    if (getDaysBetweenDates(id.addedAt) > 30) {
+      IDs.filter((id) => id.id !== id);
+    }
+  });
+  // return IDs;
 };
 
 export const getCheckLaterJobs = () => {
@@ -106,6 +140,16 @@ export const seniority = [
   },
 ];
 
+export const titles = [
+  "Web Developer",
+  "Sofware Engineer",
+  "Software Developer",
+  "Tech Lead",
+  "Mobile App Developer",
+  "Frontend Developer",
+  "Backend Developer",
+];
+export const locations = ["Cape Town", "Pretoria", "Johannesburg", "Durban", "Midrand", "Sandton"];
 export const stacks = [
   "JS",
   "TS",

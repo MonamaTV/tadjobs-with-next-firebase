@@ -1,4 +1,11 @@
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, sendEmailVerification } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  updateProfile,
+  sendEmailVerification,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 import { auth } from "./app";
 
 export const registerWithEmailAndPassword = async ({ email, password, name }) => {
@@ -7,6 +14,12 @@ export const registerWithEmailAndPassword = async ({ email, password, name }) =>
     await addUserName(name);
   }
   return user;
+};
+
+export const loginWithGooglePopup = async () => {
+  const provider = new GoogleAuthProvider();
+  const response = await signInWithPopup(auth, provider);
+  response;
 };
 
 export const sendVerificationEmail = async () => {

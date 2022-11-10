@@ -113,6 +113,29 @@ export const getJobs = async (title, location, type, seniority, salary) => {
   return jobs;
 };
 
+export const filterJobsByTitleAndLocation = async (titles, location) => {
+  const jobs = [];
+  const compound = query(jobsRef);
+  if (titles.length !== 0) {
+    compound = query(compound, where("title", "in", titles));
+  }
+  if (location !== "" && location) {
+    compound = query(compound, where("location", "==", location));
+  }
+
+  const results = await getDocs(compound);
+
+  results.forEach((job) => {
+    if (!job.exists()) return null;
+    jobs.push({
+      id: job.id,
+      ...job.data(),
+    });
+  });
+  console.log(jobs);
+  return jobs;
+};
+
 const salaryQuery = (salary) => {
   let jobs;
   switch (salary) {

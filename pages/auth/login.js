@@ -2,7 +2,7 @@ import LoginForm from "../../src/components/LoginForm";
 import styles from "../../styles/Auth.module.css";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { getSignedInUser, loginWithEmailAndPassword } from "../../src/controllers/users";
+import { getSignedInUser, loginWithEmailAndPassword, loginWithGooglePopup } from "../../src/controllers/users";
 import { authResponses } from "../../src/utils/responses";
 import Meta from "../../src/components/Meta";
 import Link from "next/link";
@@ -30,7 +30,16 @@ const Login = () => {
     setError("");
     try {
       await loginWithEmailAndPassword(user);
-      // router.push("/admin/");
+    } catch (error) {
+      setError(authResponses(error.code));
+    }
+  };
+
+  const googleSignIn = async (e) => {
+    e.preventDefault();
+    setError("");
+    try {
+      await loginWithGooglePopup();
     } catch (error) {
       setError(authResponses(error.code));
     }
@@ -47,7 +56,7 @@ const Login = () => {
         </h3>
         <p>Welcome back, login and attract the best talent</p>
       </div>
-      <LoginForm handleSubmission={handleSubmit} user={user} error={error} />
+      <LoginForm google={googleSignIn} handleSubmission={handleSubmit} user={user} error={error} />
     </div>
   );
 };

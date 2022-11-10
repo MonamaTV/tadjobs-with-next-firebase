@@ -49,7 +49,7 @@ const Saved = () => {
         <h4>
           All the jobs you <span>saved</span>
         </h4>
-        <small>All expire in 30 days...</small>
+        <small>Saved jobs expire after 30 days...</small>
         <input placeholder="Start typing..." />
         {jobs && jobs.map((job) => <Job key={job.id} {...job} />)}
       </div>

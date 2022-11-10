@@ -164,3 +164,19 @@
   width: 100%;
   padding: 4px;
 }
+
+button.google {
+  background: #ffffff;
+  display: flex;
+  color: rgb(99, 99, 99);
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+button.google:hover {
+  box-shadow: 0 0 3px #3e88ff56;
+}
+.google img {
+  width: 20px;
+  padding: 2px;
+}

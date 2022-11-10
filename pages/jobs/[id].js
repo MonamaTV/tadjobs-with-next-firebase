@@ -57,7 +57,7 @@ const Job = ({ id }) => {
       <div className={styles.job}>
         <JobList />
         <main>
-          {/* Fetch only after boht the company and job are done loading */}
+          {/* Display only after both the company and job are done loading */}
           {isLoading || isIdle || comLoading ? (
             <Loading />
           ) : (
