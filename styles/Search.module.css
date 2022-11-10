@@ -157,7 +157,7 @@
   .searches button {
     /* display: none; */
     /* padding: 0px 4px; */
-    height: 29px;
+    height: 35px;
   }
   .searches button img {
     /* display: none; */
@@ -168,7 +168,7 @@
     display: none;
   }
   .title_input {
-    padding: 6px;
+    padding: 9px;
     font-size: 11px;
     margin-left: 0;
   }
