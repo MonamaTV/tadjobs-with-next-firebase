@@ -43,6 +43,7 @@
   margin: 13px 2px;
   outline: none;
   border: 1px solid #e3e3e3;
+  user-select: none;
 }
 .title_input {
   background: #fff;
@@ -154,10 +155,22 @@
     padding: 8px 4px;
   }
   .searches button {
-    display: none;
+    /* display: none; */
+    /* padding: 0px 4px; */
+    height: 29px;
+  }
+  .searches button img {
+    /* display: none; */
+    /* padding: 0px 4px; */
+    width: 13px;
   }
   .smalls {
     display: none;
+  }
+  .title_input {
+    padding: 6px;
+    font-size: 11px;
+    margin-left: 0;
   }
 }
 
