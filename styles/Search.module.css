@@ -294,7 +294,7 @@
   height: 0;
 }
 .inputs_container input[type="checkbox"]:checked::before {
-  content: "✔";
+  content: "\2713";
   width: 2px;
   padding: 4px;
   height: 2px;
