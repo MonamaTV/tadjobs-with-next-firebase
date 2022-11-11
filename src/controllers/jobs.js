@@ -84,10 +84,7 @@ export const getJobsByCompany = async (companyID) => {
   return jobs;
 };
 //Public info
-export const getJobs = async (title, location, type, seniority, salary) => {
-  // Salary: less than 15000, less than 25000, over 25000, less than 25k by default
-  //
-  //Todo: pagination, sort, search by location, and name, job type, seniority and salary range😩
+export const getJobs = async (type, seniority, salary) => {
   //Build compound query based on the values provided...
   let compoundQuery = query(jobsRef);
   if (type !== "-1" && type) {
@@ -113,6 +110,7 @@ export const getJobs = async (title, location, type, seniority, salary) => {
   return jobs;
 };
 
+//Could have easily getJobs and filterJobsByTitleAndLocation functions to be one function... but UX forced me to implement them differently
 export const filterJobsByTitleAndLocation = async (titles, location) => {
   const jobs = [];
   const compound = query(jobsRef);
@@ -124,7 +122,6 @@ export const filterJobsByTitleAndLocation = async (titles, location) => {
   }
 
   const results = await getDocs(compound);
-
   results.forEach((job) => {
     if (!job.exists()) return null;
     jobs.push({
@@ -132,7 +129,6 @@ export const filterJobsByTitleAndLocation = async (titles, location) => {
       ...job.data(),
     });
   });
-  console.log(jobs);
   return jobs;
 };
 

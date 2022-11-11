@@ -2,7 +2,7 @@
 
 TadJobs is, as the name suggests, a job board. A niche job board that focusses a lot more on tech jobs. The application offers Hiring Manangers and/or Recruiters to be able to manage multiple companies at the same. The max number of companies per user is ten!
 
-You can register from from here: [Register](tadjobs.vercel.app/auth/login)
+You can register from from here: [Register](https://tadjobs.vercel.app/auth/login)
 
 ## Admin
 
@@ -22,6 +22,7 @@ You can register from from here: [Register](tadjobs.vercel.app/auth/login)
 - [x] A Check Later, allows jobseekers to bookmark jobs to check later
 - [x] Users can verify their account
 - [x] Users can update their display name
+- [x] Advanced search options
 - [ ] Jobs must have stacks
 - [ ] Companies must include the depts they follow under, e.g marketing agency, software dev, banking, insurance,
 - [ ] The jobseekers will be able to apply for jobs through the platorm

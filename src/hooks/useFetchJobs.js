@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getJobs } from "../controllers/jobs";
 
-const useFetchJobs = ({ title, location, type, seniority, salary } = {}) => {
+const useFetchJobs = ({ type, seniority, salary } = {}) => {
   const [jobs, setJobs] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -10,7 +10,7 @@ const useFetchJobs = ({ title, location, type, seniority, salary } = {}) => {
     setIsLoading(true);
     const fetchJobs = async () => {
       try {
-        const firestoreJobs = await getJobs(title, location, type, seniority, salary);
+        const firestoreJobs = await getJobs(type, seniority, salary);
         setJobs(firestoreJobs);
       } catch (error) {
         setError("Error occured fetching jobs");
@@ -18,7 +18,7 @@ const useFetchJobs = ({ title, location, type, seniority, salary } = {}) => {
       setIsLoading(false);
     };
     fetchJobs();
-  }, [title, location, type, seniority, salary]);
+  }, [type, seniority, salary]);
 
   return { jobs, isLoading, error };
 };

@@ -19,10 +19,6 @@ const Jobs = () => {
     salary: "-1",
   });
 
-  //Show the locations or title for searching
-  const [showTitles, setShowTitles] = useState(false);
-  const [showLocations, setShowLocations] = useState(false);
-
   //Search by locations, or titles
   const [searchTitles, setSearchTitles] = useState([]);
   const [searchLocation, setSearchLocation] = useState("");
@@ -31,10 +27,13 @@ const Jobs = () => {
   const query = `type=${filters.type}&salary=${filters.salary}&seniority=${filters.seniority}`;
 
   const [displayJobs, setDisplayJobs] = useState([]);
+  const [loading, setLoading] = useState(false);
   const { jobs, isLoading } = useFetchJobs(filters);
+
   useEffect(() => {
+    setLoading(isLoading);
     setDisplayJobs(jobs);
-  }, [jobs]);
+  }, [jobs, isLoading]);
 
   if (!jobs) {
     return <Loading />;
@@ -56,10 +55,6 @@ const Jobs = () => {
     });
   };
 
-  const handleDropdown = (state) => {
-    setShowTitles(state);
-  };
-
   const handleLocations = (ev) => {
     setSearchLocation(ev.target.value);
   };
@@ -78,14 +73,14 @@ const Jobs = () => {
   };
 
   const handleSearch = async () => {
-    isLoading = true;
+    setLoading(true);
     try {
       const results = await filterJobsByTitleAndLocation(searchTitles, searchLocation);
       setDisplayJobs(results);
     } catch (error) {
       jobs = [];
     }
-    // isLoading = false;
+    setLoading(false);
   };
 
   return (
@@ -95,15 +90,13 @@ const Jobs = () => {
       <div className={styles.searches}>
         <div className={styles.title_input}>
           <div className={styles.drop}>
-            <span onClick={() => handleDropdown(true)}>
-              {searchTitles.length !== 0 ? <span>{searchTitles[0] + " & more"}</span> : "Search by title"}
-            </span>
+            <span>{searchTitles.length !== 0 ? <span>{searchTitles[0] + " & more"}</span> : "Search by title"}</span>
           </div>
           {<Dropdown options={titles} handleChange={handleTitles} />}
         </div>
         <div className={styles.title_input}>
           <div className={styles.drop}>
-            <span onClick={() => setShowLocations(true)}>{searchLocation ? searchLocation : "Search by location"}</span>
+            <span>{searchLocation ? searchLocation : "Search by location"}</span>
           </div>
           <DropdownRadio options={locations} handleChange={handleLocations} />
         </div>
@@ -119,9 +112,7 @@ const Jobs = () => {
           <Radio name="salary" handleChange={handleFilters} options={salaryRange} label={"Salary"} />
           <button onClick={clearFilters}>Clear filters</button>
         </div>
-        <div className={styles.available_jobs}>
-          {!isLoading ? displayJobs.map((job) => <Job key={job.id} {...job} query={query} />) : <Loading />}
-        </div>
+        <div className={styles.available_jobs}>{!loading ? displayJobs.map((job) => <Job key={job.id} {...job} query={query} />) : <Loading />}</div>
       </div>
     </div>
   );
