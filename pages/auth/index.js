@@ -1,5 +1,5 @@
 const AuthHome = () => {
-  return <div className={styles.auth}></div>;
+  return <div>Coming soon!</div>;
 };
 
 export default AuthHome;
