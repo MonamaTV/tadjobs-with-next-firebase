@@ -53,6 +53,12 @@ const Jobs = () => {
       seniority: "-1",
       salary: "-1",
     });
+
+    //Uncheck the checked
+    const boxes = document.querySelectorAll("#checkboxes input");
+    boxes.forEach((box) => {
+      box.checked = false;
+    });
   };
 
   const handleLocations = (ev) => {
@@ -60,7 +66,6 @@ const Jobs = () => {
   };
 
   const handleTitles = (ev) => {
-    //If checked add. if not, remove
     if (ev.target.checked) {
       setSearchTitles([ev.target.name, ...searchTitles]);
     } else {
@@ -106,7 +111,7 @@ const Jobs = () => {
       </div>
       <small className={styles.smalls}> Search results: {displayJobs.length} jobs</small>
       <div className={styles.results}>
-        <div className={styles.filter}>
+        <div className={styles.filter} id="checkboxes">
           <Radio name="type" handleChange={handleFilters} options={jobTypes} label={"Job type"} />
           <Radio name="seniority" handleChange={handleFilters} options={seniority} label="Seniority" />
           <Radio name="salary" handleChange={handleFilters} options={salaryRange} label={"Salary"} />
@@ -117,5 +122,4 @@ const Jobs = () => {
     </div>
   );
 };
-
 export default Jobs;

@@ -39,7 +39,7 @@ export const validateJob = () => {
 export const validateUserRegistration = () => {
   return Yup.object({
     name: Yup.string().min(2, "Your name must be at least 2 characters long").required("Please provide your name"),
-    email: Yup.string().email("Please provide a valid email").required("Email is required"),
-    password: Yup.string().min(8, "Your password must be at least 8 characters long").required(),
+    email: Yup.string().email("Please provide a valid email").required("Please provide your email"),
+    password: Yup.string().min(8, "Your password must be at least 8 characters long").required("Password is required"),
   });
 };

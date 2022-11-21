@@ -14,7 +14,7 @@ const Nav = () => {
         <nav>
           <Link href="/">
             <a className="logo" style={{ color: "#665df5" }}>
-              TadJobs
+              <img src="/log.svg" alt="" />
             </a>
           </Link>
           <div>

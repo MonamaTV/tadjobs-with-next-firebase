@@ -7,11 +7,8 @@
   align-items: center;
 }
 
-.login_header h3 a {
-  text-decoration: none;
-  color: #665df5;
-  font-size: 30px;
-  font-weight: 700;
+.login_header img {
+  width: 150px;
 }
 .login_header {
   text-align: center;

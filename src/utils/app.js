@@ -13,10 +13,17 @@ export const addCheckLaterJob = (jobID) => {
   return "Added...";
 };
 
-const addCheckLater = (jobID) => {
-  const IDs = getCheckLaterJobs();
+export const addCheckLater = (jobID) => {
+  const IDs = getLaterJobs();
   const userID = getUserDetails()?.userID;
-  //Ensure you are not adding that company again...
+  // //Ensure you are not adding that company again...
+  // const contains = IDs.some(({ id }) => {
+  //   return id === jobID;
+  // });
+  // if (contains) {
+  //   return "Already added";
+  // }
+
   if (IDs.includes(jobID)) return "Already added";
   const job = {
     id: jobID,
@@ -25,6 +32,7 @@ const addCheckLater = (jobID) => {
   IDs.push(job);
   //You can not add more than 10 companies in the check me later
   const newIDS = IDs.slice(-10);
+  //if the user is logged, the jobs are saved using the uid,
   localStorage.setItem(userID ?? "checklater", JSON.stringify(newIDS));
   return "Added...";
 };
@@ -34,17 +42,12 @@ const getDaysBetweenDates = (recent) => {
   return diff / (1000 * 3600 * 24);
 };
 
-const getLaterJobs = () => {
+export const getLaterJobs = () => {
   const userID = getUserDetails()?.userID;
   const IDs = JSON.parse(localStorage.getItem(userID ?? "checklater")) ?? [];
   //Make sure you delete the old ones
-  IDs.forEach((id) => {
-    new Date();
-    if (getDaysBetweenDates(id.addedAt) > 30) {
-      IDs.filter((id) => id.id !== id);
-    }
-  });
-  // return IDs;
+  //Todo: remove the ones with old dates.
+  return IDs;
 };
 
 export const getCheckLaterJobs = () => {
@@ -142,7 +145,7 @@ export const seniority = [
 
 export const titles = [
   "Web Developer",
-  "Sofware Engineer",
+  "Software Engineer",
   "Software Developer",
   "Tech Lead",
   "Mobile App Developer",

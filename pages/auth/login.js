@@ -51,7 +51,9 @@ const Login = () => {
       <div className={styles.login_header}>
         <h3>
           <Link href="/">
-            <a>TadJobs</a>
+            <a>
+              <img src="/log.svg" alt="" />
+            </a>
           </Link>
         </h3>
         <p>Welcome back, login and attract the best talent</p>

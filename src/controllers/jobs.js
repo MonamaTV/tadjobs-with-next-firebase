@@ -163,9 +163,6 @@ const salaryQuery = (salary) => {
   return jobs;
 };
 
-//TODO: All job search using location and title, even though Firestore doesn't support indexing natively
-export const searchJobs = () => {};
-
 export const incrementViews = (JobID) => {};
 
 export const incrementClickThrough = (jobID) => {};

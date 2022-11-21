@@ -18,7 +18,7 @@
   z-index: 3;
 }
 .searches button {
-  background: #665df5;
+  background: #0070f3;
   border: none;
   outline: none;
   height: 46px;
@@ -89,16 +89,15 @@
 .inputs_container input[type="radio"]:checked::before {
   content: "";
   width: 7px;
-
   height: 7px;
   border-radius: 50%;
-  color: #665df5;
+  color: #0070f3;
   background: #fff;
   z-index: 2;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 4px solid #665df5;
+  border: 4px solid #0070f3;
 }
 .filter input[type="radio"]::before,
 .inputs_container input[type="radio"]::before {
@@ -108,14 +107,14 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  color: #665df5;
+  color: #0070f3;
   background: #fff;
   z-index: 2;
   border: 4px solid #e3e3e8;
 }
 
 .filter button {
-  background: #665df5;
+  background: #0070f3;
   cursor: pointer;
   width: 100%;
   margin: 10px auto;
@@ -145,7 +144,6 @@
   }
   .searches {
     width: 90%;
-    /* padding-inline: 20px; */
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -155,13 +153,9 @@
     padding: 8px 4px;
   }
   .searches button {
-    /* display: none; */
-    /* padding: 0px 4px; */
     height: 35px;
   }
   .searches button img {
-    /* display: none; */
-    /* padding: 0px 4px; */
     width: 13px;
   }
   .smalls {
@@ -190,7 +184,7 @@
 
 .saved h4 {
   font-size: 20px;
-  color: #665df5;
+  color: #0070f3;
   width: 100%;
 }
 .saved {
@@ -210,9 +204,8 @@
   width: 350px;
   padding: 5px;
   display: block;
-  padding: 7px;
+  padding: 10px 7px;
   margin: 13px 2px;
-
   outline: none;
   border: 1px solid #e3e3e3;
 }
@@ -239,7 +232,6 @@
   padding: 4px;
   margin-top: 6px;
   box-shadow: 0 0 4px 0 #00000030;
-
   display: none;
 }
 
@@ -253,7 +245,6 @@
 }
 .title_input .drop > :first-child {
   width: 100%;
-  /* background: red; */
 }
 
 .drop .close {
@@ -263,14 +254,6 @@
   background: rgb(233, 232, 232);
   padding: 0 5px;
 }
-
-/* .title_input * {
-  display: none;
-}
-
-.title_input:hover * {
-  display: block;
-} */
 
 .inputs_container label {
   display: block;
@@ -298,12 +281,12 @@
   width: 2px;
   padding: 4px;
   height: 2px;
-  color: #665df5 !important;
+  color: #0070f3 !important;
   z-index: 2;
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px solid #665df5;
+  border: 2px solid #0070f3;
 }
 .inputs_container input[type="checkbox"]::before {
   display: inline-block;
@@ -311,7 +294,7 @@
   content: "";
   width: 7px;
   height: 7px;
-  color: #665df5;
+  color: #0070f3;
   background: #fff;
   z-index: 2;
   border: 4px solid #e3e3e8;

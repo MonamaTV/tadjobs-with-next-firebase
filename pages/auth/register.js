@@ -7,7 +7,6 @@ import { authResponses } from "../../src/utils/responses";
 import styles from "../../styles/Auth.module.css";
 import Link from "next/link";
 const Register = () => {
-
   //Flags signed in user
   const [loggedIn, setLoggedIn] = useState(null);
   const [error, setError] = useState("");
@@ -16,7 +15,7 @@ const Register = () => {
   const user = {
     name: "",
     password: "",
-    email: ""
+    email: "",
   };
 
   //Checks if there's a user logged in and direct to the admin page
@@ -41,14 +40,14 @@ const Register = () => {
       <Meta title={"TadJobs - Register"} />
 
       <div className={styles.login_header}>
-        <h3><Link href="/"><a >TadJobs</a></Link></h3>
+        <Link href="/">
+          <a>
+            <img src="/log.svg" alt="" />
+          </a>
+        </Link>
         <p>Register and find the best talent for the openings in your company</p>
       </div>
-      <RegisterForm
-        handleSubmission={handleSubmit}
-        user={user}
-        error={error}
-      />
+      <RegisterForm handleSubmission={handleSubmit} user={user} error={error} />
     </div>
   );
 };

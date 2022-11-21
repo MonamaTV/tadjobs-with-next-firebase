@@ -2,9 +2,14 @@
   margin: 10px 0 10px;
   padding: 0 10px;
 }
+.selection h4 {
+  font-weight: 400;
+  font-size: 15px;
+}
 .selection label {
   display: block;
-  font-size: 14px;
+  font-size: 13px;
+  margin-left: 4px;
 }
 
 @media screen and (max-width: 440px) {

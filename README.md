@@ -23,7 +23,7 @@ You can register from from here: [Register](https://tadjobs.vercel.app/auth/logi
 - [x] Users can verify their account
 - [x] Users can update their display name
 - [x] Advanced search options
-- [ ] Jobs must have stacks
+- [ ] Jobs must have stacks. Upon company registration, the stack the company uses will have to be chosen.
 - [ ] Companies must include the depts they follow under, e.g marketing agency, software dev, banking, insurance,
 - [ ] The jobseekers will be able to apply for jobs through the platorm
 - [ ] Jobseekers who do not wish to register, will have the option to subscribe. This will allow them to get notifications about the jobs that match their skills, location and salary they would have shared on the platfofrm

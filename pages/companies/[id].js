@@ -14,6 +14,7 @@ const Company = ({ id }) => {
   const { data: company, isLoading } = useQuery(["companies", id], () => {
     return getCompanyPublicInfo(id);
   });
+
   const { data: jobs, isLoading: jobLoading } = useQuery(["jobs", id], () => {
     return getJobsByCompany(id);
   });

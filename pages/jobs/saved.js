@@ -26,6 +26,18 @@ const Saved = () => {
     fetchJobs();
   }, []);
 
+  const searchJobs = (e) => {
+    const value = e.target.value.toLowerCase();
+    const jobs = document.querySelectorAll("#savedJobs a");
+    jobs.forEach((job) => {
+      if (job.textContent.toLowerCase().includes(value)) {
+        job.style.display = "block";
+      } else {
+        job.style.display = "none";
+      }
+    });
+  };
+
   if (loading) {
     return <Loading />;
   }
@@ -45,12 +57,12 @@ const Saved = () => {
     <div className={styles.saved_jobs}>
       <Meta title="Tadjobs - all the jobs you saved..." />
       <Nav />
-      <div className={styles.saved}>
+      <div className={styles.saved} id="savedJobs">
         <h4>
           All the jobs you <span>saved</span>
         </h4>
         <small>Saved jobs expire after 30 days...</small>
-        <input placeholder="Start typing..." />
+        <input placeholder="Start typing..." onChange={searchJobs} />
         {jobs && jobs.map((job) => <Job key={job.id} {...job} />)}
       </div>
     </div>
