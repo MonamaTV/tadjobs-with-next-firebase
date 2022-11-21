@@ -31,7 +31,11 @@ export default function Home() {
           </Link>
         </div>
         <div className={styles.img}>
-          <img loading="lazy" src="/assets/back.png" alt="" />
+          <img
+            loading="lazy"
+            src="/assets/back.png"
+            alt="The backgroud image"
+          />
         </div>
       </main>
 
