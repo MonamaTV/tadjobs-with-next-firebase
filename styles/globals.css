@@ -311,7 +311,7 @@ select {
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 3;
+  z-index: 30;
   background: #fff;
   border: 1px solid #e3e3e3;
 }
@@ -347,7 +347,7 @@ select {
 
 .call_to_action {
   position: absolute;
-  bottom: 50px;
+  bottom: 100px;
   width: 100%;
   display: flex;
   justify-content: center;
