@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { auth } from "../controllers/app";
 const Nav = () => {
   const [user, setUser] = useState(null);
-
+  const [showNav, setShowNav] = useState(false);
   //Since the component is not wrapped with the authProvider...
   useEffect(() => {
     setUser(auth.currentUser);
@@ -17,16 +17,44 @@ const Nav = () => {
               <img src="/log.svg" alt="" />
             </a>
           </Link>
-          <div>
-            <Link href={"/jobs/saved"}>
-              <a className="jobs">Saved jobs</a>
+          <button onClick={() => setShowNav(!showNav)}>
+            <img src="/assets/menus.png" alt="" />
+          </button>
+        </nav>
+      </header>
+      {showNav && (
+        <nav className="navigation">
+          <button onClick={() => setShowNav(!showNav)}>Close</button>
+          <Link href="/">
+            <a className="home">TadJobs</a>
+          </Link>
+          <ul className="nav_items">
+            <li className="nav_item">
+              <Link href="/jobs/search">
+                <a>Jobs</a>
+              </Link>
+            </li>
+            <li className="nav_item">
+              <Link href="/companies">
+                <a>Companies</a>
+              </Link>
+            </li>
+            <li className="nav_item">
+              <Link href="/jobs/saved">
+                <a>Saved</a>
+              </Link>
+            </li>
+          </ul>
+          <div className="call_to_action">
+            <Link href="/auth/register">
+              <a className="register">Register</a>
             </Link>
-            <Link href={user ? "/admin" : "/auth/login"}>
-              <a>{"Post a job"}</a>
+            <Link href="/admin/jobs/add">
+              <a className="post">Post a job</a>
             </Link>
           </div>
         </nav>
-      </header>
+      )}
     </div>
   );
 };

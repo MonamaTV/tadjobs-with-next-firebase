@@ -22,6 +22,10 @@
   padding: 0 1.6em;
 }
 
+.job_details > small {
+  text-decoration: underline;
+}
+
 .job_details h3 {
   font-size: 16px;
   color: #ff6584;
@@ -33,11 +37,11 @@
 }
 .job_details p {
   font-size: 14px !important;
-  color: #353636;
+  color: #636363;
 }
 .job_details p * {
   font-size: 14px !important;
-  color: #353636;
+  color: #636363 !important;
   font-weight: normal;
 }
 

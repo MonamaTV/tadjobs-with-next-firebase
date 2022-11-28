@@ -255,10 +255,8 @@ select {
   background: #665df5;
 }
 .not_found_message a.job {
-  /* background: ; */
   color: #675df5cf;
   border: 2px solid #675df585;
-
   background: inherit;
 }
 
@@ -299,5 +297,81 @@ select {
     /* padding: 4px 10px; */
     font-size: 13px;
     padding: 8px 11px;
+  }
+}
+
+.containers button {
+  border: none;
+}
+
+.navigation {
+  width: 0;
+  animation: slideInTransition 1s ease-in-out forwards;
+  height: 100vh;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 3;
+  background: #fff;
+  border: 1px solid #e3e3e3;
+}
+.navigation .home {
+  display: block;
+  color: #0070f3;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 40px 37px;
+}
+.navigation button {
+  position: absolute;
+  right: 20px;
+  top: 40px;
+  background: red;
+  border: none;
+  padding: 3px 10px;
+  color: #fff;
+}
+
+.nav_items {
+  list-style: none;
+  padding: 10px 40px;
+}
+
+.nav_item {
+  padding: 10px 0;
+  font-size: 14px;
+}
+.nav_item a {
+  text-decoration: none;
+}
+
+.call_to_action {
+  position: absolute;
+  bottom: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.call_to_action a {
+  padding: 3px 4px;
+  width: 90%;
+  font-size: 12px;
+  margin: 3px;
+  text-decoration: none;
+  text-align: center;
+}
+.call_to_action .post {
+  color: #665df5;
+}
+
+@keyframes slideInTransition {
+  0% {
+    width: 0;
+  }
+
+  100% {
+    width: 300px;
   }
 }
