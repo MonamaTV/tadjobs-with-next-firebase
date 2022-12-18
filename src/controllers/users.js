@@ -8,9 +8,13 @@ import {
 } from "firebase/auth";
 import { auth } from "./app";
 
-export const registerWithEmailAndPassword = async ({ email, password, name }) => {
+export const registerWithEmailAndPassword = async ({
+  email,
+  password,
+  name,
+}) => {
   const { user } = await createUserWithEmailAndPassword(auth, email, password);
-  if (user.uid) {
+  if (user) {
     await addUserName(name);
   }
   return user;

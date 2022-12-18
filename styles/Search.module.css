@@ -35,7 +35,6 @@
   display: flex;
   align-items: center;
 }
-
 .location_input,
 .title_input {
   width: 300px;
@@ -58,7 +57,6 @@
   width: 90%;
   margin: 0 auto;
 }
-
 .filter {
   flex: 2;
   width: 250px;
@@ -68,7 +66,6 @@
   top: 100px;
   border: 1px solid #e3e3e3;
 }
-
 .filter label {
   position: relative;
   padding-left: 25px;
@@ -76,7 +73,6 @@
   display: flex;
   align-items: center;
 }
-
 .filter input[type="radio"],
 .inputs_container input[type="radio"] {
   position: absolute;
@@ -112,7 +108,6 @@
   z-index: 2;
   border: 4px solid #e3e3e8;
 }
-
 .filter button {
   background: #0070f3;
   cursor: pointer;
@@ -136,7 +131,6 @@
 .available_jobs {
   flex: 10;
 }
-
 /* responsiveness */
 @media screen and (max-width: 440px) {
   .jobs {
@@ -167,7 +161,6 @@
     margin-left: 0;
   }
 }
-
 @media screen and (max-width: 649px) {
   .jobs {
     padding-inline: 0px;
@@ -176,12 +169,10 @@
     display: none;
   }
 }
-
 .saved_jobs {
   width: 90%;
   margin: 0 auto;
 }
-
 .saved h4 {
   font-size: 20px;
   color: #0070f3;
@@ -191,7 +182,6 @@
   width: 70%;
   margin: 0 auto;
 }
-
 .saved h4 span {
   text-align: center;
   font-weight: 800;
@@ -199,7 +189,6 @@
   padding-bottom: 10px;
   text-decoration: underline;
 }
-
 .saved input {
   width: 350px;
   padding: 5px;
@@ -209,7 +198,6 @@
   outline: none;
   border: 1px solid #e3e3e3;
 }
-
 @media screen and (max-width: 649px) {
   .saved_jobs {
     width: 100%;
@@ -223,7 +211,6 @@
     margin: 13px 0px;
   }
 }
-
 .inputs_container {
   position: absolute;
   width: 100%;
@@ -234,11 +221,9 @@
   box-shadow: 0 0 4px 0 #00000030;
   display: none;
 }
-
 .title_input:hover .inputs_container {
   display: block;
 }
-
 .title_input .drop {
   display: flex;
   justify-content: space-between;
@@ -246,7 +231,6 @@
 .title_input .drop > :first-child {
   width: 100%;
 }
-
 .drop .close {
   color: red;
   font-size: 13px;
@@ -254,12 +238,10 @@
   background: rgb(233, 232, 232);
   padding: 0 5px;
 }
-
 .inputs_container label {
   display: block;
   padding: 3px 10px;
 }
-
 .inputs_container label {
   position: relative;
   padding-left: 25px;
@@ -268,7 +250,6 @@
   margin-left: 10px;
   align-items: center;
 }
-
 .inputs_container input[type="checkbox"] {
   position: absolute;
   top: 5px;

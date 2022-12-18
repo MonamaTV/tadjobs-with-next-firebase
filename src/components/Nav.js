@@ -18,16 +18,19 @@ const Nav = () => {
             </a>
           </Link>
           <button onClick={() => setShowNav(!showNav)}>
+            <p>Menu</p>
             <img src="/assets/menus.png" alt="" />
           </button>
         </nav>
       </header>
       {showNav && (
         <nav className="navigation">
-          <button onClick={() => setShowNav(!showNav)}>Close</button>
-          <Link href="/">
-            <a className="home">TadJobs</a>
-          </Link>
+          <div className="head">
+            <Link href="/">
+              <a className="home">TadJobs</a>
+            </Link>
+            <button onClick={() => setShowNav(!showNav)}>Close</button>
+          </div>
           <ul className="nav_items">
             <li className="nav_item">
               <Link href="/jobs/search">
@@ -46,9 +49,11 @@ const Nav = () => {
             </li>
           </ul>
           <div className="call_to_action">
-            <Link href="/auth/register">
-              <a className="register">Register</a>
-            </Link>
+            {!user && (
+              <Link href="/auth/register">
+                <a className="register">Register</a>
+              </Link>
+            )}
             <Link href="/admin/jobs/add">
               <a className="post">Post a job</a>
             </Link>

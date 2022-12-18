@@ -8,16 +8,13 @@
   font-weight: normal;
   color: #636363;
 }
-
 .job_active {
   border-left: 3px solid #fa5979;
 }
-
 html,
 body {
   background: #ececec;
 }
-
 header {
   width: 100%;
   position: relative;
@@ -27,26 +24,22 @@ header {
   align-items: center;
   height: 100px;
 }
-
 .containers header {
   width: 90%;
   margin: 0 auto;
 }
-
 .flex {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   height: 80vh;
 }
-
 .flex main {
   border: 1px solid #e3e3e3;
   display: relative;
   width: 77%;
   background: #fff;
 }
-
 hr {
   /* color: #00000010; */
   border: none;
@@ -58,12 +51,10 @@ hr {
   color: #f54266 !important;
   display: none;
 }
-
 .animate {
   display: block;
   animation: moveUp 1s ease-in forwards;
 }
-
 @keyframes moveUp {
   0% {
     display: block;
@@ -86,24 +77,20 @@ hr {
   width: 5px;
   border-radius: 10px;
 }
-
 /* Track */
 ::-webkit-scrollbar-track {
   background: #f1f1f1;
   border-radius: 10px;
 }
-
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 10px;
 }
-
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-
 button:disabled {
   transition: background-color 200ms ease-in;
   background-color: #cccccc !important;
@@ -111,7 +98,6 @@ button:disabled {
   background-color: #cccccc;
   color: #666666;
 }
-
 .containers header nav {
   display: flex;
   width: 100%;
@@ -125,12 +111,10 @@ button:disabled {
   padding: 8px 30px;
   text-decoration: none;
 }
-
 .containers header nav h3 {
   color: #fff;
   font-weight: bold;
 }
-
 .containers .logo {
   background: none;
   color: #665df5;
@@ -141,15 +125,12 @@ button:disabled {
 .containers .logo span {
   color: #ff6584;
 }
-
 .logo img {
   width: 100px;
 }
-
 .active_company {
   border-left: 2px solid #ff6584;
 }
-
 input,
 select {
   background: #fff !important;
@@ -166,7 +147,6 @@ select {
 .mantine-1qycoz3 {
   border-radius: 0px;
 }
-
 /* Loading */
 .lds-ripple {
   display: block;
@@ -217,7 +197,6 @@ select {
     opacity: 0;
   }
 }
-
 /* The not found page */
 .not_found {
   width: 90%;
@@ -228,11 +207,9 @@ select {
   justify-content: center;
   align-items: center;
 }
-
 .not_found img {
   width: 400px;
 }
-
 .not_found_message h1 {
   font-size: 50px;
   font-weight: 600;
@@ -244,7 +221,6 @@ select {
 .saved_jobs {
   font-size: 3px !important;
 }
-
 .not_found_message a {
   text-decoration: none;
   padding: 5px 10px;
@@ -259,7 +235,6 @@ select {
   border: 2px solid #675df585;
   background: inherit;
 }
-
 @media screen and (max-width: 440px) {
   .not_found {
     flex-direction: column;
@@ -299,14 +274,20 @@ select {
     padding: 8px 11px;
   }
 }
-
 .containers button {
   border: none;
+  background: none;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  border: 1px solid #e3e3e3;
+  padding-inline: 10px;
+  cursor: pointer;
 }
-
 .navigation {
   width: 0;
-  animation: slideInTransition 1s ease-in-out forwards;
+  animation: slideInTransition 200ms ease-in-out forwards;
   height: 100vh;
   position: fixed;
   right: 0;
@@ -315,36 +296,38 @@ select {
   background: #fff;
   border: 1px solid #e3e3e3;
 }
+.navigation .head {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  padding-right: 17px;
+}
 .navigation .home {
-  display: block;
   color: #0070f3;
+  /* display: inline; */
   text-decoration: none;
   font-weight: 600;
-  padding: 40px 37px;
+  padding: 0px 0 0 37px;
 }
 .navigation button {
-  position: absolute;
-  right: 20px;
-  top: 40px;
   background: red;
   border: none;
   padding: 3px 10px;
   color: #fff;
 }
-
 .nav_items {
   list-style: none;
   padding: 10px 40px;
 }
-
 .nav_item {
   padding: 10px 0;
-  font-size: 14px;
+  font-size: 17px;
 }
 .nav_item a {
   text-decoration: none;
 }
-
 .call_to_action {
   position: absolute;
   bottom: 100px;
@@ -353,24 +336,21 @@ select {
   justify-content: center;
   align-items: center;
 }
-
 .call_to_action a {
   padding: 3px 4px;
   width: 90%;
-  font-size: 12px;
+  font-size: 14px;
   margin: 3px;
   text-decoration: none;
   text-align: center;
 }
 .call_to_action .post {
-  color: #665df5;
+  color: #0070f3;
 }
-
 @keyframes slideInTransition {
   0% {
     width: 0;
   }
-
   100% {
     width: 300px;
   }
