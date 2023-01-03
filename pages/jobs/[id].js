@@ -8,23 +8,31 @@ import Meta from "../../src/components/Meta";
 import Nav from "../../src/components/Nav";
 import { getCompanyPublicInfo } from "../../src/controllers/companies";
 import { getJob } from "../../src/controllers/jobs";
-import { addCheckLaterJob } from "../../src/utils/app";
+import { addCheckLaterJob, addJobInCheckLater } from "../../src/utils/app";
 import styles from "../../styles/Job.module.css";
 import NotFound from "../404";
 const Job = ({ id }) => {
   const router = useRouter();
   //Get job - listens to ID changes...
   let jobID = router.query?.jid ?? id;
-  const { data: job, isLoading, isFetched } = useQuery(["jobs", jobID], () => getJob(jobID));
+  const {
+    data: job,
+    isLoading,
+    isFetched,
+  } = useQuery(["jobs", jobID], () => getJob(jobID));
 
   //Wait for the job to finish fetching, then start fetching the company
   const {
     isIdle,
     data: company,
     isLoading: comLoading,
-  } = useQuery(["companies", job?.companyID], () => getCompanyPublicInfo(job?.companyID), {
-    enabled: !!job?.companyID,
-  });
+  } = useQuery(
+    ["companies", job?.companyID],
+    () => getCompanyPublicInfo(job?.companyID),
+    {
+      enabled: !!job?.companyID,
+    }
+  );
 
   //If the fetch is done, and no data is available
   if (isFetched && !job) {
@@ -43,7 +51,7 @@ const Job = ({ id }) => {
   }
 
   const checkLater = (e) => {
-    const text = addCheckLaterJob(jobID);
+    const text = addJobInCheckLater(jobID);
     const span = document.querySelectorAll("button[aria-checked] span")[1];
     span.textContent = text;
     span.classList.toggle("animate");
@@ -62,7 +70,13 @@ const Job = ({ id }) => {
             <Loading />
           ) : (
             <>
-              <JobHeader {...job} fileUrl={company.fileUrl} background={company.background} companyName={company.name} companyID={company.id} />
+              <JobHeader
+                {...job}
+                fileUrl={company.fileUrl}
+                background={company.background}
+                companyName={company.name}
+                companyID={company.id}
+              />
               <JobInformation checkLater={checkLater} {...job} />
             </>
           )}

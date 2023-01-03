@@ -15,7 +15,7 @@ const Saved = () => {
   useEffect(() => {
     const fetchJobs = async () => {
       try {
-        const ids = getCheckLaterJobs();
+        const ids = getCheckLaterJobs().map((job) => job.id);
         const jobs = await getJobsSavedByUser(ids);
         setJobs(jobs);
       } catch (error) {

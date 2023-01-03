@@ -1,23 +1,11 @@
 import { Timestamp } from "firebase/firestore";
 import { getUserDetails } from "../controllers/users";
-//All the savedjobs lasts for 30d
-export const addCheckLaterJob = (jobID) => {
-  const IDs = getCheckLaterJobs();
-  const userID = getUserDetails()?.userID;
-  //Ensure you are not adding that company again...
-  if (IDs.includes(jobID)) return "Already added";
-  IDs.push(jobID);
-  //You can not add more than 10 companies in the check me later
-  const newIDS = IDs.slice(-10);
-  localStorage.setItem(userID ?? "checklater", JSON.stringify(newIDS));
-  return "Added...";
-};
 
-export const addCheckLater = (jobID) => {
-  const IDs = getLaterJobs();
+export const addJobInCheckLater = (jobID) => {
+  const savedJobs = getCheckLaterJobs();
   const userID = getUserDetails()?.userID;
   // //Ensure you are not adding that company again...
-  const contains = IDs.find(({ id }) => {
+  const contains = savedJobs.find(({ id }) => {
     return id === jobID;
   });
 
@@ -25,37 +13,38 @@ export const addCheckLater = (jobID) => {
     return "Already added";
   }
 
-  // if (IDs.includes(jobID)) return "Already added";
   const job = {
     id: jobID,
     addedAt: new Date().getTime(),
   };
-  IDs.push(job);
+  savedJobs.push(job);
   //You can not add more than 10 companies in the check me later
-  const newIDS = IDs.slice(-10);
+  const newIDS = savedJobs.slice(-10);
   //if the user is logged, the jobs are saved using the uid,
   localStorage.setItem(userID ?? "checklater", JSON.stringify(newIDS));
   return "Added...";
 };
 
-export const getDaysBetweenDates = (recent) => {
-  const diff = new Date().getTime() - recent;
-  return diff / (1000 * 3600 * 24);
+export const getDaysBetweenDates = (dateJobSaved) => {
+  const diff = new Date().getTime() - dateJobSaved;
+  //Remove the decimal point before we convert the value to an int because we are using it for calculations
+  return parseInt((diff / (1000 * 3600 * 24)).toFixed(0));
 };
 
-export const getLaterJobs = () => {
+export const getCheckLaterJobs = () => {
   const userID = getUserDetails()?.userID;
   //Get items that were saved using the userID as the key, but for not signed in users, get items using the 'checklater' key. If both cases are false, return an empty array
   const IDs = JSON.parse(localStorage.getItem(userID ?? "checklater")) ?? [];
   //Make sure you delete the old ones
   //Todo: remove the ones with old dates.
-  return IDs;
-};
+  const newIDS = IDs.filter(({ addedAt }) => {
+    //Removing old saved jobs
+    if (getDaysBetweenDates(addedAt) <= 30) return true;
+    else return false;
+  });
+  //Save the newly filtered array in the checklater
+  localStorage.setItem(userID ?? "checklater", JSON.stringify(newIDS));
 
-export const getCheckLaterJobs = () => {
-  //
-  const userID = getUserDetails()?.userID;
-  const IDs = JSON.parse(localStorage.getItem(userID ?? "checklater")) ?? [];
   return IDs;
 };
 
