@@ -50,13 +50,20 @@ const Nav = () => {
           </ul>
           <div className="call_to_action">
             {!user && (
-              <Link href="/auth/register">
-                <a className="register">Register</a>
+              <>
+                <Link href="/auth/register">
+                  <a className="register">Register</a>
+                </Link>
+                <Link href="/auth/login">
+                  <a>Login</a>
+                </Link>
+              </>
+            )}
+            {user && (
+              <Link href="/admin/">
+                <a className="post">Admin</a>
               </Link>
             )}
-            <Link href="/admin/jobs/add">
-              <a className="post">Post a job</a>
-            </Link>
           </div>
         </nav>
       )}

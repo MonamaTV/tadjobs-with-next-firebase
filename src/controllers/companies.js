@@ -1,6 +1,17 @@
 import { getStorage, getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { db } from "./app";
-import { addDoc, collection, where, getDocs, query, getDoc, doc, setDoc, orderBy, limit } from "firebase/firestore";
+import {
+  addDoc,
+  collection,
+  where,
+  getDocs,
+  query,
+  getDoc,
+  doc,
+  setDoc,
+  orderBy,
+  limit,
+} from "firebase/firestore";
 import { getUserDetails } from "./users";
 
 //Companies reference
@@ -10,7 +21,7 @@ export const addNewCompany = async (company, file) => {
   const companies = await getCompanies();
   //Users are only allowed to register 10 companies
   if (companies.length > 10) return null;
-  if (!file) return null;
+  if (!file) throw new Error("Failed to upload your file.");
   const url = await addCompanyAvatar(file);
   company = { ...company, fileUrl: url };
   const response = await addDoc(companiesRef, company);
@@ -38,7 +49,9 @@ export const editCompany = async (company, file, companyID) => {
     let url = await addCompanyAvatar(file);
     company = { ...company, fileUrl: url };
   }
-  const updatedDoc = await setDoc(doc(db, "companies", companyID), company, { merge: true });
+  const updatedDoc = await setDoc(doc(db, "companies", companyID), company, {
+    merge: true,
+  });
   return updatedDoc;
 };
 
@@ -71,7 +84,7 @@ export const getCompany = async (companyID) => {
   if (!result.exists()) return null;
   const company = result.data();
   //If userID don't match on top of the security rules on the cloud
-  if (company.userID !== userID) return null;
+  if (company.userID !== userID) throw new Error("Failed to fetch company.");
   return {
     id: result.id,
     ...result.data(),
@@ -79,11 +92,11 @@ export const getCompany = async (companyID) => {
 };
 
 export const getCompanyPublicInfo = async (companyID) => {
-  if (!companyID) return null;
+  if (!companyID) throw new Error("Failed to get company information");
   const perform = query(doc(db, "companies", companyID));
   const result = await getDoc(perform);
   //If the result's not exist
-  if (!result.exists()) return null;
+  if (!result.exists()) throw new Error("Company does not exist.");
   //If userID don't match on top of the security rules on the cloud
   return {
     id: result.id,

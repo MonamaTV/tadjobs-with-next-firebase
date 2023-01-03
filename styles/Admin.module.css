@@ -139,7 +139,8 @@
 
 .heading {
   background: #665df5;
-  background: linear-gradient(#ff658470, #ff658470, #ff658470), url("../public/assets/capture.jpg");
+  background: linear-gradient(#ff658470, #ff658470, #ff658470),
+    url("../public/assets/capture.jpg");
   background-position: bottom;
   margin-bottom: 43px;
 }
@@ -263,7 +264,11 @@
   font-weight: 400;
 }
 
-@media screen and (max-width: 440px) {
+.empty_company {
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 940px) {
   .empty_company p,
   .mobile_empty_company p {
     width: 100%;

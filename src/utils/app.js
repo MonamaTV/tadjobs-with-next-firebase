@@ -17,14 +17,15 @@ export const addCheckLater = (jobID) => {
   const IDs = getLaterJobs();
   const userID = getUserDetails()?.userID;
   // //Ensure you are not adding that company again...
-  // const contains = IDs.some(({ id }) => {
-  //   return id === jobID;
-  // });
-  // if (contains) {
-  //   return "Already added";
-  // }
+  const contains = IDs.find(({ id }) => {
+    return id === jobID;
+  });
 
-  if (IDs.includes(jobID)) return "Already added";
+  if (contains) {
+    return "Already added";
+  }
+
+  // if (IDs.includes(jobID)) return "Already added";
   const job = {
     id: jobID,
     addedAt: new Date().getTime(),
@@ -37,13 +38,14 @@ export const addCheckLater = (jobID) => {
   return "Added...";
 };
 
-const getDaysBetweenDates = (recent) => {
+export const getDaysBetweenDates = (recent) => {
   const diff = new Date().getTime() - recent;
   return diff / (1000 * 3600 * 24);
 };
 
 export const getLaterJobs = () => {
   const userID = getUserDetails()?.userID;
+  //Get items that were saved using the userID as the key, but for not signed in users, get items using the 'checklater' key. If both cases are false, return an empty array
   const IDs = JSON.parse(localStorage.getItem(userID ?? "checklater")) ?? [];
   //Make sure you delete the old ones
   //Todo: remove the ones with old dates.
@@ -152,7 +154,14 @@ export const titles = [
   "Frontend Developer",
   "Backend Developer",
 ];
-export const locations = ["Cape Town", "Pretoria", "Johannesburg", "Durban", "Midrand", "Sandton"];
+export const locations = [
+  "Cape Town",
+  "Pretoria",
+  "Johannesburg",
+  "Durban",
+  "Midrand",
+  "Sandton",
+];
 export const stacks = [
   "JS",
   "TS",

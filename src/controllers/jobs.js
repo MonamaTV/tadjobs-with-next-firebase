@@ -1,6 +1,19 @@
 import { db } from "./app";
 
-import { serverTimestamp, Timestamp, addDoc, collection, where, getDocs, query, getDoc, doc, setDoc, orderBy, documentId } from "firebase/firestore";
+import {
+  serverTimestamp,
+  Timestamp,
+  addDoc,
+  collection,
+  where,
+  getDocs,
+  query,
+  getDoc,
+  doc,
+  setDoc,
+  orderBy,
+  documentId,
+} from "firebase/firestore";
 import { getCompaniesNamesAndIds } from "./companies";
 
 const jobsRef = collection(db, "jobs");
@@ -22,7 +35,8 @@ export const addJob = async (job) => {
 };
 
 export const editJob = async (job, jobID) => {
-  if (jobID === "") return null;
+  if (jobID === "" || !jobID)
+    throw new Error("Invalid request. Can't edit the job");
   const updatedJob = await setDoc(
     doc(db, "jobs", jobID),
     {
@@ -43,7 +57,7 @@ export const getJob = async (jobID) => {
   const perform = query(doc(db, "jobs", jobID));
   const job = await getDoc(perform);
   //If job doesn't exist
-  if (!job.exists()) return null;
+  if (!job.exists()) throw new Error("Job does not exist");
   return {
     id: job.id,
     ...job.data(),
@@ -53,9 +67,15 @@ export const getJob = async (jobID) => {
 export const getJobsByUser = async (sort) => {
   const field = sort === "1" ? "addedAt" : "type";
 
-  const companyIDs = (await getCompaniesNamesAndIds()).map((company) => company.id);
-  if (companyIDs.length === 0) return null;
-  const perform = query(jobsRef, where("companyID", "in", companyIDs), orderBy(field));
+  const companyIDs = (await getCompaniesNamesAndIds()).map(
+    (company) => company.id
+  );
+  if (companyIDs.length === 0) throw new Error("No companies to fetch");
+  const perform = query(
+    jobsRef,
+    where("companyID", "in", companyIDs),
+    orderBy(field)
+  );
   const documents = await getDocs(perform);
   //Jobs
   const jobs = [];
@@ -70,7 +90,8 @@ export const getJobsByUser = async (sort) => {
 };
 //
 export const getJobsByCompany = async (companyID) => {
-  if (companyID === "") return null;
+  if (companyID === "" || !companyID)
+    throw new Error("Invalid company id provided");
   const jobs = [];
   const perform = query(jobsRef, where("companyID", "==", companyID));
   const results = await getDocs(perform);
@@ -171,7 +192,7 @@ export const incrementClickThrough = (jobID) => {};
 
 export const getJobsSavedByUser = async (JobIDs) => {
   //Terminate as early as possible
-  if (JobIDs.length === 0) return null;
+  if (JobIDs.length === 0) throw new Error("Invalid request");
   //Get the jobs the user has saved to check later
   const perform = query(jobsRef, where(documentId(), "in", JobIDs));
   const results = await getDocs(perform);

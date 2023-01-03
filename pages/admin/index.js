@@ -24,7 +24,7 @@ const Admin = () => {
   const openCompanyDetails = (e, id) => {
     changeActiveClass(e);
     setCompanyID(id);
-    if (window.innerWidth <= "440") {
+    if (window.innerWidth <= "640") {
       router.push("/admin/companies/" + id);
     }
   };
@@ -53,7 +53,10 @@ const Admin = () => {
     return (
       <div className={styles.mobile_empty_company}>
         <h2>Select a company</h2>
-        <p>Choose from your existing companies, create a new one, or refresh the page if you think there&apos;s an error</p>
+        <p>
+          Choose from your existing companies, create a new one, or refresh the
+          page if you think there&apos;s an error
+        </p>
         <Link href="/admin/companies/add">
           <a>Create new company</a>
         </Link>
@@ -69,7 +72,11 @@ const Admin = () => {
         {companies.length !== 0 && (
           <div className={styles.companies_list}>
             <div className={styles.filter_options}>
-              <input type={"text"} onChange={handleSearch} placeholder={"Start typing..."} />
+              <input
+                type={"text"}
+                onChange={handleSearch}
+                placeholder={"Start typing..."}
+              />
             </div>
             {companies.map(({ fileUrl, name, id, background }) => {
               return (
@@ -78,10 +85,18 @@ const Admin = () => {
                     <img loading="lazy" src={fileUrl} alt={name + " logo"} />
                   </div>
                   <div className={styles.content}>
-                    <h3 className="names" onClick={(e) => openCompanyDetails(e, id)}>
+                    <h3
+                      className="names"
+                      onClick={(e) => openCompanyDetails(e, id)}
+                    >
                       {name}
                     </h3>
-                    <small className={styles.preview} dangerouslySetInnerHTML={{ __html: background.slice(0, 150) + "..." }}></small>
+                    <small
+                      className={styles.preview}
+                      dangerouslySetInnerHTML={{
+                        __html: background.slice(0, 150) + "...",
+                      }}
+                    ></small>
                   </div>
                 </div>
               );
