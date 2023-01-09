@@ -10,6 +10,9 @@ export default function Header() {
   const handleSearchInput = (e) => {
     const value = e.target.value;
     setSearch(value);
+    if (window.innerWidth <= "586") {
+      window.location.href = "/admin/jobs/?search=" + search;
+    }
   };
 
   const handleSearchJob = () =>

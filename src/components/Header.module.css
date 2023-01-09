@@ -39,21 +39,6 @@
   padding: 12px 15px;
 }
 
-@media screen and (max-width: 440px) {
-  .search input {
-    width: 200px;
-    padding: 8px;
-  }
-  .navigation {
-    justify-content: space-between;
-  }
-  .search button {
-    display: none;
-  }
-  .search {
-    margin: 0;
-  }
-}
 @media screen and (max-width: 586px) {
   .search button {
     display: none;
@@ -86,4 +71,28 @@
 }
 .title_input .drop > :first-child {
   width: 100%;
+}
+
+@media screen and (max-width: 440px) {
+  .search input {
+    width: 200px;
+    padding: 8px;
+  }
+  .navigation {
+    justify-content: space-between;
+  }
+  .search button {
+    display: none;
+  }
+  .search {
+    margin: 0;
+  }
+  .title_input {
+    background: #fff;
+    padding: 12px;
+    width: 200px;
+    font-size: 13px;
+    text-align: left;
+    position: relative;
+  }
 }
