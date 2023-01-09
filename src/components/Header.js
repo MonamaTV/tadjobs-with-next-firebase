@@ -1,7 +1,19 @@
 import Link from "next/link";
+import { useState } from "react";
+import { titles } from "../utils/app";
+import DropdownRadio from "./DropdownRadio";
 import styles from "./Header.module.css";
 
 export default function Header() {
+  const [search, setSearch] = useState("");
+
+  const handleSearchInput = (e) => {
+    const value = e.target.value;
+    setSearch(value);
+  };
+
+  const handleSearchJob = () =>
+    (window.location.href = "/admin/jobs/?search=" + search);
   return (
     <header>
       <nav className={styles.navigation}>
@@ -11,8 +23,17 @@ export default function Header() {
           </a>
         </Link>
         <div className={styles.search}>
-          <input type="text" placeholder="Search jobs" />
-          <button>Search</button>
+          <div className={styles.title_input}>
+            <div className={styles.drop}>
+              <span>{search ? search : "Search jobs"}</span>
+            </div>
+            <DropdownRadio
+              options={titles}
+              searchBy="jobs"
+              handleChange={handleSearchInput}
+            />
+          </div>
+          <button onClick={handleSearchJob}>Search</button>
         </div>
       </nav>
     </header>

@@ -58,9 +58,9 @@ const Saved = () => {
       <Meta title="Tadjobs - all the jobs you saved..." />
       <Nav />
       <div className={styles.saved} id="savedJobs">
-        <h4>
+        <h2>
           All the jobs you <span>saved</span>
-        </h4>
+        </h2>
         <small>Saved jobs expire after 30 days...</small>
         <input placeholder="Start typing..." onChange={searchJobs} />
         {jobs && jobs.map((job) => <Job key={job.id} {...job} />)}

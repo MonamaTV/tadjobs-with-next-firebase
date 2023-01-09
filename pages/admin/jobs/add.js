@@ -83,7 +83,14 @@ const AddNewJob = () => {
       <Meta title={"TadJobs - Add job"} />
 
       <h3>Add a new job</h3>
-      <JobForm job={job} companies={companies} about={about} handleSubmission={handleSubmission} handleAbout={handleAbout} errors={error} />
+      <JobForm
+        job={job}
+        companies={companies}
+        about={about}
+        handleSubmission={handleSubmission}
+        handleAbout={handleAbout}
+        errors={error}
+      />
     </div>
   );
 };

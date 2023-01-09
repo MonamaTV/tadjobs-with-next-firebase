@@ -19,12 +19,17 @@ You can register from from here: [Register](https://tadjobs.vercel.app/auth/logi
 
 ## What's coming?
 
-- [x] A Check Later, allows jobseekers to bookmark jobs to check later
-- [x] Users can verify their account
+### Done
+
+- [x] A Check Later, allows jobseekers to bookmark jobs to check later. Now the jobs will expire after 30 days
+- [x] Users can verify their accounts
 - [x] Users can update their display name
 - [x] Advanced search options
-- [ ] Jobs must have stacks. Upon company registration, the stack the company uses will have to be chosen.
+
+### In development
+
 - [ ] Companies must include the depts they follow under, e.g marketing agency, software dev, banking, insurance,
+- [ ] Jobs must have stacks. Upon company registration, the stack the company uses will have to be chosen.
 - [ ] The jobseekers will be able to apply for jobs through the platorm
 - [ ] Jobseekers who do not wish to register, will have the option to subscribe. This will allow them to get notifications about the jobs that match their skills, location and salary they would have shared on the platfofrm
-- [ ] Manage the profiles;
+- [ ] Manage the profiles

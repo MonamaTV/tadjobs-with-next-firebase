@@ -1,5 +1,9 @@
 import styles from "../../../styles/Profile.module.css";
-import { addUserName, getUserDetails, sendVerificationEmail } from "../../../src/controllers/users";
+import {
+  addUserName,
+  getUserDetails,
+  sendVerificationEmail,
+} from "../../../src/controllers/users";
 import { getJobsByUser } from "../../../src/controllers/jobs";
 import { useQuery } from "react-query";
 import AboutJob from "../../../src/components/AboutJob";
@@ -57,8 +61,9 @@ const Profile = () => {
       <div className={styles.attention}>
         <h4>Verify your account</h4>
         <small>
-          All new registered accounts need to be verified before they start adding jobs and companies on the platform. We are trying to minimize spam
-          accounts advertising jobs here on TadJobs
+          All new registered accounts need to be verified before they start
+          adding jobs and companies on the platform. We are trying to minimize
+          spam accounts advertising jobs here on TadJobs
         </small>
         {!user?.verified && <button onClick={verifyModal}>Verify</button>}
         <span onClick={handleModal}>Update account</span>
@@ -98,7 +103,12 @@ const Profile = () => {
         <Modal title={"Update your name"} handleModal={handleModal}>
           <div className={styles.update}>
             <h5>You can only update your name at the moment. </h5>
-            <input value={userName} type="text" placeholder="Your name" onChange={(e) => setUserName(e.target.value)} />
+            <input
+              value={userName}
+              type="text"
+              placeholder="Your name"
+              onChange={(e) => setUserName(e.target.value)}
+            />
             <button onClick={updateDisplayName}>Update</button>
           </div>
         </Modal>

@@ -25,13 +25,17 @@ const Company = ({ id }) => {
 
   return (
     <>
-      <Meta title={"TadJobs - " + company.name} description={company.background.slice(0, 60)} />
+      <Meta
+        title={"TadJobs - " + company.name}
+        description={company.background.slice(0, 60)}
+      />
       <Nav />
       <main className={styles.public_company}>
         <header className={styles.header}>
           <div className={styles.container}>
             <h3>
-              <img src={company.fileUrl} alt="" /> {company.name}
+              <img src={company.fileUrl} alt={`${company.name} logo`} />{" "}
+              {company.name}
             </h3>
             <div className={styles.cards}>
               <div className={styles.card}>
@@ -62,10 +66,16 @@ const Company = ({ id }) => {
         </header>
         {/* The tap must be sticky*/}
         <nav className={styles.navigation}>
-          <span className={tap === 1 ? styles.nav_active : ""} onClick={() => setTap(1)}>
+          <span
+            className={tap === 1 ? styles.nav_active : ""}
+            onClick={() => setTap(1)}
+          >
             About
           </span>
-          <span className={tap === 2 ? styles.nav_active : ""} onClick={() => setTap(2)}>
+          <span
+            className={tap === 2 ? styles.nav_active : ""}
+            onClick={() => setTap(2)}
+          >
             Jobs ({jobs?.length})
           </span>
         </nav>

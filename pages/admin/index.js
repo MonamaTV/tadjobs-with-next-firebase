@@ -52,7 +52,7 @@ const Admin = () => {
   if (companies.length <= 0) {
     return (
       <div className={styles.mobile_empty_company}>
-        <h2>Select a company</h2>
+        <h3>Select a company</h3>
         <p>
           Choose from your existing companies, create a new one, or refresh the
           page if you think there&apos;s an error
@@ -85,12 +85,12 @@ const Admin = () => {
                     <img loading="lazy" src={fileUrl} alt={name + " logo"} />
                   </div>
                   <div className={styles.content}>
-                    <h3
+                    <h4
                       className="names"
                       onClick={(e) => openCompanyDetails(e, id)}
                     >
                       {name}
-                    </h3>
+                    </h4>
                     <small
                       className={styles.preview}
                       dangerouslySetInnerHTML={{

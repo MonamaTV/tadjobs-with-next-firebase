@@ -18,10 +18,21 @@
   justify-content: flex-start;
   margin: 10px 0;
   color: #454343;
+  font-size: 15px;
 }
 .tap a {
   text-decoration: none;
-  /* display: block; */
+}
+.tap div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.tap button {
+  background-color: inherit;
+  border: none;
+  color: #454343;
+  cursor: pointer;
 }
 
 .tap img {
@@ -36,7 +47,6 @@
   font-size: 12px;
   padding: 2px 5px;
   border-radius: 10px;
-
   position: absolute;
   bottom: 10px;
   left: 10px;

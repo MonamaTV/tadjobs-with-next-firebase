@@ -78,7 +78,7 @@ export const normalDate = (date) => {
   let month, day, year;
   const firestoreDate = new Timestamp(date.seconds, date.nanoseconds).toDate();
 
-  month = firestoreDate.getMonth();
+  month = firestoreDate.getMonth() + 1;
   day = firestoreDate.getDate();
   year = firestoreDate.getFullYear();
 
@@ -122,7 +122,7 @@ export const salaryRange = [
 export const seniority = [
   {
     value: 1,
-    name: "Entry",
+    name: "Junior",
   },
   {
     value: 2,
@@ -131,6 +131,10 @@ export const seniority = [
   {
     value: 3,
     name: "Senior",
+  },
+  {
+    value: 4,
+    name: "Internship",
   },
 ];
 
@@ -186,4 +190,14 @@ export const stacks = [
   "MEAN",
   "PERN",
   "Firebase",
+];
+
+export const departments = [
+  { name: "Marketing Agency", value: 1 },
+  { name: "Motor", value: 2 },
+  { name: "Insurance", value: 3 },
+  { name: "Banking", value: 4 },
+  { name: "FinTech", value: 5 },
+  { name: "Education", value: 6 },
+  { name: "Software", value: 7 },
 ];

@@ -18,7 +18,7 @@ export default function SideMenu() {
               <Link href="/admin/">
                 <a>
                   {" "}
-                  <img src="/assets/home.png" alt="" />
+                  <img src="/assets/home.png" alt="Home" />
                   Home
                 </a>
               </Link>
@@ -26,7 +26,7 @@ export default function SideMenu() {
             <li className={styles.tap}>
               <Link href={"/admin/jobs"}>
                 <a>
-                  <img src="/assets/jobs.png" alt="" />
+                  <img src="/assets/jobs.png" alt="Jobs" />
                   Jobs
                 </a>
               </Link>
@@ -35,10 +35,16 @@ export default function SideMenu() {
               <Link href="/admin/profile">
                 <a>
                   {""}
-                  <img src="/assets/profile.png" alt="" />
+                  <img src="/assets/profile.png" alt="Profile" />
                   Profile
                 </a>
               </Link>
+            </li>
+            <li className={styles.tap}>
+              <div>
+                <img src="/assets/logout.png" alt="Logout" />
+                <button onClick={signOutUser}>Logout</button>
+              </div>
             </li>
           </ul>
 
@@ -60,9 +66,6 @@ export default function SideMenu() {
             </li>
           </ul>
         </nav>
-        <button className={styles.logout} onClick={signOutUser}>
-          Logout
-        </button>
       </div>
       {/* Only visible to mobile */}
       <footer className={styles.mobile_footer}>

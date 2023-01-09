@@ -53,19 +53,22 @@
 
 .empty_company *,
 .mobile_empty_company * {
-  margin: 5px 0;
+  margin: 1px 0;
 }
 
 .empty_company p,
 .mobile_empty_company p {
   width: 600px;
+  font-size: 14px;
 }
 
 .empty_company a,
 .mobile_empty_company a {
+  margin-top: 6px;
   background-color: #ff6584;
   color: #fff;
   padding: 7px;
+  font-size: 13px;
   display: inline;
   width: 200px;
   text-align: center;
@@ -97,7 +100,7 @@
   padding: 0 10px;
 }
 
-.company .content h3 {
+.company .content h4 {
   user-select: none;
   cursor: pointer;
 }
@@ -215,6 +218,9 @@
   margin-right: 3px;
   width: 100%;
   background: #ffffff;
+}
+.filter_options input:focus {
+  border-color: #0070f3;
 }
 
 .values * {

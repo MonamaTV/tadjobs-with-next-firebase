@@ -33,6 +33,7 @@ const AddNewCompany = () => {
     },
     background: "",
     userID: "",
+    department: "",
   };
 
   const router = useRouter();
@@ -74,6 +75,8 @@ const AddNewCompany = () => {
 
   const handleSubmit = async (values) => {
     const { userID } = getUserDetails();
+    console.log(values);
+    return;
     try {
       if (!file) {
         setError({ ...error, url: "Logo can't be empty" });

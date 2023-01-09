@@ -5,12 +5,17 @@ import { useQuery } from "react-query";
 import Loading from "./Loading";
 
 const CompanyDetails = ({ companyID }) => {
-  const { data: company, isLoading } = useQuery(["companies", companyID], () => getCompany(companyID));
+  const { data: company, isLoading } = useQuery(["companies", companyID], () =>
+    getCompany(companyID)
+  );
   if (!companyID) {
     return (
       <div className={styles.empty_company}>
-        <h2>Select a company</h2>
-        <p>Choose from your existing companies, create a new one, or refresh the page if you think there&apos;s an error</p>
+        <h3>Select a company</h3>
+        <p>
+          Choose from your existing companies, create a new one, or refresh the
+          page if you think there&apos;s an error
+        </p>
         <Link href="/admin/companies/add">
           <a>Create new company</a>
         </Link>
@@ -65,7 +70,10 @@ const CompanyDetails = ({ companyID }) => {
         </div>
       </div>
       <div className={styles.information}>
-        <div className={styles.values} dangerouslySetInnerHTML={{ __html: company.background }}></div>
+        <div
+          className={styles.values}
+          dangerouslySetInnerHTML={{ __html: company.background }}
+        ></div>
       </div>
     </div>
   );

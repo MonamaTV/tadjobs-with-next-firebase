@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useQuery } from "react-query";
 import Loading from "../../../src/components/Loading";
@@ -33,11 +34,12 @@ const CompanyDetails = () => {
         <div className={styles.contain}>
           <div className={styles.name}>
             <h5>{company.name}</h5>
-            <a href={"/admin/companies/edit/" + id}>
-              {" "}
-              <img loading="lazy" src="/assets/edit.png" alt="" />
-              <img loading="lazy" src="/assets/delete.png" alt="" />
-            </a>
+            <Link href={"/admin/companies/edit/" + id}>
+              <a>
+                <img loading="lazy" src="/assets/edit.png" alt="" />
+                <img loading="lazy" src="/assets/delete.png" alt="" />
+              </a>
+            </Link>
           </div>
           <div className={styles.cards}>
             <div className={styles.card}>
@@ -67,7 +69,10 @@ const CompanyDetails = () => {
         </div>
       </div>
       <div className={styles.information}>
-        <div className={styles.values} dangerouslySetInnerHTML={{ __html: company.background }}></div>
+        <div
+          className={styles.values}
+          dangerouslySetInnerHTML={{ __html: company.background }}
+        ></div>
       </div>
     </div>
   );

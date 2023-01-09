@@ -3,7 +3,7 @@ import Header from "../../src/components/Header";
 import SideMenu from "../../src/components/SideMenu";
 import { AuthContext } from "../../src/context/authProvider";
 
-export default function AdminLayout({ children }) {
+const AdminLayout = ({ children }) => {
   const { user } = useContext(AuthContext);
   return (
     user && (
@@ -16,4 +16,6 @@ export default function AdminLayout({ children }) {
       </>
     )
   );
-}
+};
+
+export default AdminLayout;

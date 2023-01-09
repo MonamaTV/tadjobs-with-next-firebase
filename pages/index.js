@@ -20,8 +20,8 @@ export default function Home() {
         <div className={styles.content}>
           <h2>Find your dream job in tech!</h2>
           <p>
-            Find the best tech jobs around the country from the best companies
-            building amazing products. Everything is at your finger tips
+            Find the tech jobs around the country from the best companies
+            building amazing products. Everything is at your finger tips...
           </p>
           <Link href="/jobs/search">
             <a>Start searching</a>

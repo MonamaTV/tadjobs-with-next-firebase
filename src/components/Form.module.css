@@ -18,7 +18,7 @@
   display: block;
   width: 100%;
   padding: 12px;
-  margin: 13px 2px;
+  margin: 13px 0px;
 
   outline: none;
   border: 1px solid #d3d2d2;
@@ -96,18 +96,19 @@
   display: block;
   width: 100%;
   padding: 12px;
-  margin: 13px 2px;
+  margin: 13px 0px;
   outline: none;
   border: 1px solid #fff;
   border: 1px solid #d3d2d2;
   resize: vertical;
   height: 100px;
 }
-.job_form select {
+.job_form select,
+.update_form select {
   display: block;
   width: 100%;
   padding: 12px;
-  margin: 13px 2px;
+  margin: 13px 0px;
   outline: none;
   border: 1px solid #fff;
   border: 1px solid #d3d2d2;
@@ -118,8 +119,15 @@
 .job_form .salary_range {
   display: flex;
   margin: 0;
+  margin-bottom: 13px;
   justify-content: space-between;
   /* height: ; */
+}
+.job_form .salary_range input {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 0px;
+  width: 95%;
 }
 /* Errors */
 .errors {

@@ -5,7 +5,13 @@ import Loading from "../../src/components/Loading";
 import Nav from "../../src/components/Nav";
 import Radio from "../../src/components/Radio";
 import useFetchJobs from "../../src/hooks/useFetchJobs";
-import { jobTypes, locations, salaryRange, seniority, titles } from "../../src/utils/app";
+import {
+  jobTypes,
+  locations,
+  salaryRange,
+  seniority,
+  titles,
+} from "../../src/utils/app";
 import styles from "../../styles/Search.module.css";
 import Dropdown from "../../src/components/Dropdown";
 import { filterJobsByTitleAndLocation } from "../../src/controllers/jobs";
@@ -80,7 +86,10 @@ const Jobs = () => {
   const handleSearch = async () => {
     setLoading(true);
     try {
-      const results = await filterJobsByTitleAndLocation(searchTitles, searchLocation);
+      const results = await filterJobsByTitleAndLocation(
+        searchTitles,
+        searchLocation
+      );
       setDisplayJobs(results);
     } catch (error) {
       jobs = [];
@@ -95,13 +104,21 @@ const Jobs = () => {
       <div className={styles.searches}>
         <div className={styles.title_input}>
           <div className={styles.drop}>
-            <span>{searchTitles.length !== 0 ? <span>{searchTitles[0] + " & more"}</span> : "Search by title"}</span>
+            <span>
+              {searchTitles.length !== 0 ? (
+                <span>{searchTitles[0] + " & more"}</span>
+              ) : (
+                "Search by title"
+              )}
+            </span>
           </div>
-          {<Dropdown options={titles} handleChange={handleTitles} />}
+          <Dropdown options={titles} handleChange={handleTitles} />
         </div>
         <div className={styles.title_input}>
           <div className={styles.drop}>
-            <span>{searchLocation ? searchLocation : "Search by location"}</span>
+            <span>
+              {searchLocation ? searchLocation : "Search by location"}
+            </span>
           </div>
           <DropdownRadio options={locations} handleChange={handleLocations} />
         </div>
@@ -109,15 +126,41 @@ const Jobs = () => {
           <img alt="Search icon" src="/assets/search.png" />
         </button>
       </div>
-      <small className={styles.smalls}> Search results: {displayJobs.length} jobs</small>
+      <small className={styles.smalls}>
+        {" "}
+        Search results: {displayJobs.length} jobs
+      </small>
       <div className={styles.results}>
         <div className={styles.filter} id="checkboxes">
-          <Radio name="type" handleChange={handleFilters} options={jobTypes} label={"Job type"} />
-          <Radio name="seniority" handleChange={handleFilters} options={seniority} label="Seniority" />
-          <Radio name="salary" handleChange={handleFilters} options={salaryRange} label={"Salary"} />
+          <Radio
+            name="type"
+            handleChange={handleFilters}
+            options={jobTypes}
+            label={"Job type"}
+          />
+          <Radio
+            name="seniority"
+            handleChange={handleFilters}
+            options={seniority}
+            label="Seniority"
+          />
+          <Radio
+            name="salary"
+            handleChange={handleFilters}
+            options={salaryRange}
+            label={"Salary"}
+          />
           <button onClick={clearFilters}>Clear filters</button>
         </div>
-        <div className={styles.available_jobs}>{!loading ? displayJobs.map((job) => <Job key={job.id} {...job} query={query} />) : <Loading />}</div>
+        <div className={styles.available_jobs}>
+          {!loading ? (
+            displayJobs.map((job) => (
+              <Job key={job.id} {...job} query={query} />
+            ))
+          ) : (
+            <Loading />
+          )}
+        </div>
       </div>
     </div>
   );

@@ -13,6 +13,7 @@ import {
   setDoc,
   orderBy,
   documentId,
+  deleteDoc,
 } from "firebase/firestore";
 import { getCompaniesNamesAndIds } from "./companies";
 
@@ -50,7 +51,9 @@ export const editJob = async (job, jobID) => {
   return updatedJob;
 };
 
-export const deleteJob = (job) => {};
+export const deleteJob = (jobID) => {
+  if (jobID !== "" || !jobID) throw new Error("Invalid job id...");
+};
 
 export const getJob = async (jobID) => {
   if (jobID === "") return null;
@@ -64,18 +67,30 @@ export const getJob = async (jobID) => {
   };
 };
 //only for logged in users
-export const getJobsByUser = async (sort) => {
+export const getJobsByUser = async (sort, search) => {
   const field = sort === "1" ? "addedAt" : "type";
 
+  //Get the companies' ids that below to *this* user
   const companyIDs = (await getCompaniesNamesAndIds()).map(
     (company) => company.id
   );
   if (companyIDs.length === 0) throw new Error("No companies to fetch");
-  const perform = query(
+  //Using the companies ids that below to the user, we can now fetch the jobs that below to those companies.
+
+  //Relationship: user has companies, companies have jobs...
+  //This would have worked much better with oher databases.
+
+  let perform = query(
     jobsRef,
     where("companyID", "in", companyIDs),
-    orderBy(field)
+    orderBy(field, "asc")
   );
+
+  //If the search is not empty
+  if (search) {
+    perform = query(perform, where("title", "==", search));
+  }
+
   const documents = await getDocs(perform);
   //Jobs
   const jobs = [];

@@ -8,7 +8,7 @@ import Meta from "../../src/components/Meta";
 import Nav from "../../src/components/Nav";
 import { getCompanyPublicInfo } from "../../src/controllers/companies";
 import { getJob } from "../../src/controllers/jobs";
-import { addCheckLaterJob, addJobInCheckLater } from "../../src/utils/app";
+import { addJobInCheckLater } from "../../src/utils/app";
 import styles from "../../styles/Job.module.css";
 import NotFound from "../404";
 const Job = ({ id }) => {

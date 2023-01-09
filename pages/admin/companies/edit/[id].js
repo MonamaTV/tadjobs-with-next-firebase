@@ -123,9 +123,7 @@ const UpdateCompany = () => {
       </div>
       <div className={styles.company_jobs}>
         <h5>All jobs related to this company</h5>
-        {jobs.map((job) => (
-          <CompanyJob key={job.id} {...job} />
-        ))}
+        {jobs && jobs.map((job) => <CompanyJob key={job.id} {...job} />)}
       </div>
     </div>
   );

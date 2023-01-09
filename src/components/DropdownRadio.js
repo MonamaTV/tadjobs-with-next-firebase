@@ -1,14 +1,26 @@
 import styles from "../../styles/Search.module.css";
-const DropdownRadio = ({ options, handleChange }) => {
+const DropdownRadio = ({ options, handleChange, searchBy = "location" }) => {
   return (
     <div className={styles.inputs_container}>
       <label>
-        <input name={"location"} value={""} onChange={handleChange} type={"radio"} defaultChecked={false} />
-        <span>{"Search by location"}</span>
+        <input
+          name={searchBy}
+          value={""}
+          onChange={handleChange}
+          type={"radio"}
+          defaultChecked={false}
+        />
+        <span>{`Search by ${searchBy}`}</span>
       </label>
       {options.map((opt, index) => (
         <label key={index}>
-          <input name={"location"} value={opt} onChange={handleChange} type={"radio"} defaultChecked={false} />
+          <input
+            name={searchBy}
+            value={opt}
+            onChange={handleChange}
+            type={"radio"}
+            defaultChecked={false}
+          />
           <span>{opt}</span>
         </label>
       ))}

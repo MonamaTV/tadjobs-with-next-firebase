@@ -8,6 +8,8 @@ const Meta = ({ title, keywords, description, img = "" }) => {
       <title>{title}</title>
       <meta content={description} name="description" />
       <meta content={keywords} name="keywordss" />
+      {/* Twitter card */}
+      {/* Open Graph */}
     </Head>
   );
 };
