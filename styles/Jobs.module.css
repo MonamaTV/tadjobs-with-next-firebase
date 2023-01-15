@@ -108,13 +108,23 @@
   margin: 3px 0;
 }
 
-.options {
+.options,
+.results {
   width: 90%;
   margin: 0 auto;
   margin-top: 7px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.results {
+  display: block;
+  font-size: 12px;
+}
+
+.results span {
+  text-decoration: underline;
 }
 
 .options a {

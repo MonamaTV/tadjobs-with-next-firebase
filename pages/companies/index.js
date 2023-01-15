@@ -7,7 +7,10 @@ import { getCompaniesPublicInfo } from "../../src/controllers/companies";
 import styles from "../../styles/PublicCompanies.module.css";
 
 const PublicCompanies = () => {
-  const { data: companies, isLoading } = useQuery("companies", getCompaniesPublicInfo);
+  const { data: companies, isLoading } = useQuery(
+    "companies",
+    getCompaniesPublicInfo
+  );
 
   if (isLoading) {
     return (
@@ -23,7 +26,7 @@ const PublicCompanies = () => {
       <Nav />
       <div className={styles.companies}>
         <h3>
-          Discover the <span>Best TECH</span> companies in the world!
+          Discover the <span>Best TECH</span> companies in South Africa!
         </h3>
         <br />
         <div className={styles.companies_list}>
@@ -39,12 +42,12 @@ const PublicCompanies = () => {
                     </h4>
                   </a>
                 </Link>
-                <small dangerouslySetInnerHTML={{ __html: background.slice(0, 200) + "... Read more" }}></small>
-                <div className={styles.fine_details}>
-                  {/* <div className={styles.details}>
-                                    <img src="/assets/map.png" alt="Location of the company" />
-                                </div> */}
-                </div>
+                <small
+                  dangerouslySetInnerHTML={{
+                    __html: background.slice(0, 200) + "... Read more",
+                  }}
+                ></small>
+                <div className={styles.fine_details}></div>
               </div>
             </div>
           ))}

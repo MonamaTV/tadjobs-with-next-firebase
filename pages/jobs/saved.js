@@ -9,7 +9,7 @@ import { getCheckLaterJobs } from "../../src/utils/app";
 import styles from "../../styles/Search.module.css";
 import NotFound from "../404";
 
-const Saved = () => {
+const SavedJobs = () => {
   const [loading, setLoading] = useState(true);
   const [jobs, setJobs] = useState([]);
   useEffect(() => {
@@ -69,4 +69,4 @@ const Saved = () => {
   );
 };
 
-export default Saved;
+export default SavedJobs;

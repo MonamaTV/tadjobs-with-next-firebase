@@ -63,6 +63,10 @@ export const seniorityLevel = (level) => {
       seniority = "Senior";
       break;
     }
+    case "4": {
+      seniority = "Internship";
+      break;
+    }
     default: {
       seniority = "N/A";
       break;

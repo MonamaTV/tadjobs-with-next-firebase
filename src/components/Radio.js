@@ -7,7 +7,7 @@ const Radio = ({ name, label, options, handleChange }) => {
       {options.map((opt) => (
         <label key={opt.value} htmlFor={name} onChange={handleChange}>
           <input name={name} value={opt.value} type={"radio"} />
-          <span>{opt.name}</span>
+          {opt.name}
         </label>
       ))}
     </div>

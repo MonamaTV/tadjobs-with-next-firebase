@@ -50,12 +50,18 @@ const Jobs = () => {
             Add
           </a>
         </Link>
+
         <select onChange={handleSortInput}>
           <option value="-1">SORT</option>
           <option value="1">By date</option>
           <option value="2">By job type</option>
         </select>
       </div>
+      {search && (
+        <small className={styles.results}>
+          Search results for <span>{search}</span>{" "}
+        </small>
+      )}
       {data.map(
         ({
           title,
