@@ -233,7 +233,7 @@ select {
 }
 .not_found_message a.job {
   color: #675df5cf;
-  border: 2px solid #675df585;
+  border: none;
   background: inherit;
 }
 @media screen and (max-width: 440px) {

@@ -108,7 +108,7 @@ const Jobs = () => {
               {searchTitles.length !== 0 ? (
                 <span>{searchTitles[0] + " & more"}</span>
               ) : (
-                "Search by title"
+                "Title"
               )}
             </span>
           </div>
@@ -116,9 +116,7 @@ const Jobs = () => {
         </div>
         <div className={styles.title_input}>
           <div className={styles.drop}>
-            <span>
-              {searchLocation ? searchLocation : "Search by location"}
-            </span>
+            <span>{searchLocation ? searchLocation : "Location"}</span>
           </div>
           <DropdownRadio options={locations} handleChange={handleLocations} />
         </div>
@@ -126,10 +124,12 @@ const Jobs = () => {
           <img alt="Search icon" src="/assets/search.png" />
         </button>
       </div>
+
       <small className={styles.smalls}>
         {" "}
         Search results: {displayJobs.length} jobs
       </small>
+
       <div className={styles.results}>
         <div className={styles.filter} id="checkboxes">
           <Radio

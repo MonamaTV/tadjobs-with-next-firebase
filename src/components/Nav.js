@@ -61,7 +61,7 @@ const Nav = () => {
             )}
             {user && (
               <Link href="/admin/">
-                <a className="post">Admin</a>
+                <a className="post">Dashboard</a>
               </Link>
             )}
           </div>

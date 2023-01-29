@@ -107,19 +107,19 @@ export const jobTypes = [
 export const salaryRange = [
   {
     value: 1,
-    name: "<15 000",
+    name: "<R15 000",
   },
   {
     value: 2,
-    name: ">15 000",
+    name: ">R15 000",
   },
   {
     value: 3,
-    name: ">25 000",
+    name: ">R25 000",
   },
   {
     value: 4,
-    name: ">50 000",
+    name: ">R50 000",
   },
 ];
 

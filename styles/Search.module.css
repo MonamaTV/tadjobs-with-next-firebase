@@ -39,10 +39,11 @@
 .title_input {
   width: 300px;
   padding: 12px;
-  margin: 13px 2px;
+  margin: 8px 2px;
   outline: none;
   border: 1px solid #e3e3e3;
   user-select: none;
+  margin-bottom: 5px;
 }
 .title_input {
   background: #fff;
@@ -153,6 +154,7 @@
     width: 13px;
   }
   .smalls {
+    font-size: 11px;
     display: none;
   }
   .title_input {

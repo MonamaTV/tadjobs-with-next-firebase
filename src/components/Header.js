@@ -13,7 +13,7 @@ export default function Header() {
     // If the width is less than this specified, it automatically takes to the
     // jobs page because the search button is not visible on mobile screens.
     if (window.innerWidth <= "586") {
-      window.location.href = "/admin/jobs/?search=" + search;
+      window.location.href = "/admin/jobs/?search=" + value;
     }
   };
 

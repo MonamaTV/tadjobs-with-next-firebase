@@ -11,11 +11,11 @@ const NotFound = ({ title = "" }) => {
         <h3>
           {title ? title : "We couldn&apos;t find what you are looking for..."}
         </h3>
-        <Link href="/jobs/search">
-          <a>Find dream job</a>
-        </Link>
         <Link href="/">
           <a className="job">Back home</a>
+        </Link>
+        <Link href="/jobs/search">
+          <a>Find dream job</a>
         </Link>
       </div>
     </div>
