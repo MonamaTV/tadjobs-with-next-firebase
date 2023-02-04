@@ -228,11 +228,11 @@ select {
   display: inline-block;
   margin: 10px 10px 0 0;
   color: #fff;
-  border: 2px solid #665df5;
-  background: #665df5;
+  border: 2px solid #0070f3;
+  background: #0070f3;
 }
 .not_found_message a.job {
-  color: #675df5cf;
+  color: #0070f3;
   border: none;
   background: inherit;
 }

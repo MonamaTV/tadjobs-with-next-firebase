@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "../../styles/Job.module.css";
 
-const JobInformation = ({ about, checkLater }) => {
+const JobInformation = ({ about, application, checkLater }) => {
   return (
     <div className={styles.information}>
       <button aria-checked onClick={checkLater} className={styles.later}>
@@ -21,7 +21,7 @@ const JobInformation = ({ about, checkLater }) => {
           <img src="/assets/twitter.png" alt="Twitter" />
         </div>
       </div>
-      <Link href={"google.com"}>
+      <Link href={application}>
         <a target="_blank" className={styles.apply_job}>
           Apply now
         </a>
