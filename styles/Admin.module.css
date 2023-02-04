@@ -214,13 +214,18 @@
 .filter_options input {
   padding: 7px;
   outline: none;
-  border: 1px solid #d3d2d2;
+  border: 1px solid #e3e3e3;
   margin-right: 3px;
   width: 100%;
   background: #ffffff;
+  font-size: 13px;
 }
 .filter_options input:focus {
   border-color: #0070f3;
+}
+
+.filter_options input::placeholder {
+  color: #636363;
 }
 
 .values * {

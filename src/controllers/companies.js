@@ -20,8 +20,10 @@ const companiesRef = collection(db, "companies");
 export const addNewCompany = async (company, file) => {
   const companies = await getCompanies();
   //Users are only allowed to register 10 companies
-  if (companies.length > 10) return null;
+  if (companies.length > 10) throw new Error("User reached maximum companies");
+
   if (!file) throw new Error("Failed to upload your file.");
+
   const url = await addCompanyAvatar(file);
   company = { ...company, fileUrl: url };
   const response = await addDoc(companiesRef, company);

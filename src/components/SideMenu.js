@@ -74,7 +74,7 @@ export default function SideMenu() {
             <li>
               <Link href={"/admin/"}>
                 <a>
-                  <img src="/assets/home.png" alt="" />
+                  <img src="/assets/home.png" alt="Home image" />
                   Home
                 </a>
               </Link>
@@ -82,7 +82,7 @@ export default function SideMenu() {
             <li>
               <Link href={"/admin/jobs"}>
                 <a>
-                  <img src="/assets/jobs.png" alt="" />
+                  <img src="/assets/jobs.png" alt="Jobs img" />
                   Jobs
                 </a>
               </Link>
@@ -94,7 +94,7 @@ export default function SideMenu() {
                   setClassic(!classic);
                 }}
               >
-                <img src="/assets/add.png" alt="" />
+                <img src="/assets/add.png" alt="Add img" />
                 Add
                 {classic && (
                   <div className={styles.classic}>
@@ -102,7 +102,7 @@ export default function SideMenu() {
                       <a>Add company</a>
                     </Link>
                     <Link href={"/admin/jobs/add"}>
-                      <a>Add new job</a>
+                      <a>Add job</a>
                     </Link>
                   </div>
                 )}
@@ -115,14 +115,16 @@ export default function SideMenu() {
                   setProfile(!profile);
                 }}
               >
-                <img src="/assets/profile.png" alt="" />
-                Profile
+                <img src="/assets/profile.png" alt="Settings img" />
+                Settings
                 {profile && (
                   <div className={styles.classic}>
                     <Link href={"/admin/profile"}>
                       <a>Profile</a>
                     </Link>
-                    <span onClick={signOutUser}>Logout</span>
+                    <button onClick={signOutUser}>
+                      <span>Logout</span>
+                    </button>
                   </div>
                 )}
               </button>

@@ -8,7 +8,7 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <link rel="icon" type="image/x-icon" href="/logono.svg" />
-        <title>TadJobs - Home For Best Tech Jobs</title>
+        <title>TadJobs - Home for the best tech jobs in South Africa</title>
         <meta
           name="description"
           content="The best companies, best jobs. The developer job platform that has your back - complete with your own dev career coach and upfront salary

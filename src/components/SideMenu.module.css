@@ -106,21 +106,35 @@
   position: absolute;
   left: -50px;
   bottom: 40px;
-  background-color: #454343;
+  background-color: #ff6584;
   padding: 10px;
   width: 140px;
   animation: move_ 200ms ease-in;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 20px;
 }
 .classic a {
   color: #fff;
   font-size: 14px;
   display: block;
 }
-.classic span {
+.classic button {
   color: #fff;
   font-size: 14px;
   margin: 0;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  color: #fff;
+}
+.classic button span {
+  margin-right: 3px;
+  font-weight: normal;
+  color: #fff;
 }
 /* Some animation */
 @keyframes move_ {
