@@ -60,7 +60,10 @@ const Job = ({ id }) => {
   //Dones
   return (
     <>
-      <Meta title={`Tadjobs - ${job?.title} at ${company?.name}`} />
+      <Meta
+        title={`- ${job?.title} at ${company?.name}`}
+        description={company?.background}
+      />
       <Nav bg={true} />
       <div className={styles.job}>
         <JobList />

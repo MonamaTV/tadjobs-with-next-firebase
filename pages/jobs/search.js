@@ -16,6 +16,7 @@ import styles from "../../styles/Search.module.css";
 import Dropdown from "../../src/components/Dropdown";
 import { filterJobsByTitleAndLocation } from "../../src/controllers/jobs";
 import DropdownRadio from "../../src/components/DropdownRadio";
+import NoJobs from "../../src/components/NoJobs";
 
 const Jobs = () => {
   //By default all filters are set to -1, meaning they aren't included in the first search
@@ -154,9 +155,13 @@ const Jobs = () => {
         </div>
         <div className={styles.available_jobs}>
           {!loading ? (
-            displayJobs.map((job) => (
-              <Job key={job.id} {...job} query={query} />
-            ))
+            displayJobs.length > 0 ? (
+              displayJobs.map((job) => (
+                <Job key={job.id} {...job} query={query} />
+              ))
+            ) : (
+              <NoJobs />
+            )
           ) : (
             <Loading />
           )}

@@ -21,7 +21,7 @@
   background: #0070f3;
   border: none;
   outline: none;
-  height: 46px;
+  height: 45px;
   margin-left: 2px;
   width: 100px;
   display: flex;
@@ -30,7 +30,7 @@
   align-items: center;
 }
 .searches button img {
-  width: 17px;
+  width: 16px;
   justify-content: center;
   display: flex;
   align-items: center;

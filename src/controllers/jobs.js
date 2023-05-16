@@ -112,6 +112,7 @@ export const getJobsByCompany = async (companyID) => {
   const results = await getDocs(perform);
   results.forEach((job) => {
     if (!job.exists()) return null;
+    if (new Date() > new Date(job.data().closingDate)) return;
     jobs.push({
       id: job.id,
       ...job.data(),
@@ -138,6 +139,8 @@ export const getJobs = async (type, seniority, salary) => {
 
   results.forEach((job) => {
     if (!job.exists()) return null;
+
+    if (new Date() > new Date(job.data().closingDate)) return;
     jobs.push({
       id: job.id,
       ...job.data(),
@@ -160,6 +163,7 @@ export const filterJobsByTitleAndLocation = async (titles, location) => {
   const results = await getDocs(compound);
   results.forEach((job) => {
     if (!job.exists()) return null;
+    if (new Date() > new Date(job.data().closingDate)) return;
     jobs.push({
       id: job.id,
       ...job.data(),
@@ -214,6 +218,7 @@ export const getJobsSavedByUser = async (JobIDs) => {
   const jobs = [];
   results.forEach((job) => {
     if (!job.exists()) return;
+    if (new Date() > new Date(job.data().closingDate)) return;
     jobs.push({
       id: job.id,
       ...job.data(),
